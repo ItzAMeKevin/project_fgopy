@@ -1,0 +1,197 @@
+/* ---------------------------------------------------------
+   FGO THEME  •  Blue + Gold + White
+   Inspired by: Servant Status, My Room, Materials menus
+--------------------------------------------------------- */
+
+/* GLOBAL -------------------------------------------------- */
+
+QWidget {
+    background-color: #f5f8ff;        /* soft FGO blue-white */
+    font-family: "Noto Serif", "EB Garamond", serif;
+    color: #1e2a44;                   /* FGO dark text */
+}
+
+/* HEADER -------------------------------------------------- */
+
+#main-header {
+    background-color: #233d91;
+    border-bottom: 3px solid #1a2f75;
+    border: 3px solid #d8c07f;
+    border-radius: 6px;
+}
+
+#main-header QLabel {
+    background-color: transparent;
+    qproperty-alignment: AlignCenter;
+}
+
+#main-header-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+/* BUTTONS ------------------------------------------------- */
+
+QPushButton, QToolButton {
+    background-color: #1e3a8a;        /* deep FGO blue */
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid #d8c07f;        /* soft gold border */
+    border-radius: 6px;
+    padding: 6px 14px;
+}
+
+QPushButton:disabled, QToolButton:disabled {
+    background-color: #a8b0c0;      /* soft grey */
+    color: #e6e6e6;                 /* pale text */
+    border: 2px solid #c2c7d1;      /* light grey border */
+    opacity: 0.7;                   /* optional: soft fade */
+}
+
+QPushButton:hover, QToolButton:hover {
+    background-color: #2648c9;
+    border-color: #f1d78e;            /* bright gold hover */
+}
+
+QPushButton:pressed, QToolButton:pressed {
+    background-color: #132b6a;
+}
+
+QPushButton#unlock_btn {
+    margin-top: 40px;
+}
+
+/* TOGGLE BUTTONS (Category collapse) ---------------------- */
+
+QPushButton#ToggleButton {
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+
+    background-color: #eaefff;
+    border: 2px solid #b7c4e3;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton#ToggleButton:hover {
+    background-color: #dce7ff;
+    border-color: #6bb2ff;
+}
+
+/* FRAMES --------------------------------------------------- */
+
+QFrame#CategoryFrame {
+    border: 2px solid #d8c07f;        /* gold */
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 8px;
+}
+
+QFrame#CharacterCard {
+    border: 2px solid #b7c4e3;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+QFrame#CharacterCard:hover {
+    border-color: #6bb2ff;
+    background-color: #f4f9ff;
+}
+
+/* SCROLL AREA ---------------------------------------------- */
+
+QScrollArea {
+    border: none;
+    background: transparent;
+}
+
+QScrollArea > QWidget > QWidget {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    width: 14px;
+    background: #d9e4ff;
+}
+
+QScrollBar::handle:vertical {
+    background: #8aa4e6;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #6b92ff;
+}
+
+QScrollBar::add-line,
+QScrollBar::sub-line {
+    background: none;
+    border: none;
+}
+
+QScrollBar:horizontal {
+    height: 14px;
+    background: #d9e4ff;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #8aa4e6;  /* same handle color */
+    border-radius: 6px;
+    min-width: 30px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #6b92ff;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 0;
+    height: 0;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+/* DIALOG --------------------------------------------------- */
+
+QDialog {
+    background-color: #f8faff;
+    border: 2px solid #d8c07f;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+QDialog QLabel {
+    font-size: 24px;
+}
+
+QDialog QPushButton {
+    padding: 6px 12px;
+    font-size: 24px;
+}
+
+/* CHARACTER CARD ------------------------------------------- */
+
+.character-card QLabel {
+    background: transparent;
+}
+
+.character-card:hover {
+    border: 2px solid #d4af37;
+    background: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #fff7d1,
+        stop:1 #ffe9a3
+    );
+}

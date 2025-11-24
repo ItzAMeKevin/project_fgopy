@@ -205,3 +205,41 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --------------------------------------------------------
+# FGO PyQt Project – Additional Ignores
+# --------------------------------------------------------
+
+# Saved progress files (your JSON unlock data)
+*.save.json
+*progress.json
+saves/
+
+# Icons & temporary assets generated at runtime
+*.tmp.png
+*.cache.png
+generated_icons/
+
+# Local configuration
+config.ini
+settings.ini
+
+# PyQt build folders (if using pyrcc5 or pyuic5)
+__pyqt_build__/
+*.qrc.py
+
+# VSCode project settings (optional but recommended)
+.vscode/
+
+# Windows junk files
+Thumbs.db
+Desktop.ini
+
+# macOS junk
+.DS_Store
+
+# Backup files created by editors
+*~
+*.bak
+*.swp
+*.swo
