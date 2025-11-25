@@ -1,0 +1,101 @@
+{
+  "Burn": {
+    "type": "negative",
+    "description": "The target takes fire damage at the end of each of its turns.",
+    "potency": 2,
+    "max_potency": 10,
+    "tags": ["fire", "damage-over-time"],
+    "max_duration": 5,
+    "duration": 1
+  },
+
+  "Freeze": {
+    "type": "negative",
+    "description": "The target's speed is reduced by 5 feet per point of potency.",
+    "potency": 1,
+    "max_potency": 5,
+    "tags": ["ice", "slow"],
+    "max_duration": 3,
+    "duration": 1
+  },
+
+  "Shock": {
+    "type": "negative",
+    "description": "A jolt of electricity interrupts the target, reducing their next attack roll by 1 per potency.",
+    "potency": 1,
+    "max_potency": 3,
+    "tags": ["lightning", "disrupt"],
+    "max_duration": 2,
+    "duration": 1
+  },
+
+  "Bleed": {
+    "type": "negative",
+    "description": "The target suffers ongoing bleeding. When the target takes weapon damage, Bleed deals its potency as bonus damage and loses 1 duration.",
+    "potency": 1,
+    "max_potency": 10,
+    "tags": ["physical", "damage-over-time", "combo"],
+    "max_duration": 4,
+    "duration": 1
+    },
+
+  "Crush": {
+    "type": "negative",
+    "description": "The target suffers a reduction in Armor Class equal to its potency.",
+    "potency": 1,
+    "max_potency": 4,
+    "tags": ["physical", "armor-break"],
+    "max_duration": 3,
+    "duration": 1
+  },
+
+  "Vulnerable": {
+    "type": "negative",
+    "description": "Attacks against the target deal additional damage equal to potency.",
+    "potency": 1,
+    "max_potency": 5,
+    "tags": ["debuff", "damage-increase"],
+    "max_duration": 3,
+    "duration": 1
+  },
+
+  "Courage": {
+    "type": "positive",
+    "description": "The target gains temporary heroic resolve equal to potency (temporary HP).",
+    "potency": 3,
+    "max_potency": null,
+    "tags": ["buff", "heroic"],
+    "max_duration": 5,
+    "duration": 1
+  },
+
+  "Might": {
+    "type": "positive",
+    "description": "The target gains a bonus to damage rolls equal to potency.",
+    "potency": 1,
+    "max_potency": 5,
+    "tags": ["buff", "power"],
+    "max_duration": 4,
+    "duration": 1
+  },
+
+  "Focus": {
+    "type": "positive",
+    "description": "Enhanced accuracy and precision. Grants +potency to attack rolls and increases critical damage by potency.",
+    "potency": 1,
+    "max_potency": 5,
+    "tags": ["buff", "accuracy", "crit-damage"],
+    "max_duration": 3,
+    "duration": 1
+    },
+
+  "Guarding": {
+    "type": "neutral",
+    "description": "The target adopts a defensive stance, reducing incoming damage by potency.",
+    "potency": 1,
+    "max_potency": 5,
+    "tags": ["defense", "stance"],
+    "max_duration": 4,
+    "duration": 1
+  }
+}

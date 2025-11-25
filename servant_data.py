@@ -11,21 +11,18 @@ FULL_IMG_H = 724
 CHARACTERS = {
     "Knights of the Round Table": [
         {"name": "Lancelot", "image": os.path.join(ASSETS_DIR, "lancelot.jpg")},
-        {"name": "Tristan",  "image": os.path.join(ASSETS_DIR, "tristan.jpg")},
         {"name": "Gawain",   "image": os.path.join(ASSETS_DIR, "gawain.jpg")},
         {"name": "Mordred", "image": os.path.join(ASSETS_DIR, "mordred.jpg")},
     ],
 
     "Shinsengumi": [
         {"name": "Okita Souji", "image": os.path.join(ASSETS_DIR, "okita.jpg")},
-        {"name": "Hijikata Toshizou", "image": os.path.join(ASSETS_DIR, "hijikata.jpg")},
         {"name": "Saito Hajime", "image": os.path.join(ASSETS_DIR, "hajime.jpg")},
         {"name": "Nagakura Shinpachi", "image": os.path.join(ASSETS_DIR, "shinpachi.jpg")},
     ],
 
     "Argonauts": [
         {"name": "Heracles", "image": os.path.join(ASSETS_DIR, "heracles.jpg")},
-        {"name": "Medea", "image": os.path.join(ASSETS_DIR, "medea.jpg")},
         {"name": "Caenis", "image": os.path.join(ASSETS_DIR, "caenis.jpg")},
         {"name": "Atalanta", "image": os.path.join(ASSETS_DIR, "atalanta.jpg")},
     ],
@@ -36,11 +33,6 @@ CHAR_ARMAMENTS = {
     "Lancelot": [
         {"name": "Arondight", "description": "Legendary sword.", "type": "Longsword"},
         {"name": "Knight of Owner", "description": "Proof of mastery.", "type": "Enchantment"},
-    ],
-
-    "Tristan": [
-        {"name": "Failnaught", "description": "Legendary Bow.", "type": "Longbow"},
-        {"name": "Thousand Laments",  "description": "Tragic rapier.", "type": "Rapier"},
     ],
 
     "Gawain": [
@@ -58,11 +50,6 @@ CHAR_ARMAMENTS = {
         {"name": "Iaijutsu", "description": "Assassin techniques.", "type": "Ability"},
     ],
 
-    "Hijikata Toshizou": [
-        {"name": "Shinsengumi", "description": "Description.", "type": "Stuff"},
-        {"name": "Demonic Strike", "description": "Description.", "type": "Stuff"},
-    ],
-
     "Saito Hajime": [
         {"name": "Gatotsu", "description": "Piercing thrust.", "type": "Sword Technique"},
         {"name": "Silent Blade", "description": "Stealth attack.", "type": "Ability"},
@@ -76,11 +63,6 @@ CHAR_ARMAMENTS = {
     "Heracles": [
         {"name": "God's Hand", "description": "Description.", "type": "Ability"},
         {"name": "Nine Lives", "description": "Description.", "type": "Ability"},
-    ],
-
-    "Medea": [
-        {"name": "Rule Breaker", "description": "Pierces all magic.", "type": "Dagger"},
-        {"name": "Curses", "description": "Description.", "type": "Ability"},
     ],
     
     "Caenis": [
@@ -106,15 +88,6 @@ ARMAMENT_SKILLS = {
     "Knight of Owner": [
         {"name": "Master's Command", "description": "Boosts allies' morale.", "prerequisite": "Knight of Owner"},
         {"name": "Loyal Protector", "description": "Reduces damage taken by allies.", "prerequisite": "Master's Command"},
-    ],
-
-    "Failnaught": [
-        {"name": "Piercing Arrow", "description": "Arrow that pierces armor.", "prerequisite": "Failnaught"},
-        {"name": "Explosive Shot", "description": "Arrow that explodes on impact.", "prerequisite": "Piercing Arrow"},
-    ],
-    "Thousand Laments": [
-        {"name": "Swift Thrust", "description": "Quick rapier attack.", "prerequisite": "Thousand Laments"},
-        {"name": "Dancing Blade", "description": "Increases attack speed.", "prerequisite": "Swift Thrust"},
     ],
 
     "Excalibur Galatine": [

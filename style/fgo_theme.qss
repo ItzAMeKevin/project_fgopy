@@ -9,6 +9,7 @@ QWidget {
     background-color: #f5f8ff;        /* soft FGO blue-white */
     font-family: "Noto Serif", "EB Garamond", serif;
     color: #1e2a44;                   /* FGO dark text */
+    font-size: 18px;
 }
 
 /* HEADER -------------------------------------------------- */
@@ -27,7 +28,7 @@ QWidget {
 
 #main-header-title {
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     background-color: transparent;
 }
@@ -37,6 +38,7 @@ QWidget {
 QPushButton, QToolButton {
     background-color: #1e3a8a;        /* deep FGO blue */
     color: #ffffff;
+    font-size: 20px;
     font-weight: bold;
     border: 2px solid #d8c07f;        /* soft gold border */
     border-radius: 6px;

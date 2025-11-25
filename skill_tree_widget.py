@@ -326,6 +326,11 @@ class SkillTreeWidget(QGraphicsView):
             text_item.setPlainText(name)
             text_item.setTextWidth(node_w - 20)
             self.scene.addItem(text_item)
+            current_font = text_item.font()
+            current_font.setPointSize(7)
+            current_font.setFamily("Arial")
+            current_font.setBold(True)
+            text_item.setFont(current_font)
 
             text_rect = text_item.boundingRect()
             node_h = max(base_h, text_rect.height() + 20)
