@@ -117,6 +117,8 @@ class SkillTreeWidget(QGraphicsView):
 
     def save_progress(self, servant_name):
         """Save unlocked skills for this servant."""
+        os.makedirs(os.path.dirname(SAVE_FILE), exist_ok=True)
+
         data = {}
 
         # Load existing file if present
