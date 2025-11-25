@@ -213,7 +213,6 @@ __marimo__/
 # Saved progress files (your JSON unlock data)
 *.save.json
 *progress.json
-saves/
 
 # Icons & temporary assets generated at runtime
 *.tmp.png
