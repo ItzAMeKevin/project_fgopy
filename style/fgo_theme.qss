@@ -28,7 +28,7 @@ QWidget {
 
 #main-header-title {
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     background-color: transparent;
 }
@@ -38,7 +38,7 @@ QWidget {
 QPushButton, QToolButton {
     background-color: #1e3a8a;        /* deep FGO blue */
     color: #ffffff;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     border: 2px solid #d8c07f;        /* soft gold border */
     border-radius: 6px;
@@ -187,6 +187,7 @@ QDialog QPushButton {
 
 .character-card QLabel {
     background: transparent;
+    font-size: 30px;
 }
 
 .character-card:hover {
@@ -197,3 +198,6 @@ QDialog QPushButton {
         stop:1 #ffe9a3
     );
 }
+ QLabel {
+    font-size: 26px;
+ }

@@ -9,18 +9,39 @@ class SkillDescriptionDialog(QDialog):
         self.data = skill
 
         self.setWindowTitle(skill["name"])
-        self.setMinimumWidth(400)
+        self.setMinimumWidth(750)
 
         layout = QVBoxLayout(self)
 
         title = QLabel(f"<b>{skill['name']}</b>")
         layout.addWidget(title)
 
-        desc = QLabel(f"<i>{skill['description']}</i>")
-        desc.setWordWrap(True)
-        layout.addWidget(desc)
+        action_type = skill.get("action_type", None)
+        if action_type:
+            action_lbl = QLabel(f"<b>Action Type:</b> {action_type}")
+            action_lbl.setWordWrap(True)
+            layout.addWidget(action_lbl)
 
-        layout.addSpacing(50)
+        if skill.get("description"):
+            lore = QLabel(f"<i>{skill['description']}</i>")
+            lore.setWordWrap(True)
+            lore.setAlignment(Qt.AlignLeft)
+            layout.addWidget(lore)
+            layout.addSpacing(8)
+
+        effects = skill.get("effects", [])
+        if effects:
+            layout.addSpacing(6)
+            eff_title = QLabel("<b>Effects:</b>")
+            layout.addWidget(eff_title)
+
+            # Convert effects array into HTML bullet list
+            bullets_html = "<ul>" + "".join(f"<li>{e}</li>" for e in effects) + "</ul>"
+            eff_label = QLabel(bullets_html)
+            eff_label.setWordWrap(True)
+            layout.addWidget(eff_label)
+
+        layout.addSpacing(15)
 
         prereq = skill.get("prerequisite")
         if prereq:

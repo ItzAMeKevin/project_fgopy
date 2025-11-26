@@ -20,6 +20,19 @@ class ArmamentDescriptionDialog(QDialog):
         desc.setWordWrap(True)
         layout.addWidget(desc)
 
+        # Effects (bullet list)
+        effects = armament_data.get("effects", [])
+        if effects:
+            layout.addSpacing(10)
+            effects_title = QLabel("<b>Effects:</b>")
+            layout.addWidget(effects_title)
+
+            # Format bullets as HTML
+            bullets = "<ul>" + "".join(f"<li>{e}</li>" for e in effects) + "</ul>"
+            effects_label = QLabel(bullets)
+            effects_label.setWordWrap(True)
+            layout.addWidget(effects_label)
+
         type_label = QLabel(f"<b>Type:</b> {armament_data['type']}")
         layout.addWidget(type_label)
 
@@ -35,7 +48,7 @@ class ArmamentDescriptionDialog(QDialog):
         layout.addWidget(unlock_btn, alignment=Qt.AlignCenter)
 
         self.setLayout(layout)
-        self.setMinimumWidth(320)
+        self.setMinimumWidth(520)
 
     def on_unlock(self):
         self.tree.unlock(self.data["name"])

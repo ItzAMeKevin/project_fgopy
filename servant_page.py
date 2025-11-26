@@ -21,7 +21,7 @@ class CharacterPage(QWidget):
         top.addWidget(back_btn)
 
         title = QLabel(character_name)
-        title.setStyleSheet("font-size: 24px; font-weight: bold; margin-left: 15px;")
+        title.setStyleSheet("font-size: 28px; font-weight: bold; margin-left: 15px;")
         top.addWidget(title)
         top.addStretch()
 
@@ -29,7 +29,7 @@ class CharacterPage(QWidget):
 
         # Section Title
         label = QLabel(f"{character_name} — Armament Trees")
-        label.setStyleSheet("font-size: 20px; font-weight: bold; margin-top: 10px; margin-bottom: 10px;")
+        label.setStyleSheet("font-size: 30px; font-weight: bold; margin-top: 10px; margin-bottom: 10px;")
         layout.addWidget(label)
 
         # Retrieve servant's armaments
@@ -42,7 +42,7 @@ class CharacterPage(QWidget):
 
             # Title for this armament
             arm_title = QLabel(f"⚔️ {arm_name}")
-            arm_title.setStyleSheet("font-size: 18px; font-weight: bold; margin-top: 15px;")
+            arm_title.setStyleSheet("font-size: 28px; font-weight: bold; margin-top: 15px;")
             layout.addWidget(arm_title)
 
             # Skills for this armament

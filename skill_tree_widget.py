@@ -162,9 +162,8 @@ class SkillTreeWidget(QGraphicsView):
                     box.exec_()
                     return
 
-                # Armament = skill without "prerequisite" field
-                if "prerequisite" not in data:
-                    # This is an ARMAMENT
+                # Check if it is an Armament
+                if name == self.armament_name:
                     dlg = ArmamentDescriptionDialog(data, self)
                     dlg.exec_()
                     return
@@ -303,8 +302,8 @@ class SkillTreeWidget(QGraphicsView):
         self.node_items.clear()
         self.node_rectangles.clear()
 
-        node_w = 200
-        spacing_x = 80
+        node_w = 300
+        spacing_x = 120
         spacing_y = 120
 
         self.positions = {}
@@ -327,7 +326,7 @@ class SkillTreeWidget(QGraphicsView):
             text_item.setTextWidth(node_w - 20)
             self.scene.addItem(text_item)
             current_font = text_item.font()
-            current_font.setPointSize(7)
+            current_font.setPointSize(10)
             current_font.setFamily("Arial")
             current_font.setBold(True)
             text_item.setFont(current_font)
@@ -358,6 +357,7 @@ class SkillTreeWidget(QGraphicsView):
                     "name": self.armament_data["name"],
                     "description": self.armament_data["description"],
                     "type": self.armament_data["type"],
+                    "effects": self.armament_data["effects"],
                     "prerequisite": None
                 }
 
