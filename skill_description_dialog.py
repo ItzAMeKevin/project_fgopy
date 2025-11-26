@@ -16,6 +16,14 @@ class SkillDescriptionDialog(QDialog):
         title = QLabel(f"<b>{skill['name']}</b>")
         layout.addWidget(title)
 
+        incant = skill.get("incantation")
+        if incant:
+            incant_lbl = QLabel(f"<i>\"{incant}\"</i>")
+            incant_lbl.setAlignment(Qt.AlignCenter)
+            incant_lbl.setStyleSheet("font-size: 24px; color: #5599ff; margin-bottom: 8px;")
+            incant_lbl.setWordWrap(True)
+            layout.addWidget(incant_lbl)
+
         action_type = skill.get("action_type", None)
         if action_type:
             action_lbl = QLabel(f"<b>Action Type:</b> {action_type}")
