@@ -2,8 +2,8 @@ from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QGraphicsTextItem
 from PyQt5.QtGui import QPen, QBrush, QPainter, QColor
 from PyQt5.QtCore import Qt, QRectF, QPointF
 
-from skill_description_dialog import SkillDescriptionDialog
-from armament_description_dialog import ArmamentDescriptionDialog
+from fgo_app.ui.SkillDialog import SkillDescriptionDialog
+from fgo_app.ui.ArmamentDialog import ArmamentDescriptionDialog
 from style.theme_loader import theme
 
 import json
@@ -33,7 +33,7 @@ LOCKED_BORDER           = QColor("#80838d")
 HOVER_BORDER            = QColor("#00b4ff")
 
 CONNECTION_COLOR        = theme.get_color("Tree", "connection_line")
-SAVE_FILE = "saves/servant_progress.json"
+SAVE_FILE = "fgo_app/saves/servant_progress.json"
 
 
 # ============================================================
@@ -41,13 +41,14 @@ SAVE_FILE = "saves/servant_progress.json"
 # ============================================================
 
 class SkillTreeWidget(QGraphicsView):
-    def __init__(self, armament_name, skills, servant_name, armament_data):
+    def __init__(self, armament_name, skills, servant_name, armament_data, all_armament_names, shared_unlocked):
         super().__init__()
 
         self.armament_name = armament_name
         self.skills = skills
         self.servant_name = servant_name
         self.armament_data = armament_data
+        self.all_armament_names = all_armament_names
 
         self.scene = QGraphicsScene(self)
         self.setScene(self.scene)
@@ -65,7 +66,7 @@ class SkillTreeWidget(QGraphicsView):
         self.clicked_node = None
 
         # Unlock state
-        self.is_unlocked = {}
+        self.is_unlocked = shared_unlocked
         self.prereq_map = {}
 
         # Armament starts LOCKED
@@ -87,17 +88,37 @@ class SkillTreeWidget(QGraphicsView):
     # UNLOCK NODE PROGRAMMATICALLY + SAVE PROGRESS
     # ---------------------------------------------------------
 
+    def can_unlock_armament(self):
+        for name in self.all_armament_names:
+            if self.is_unlocked.get(name, False):
+                return False
+        return True
+
     def unlock(self, name):
         """Unlock a node programmatically after confirmation."""
-        if self.is_unlocked[name]:
-            return  # already unlocked
+        if name in self.all_armament_names:
+            for other in self.all_armament_names:
+                self.is_unlocked[other] = (other == name)
+        else:
+            self.is_unlocked[name] = True
 
-        self.is_unlocked[name] = True
         rect = self.node_rectangles[name]
         self.apply_node_colors(name, rect)
 
         # Save progress
         self.save_progress(self.servant_name)
+        self.load_progress(self.servant_name)
+        for node, rect in self.node_rectangles.items():
+            self.apply_node_colors(node, rect)
+    
+    @staticmethod
+    def load_progress_static(servant_name):
+        try:
+            with open(SAVE_FILE, "r") as f:
+                data = json.load(f)
+                return {name: True for name in data.get(servant_name, {}).get("unlocked", [])}
+        except:
+            return {}
     
     def load_progress(self, servant_name):
         """Load saved unlocked skills for this servant."""
@@ -112,16 +133,11 @@ class SkillTreeWidget(QGraphicsView):
 
         saved = data[servant_name]["unlocked"]
         for name in saved:
-            if name in self.is_unlocked:
-                self.is_unlocked[name] = True
+            self.is_unlocked[name] = True
 
     def save_progress(self, servant_name):
-        """Save unlocked skills for this servant."""
         os.makedirs(os.path.dirname(SAVE_FILE), exist_ok=True)
-
         data = {}
-
-        # Load existing file if present
         if os.path.exists(SAVE_FILE):
             try:
                 with open(SAVE_FILE, "r") as f:
@@ -129,14 +145,10 @@ class SkillTreeWidget(QGraphicsView):
             except:
                 data = {}
 
-        # Compute servant entry
-        unlocked_list = [
-            name for name, val in self.is_unlocked.items() if val
-        ]
+        data[self.servant_name] = {
+            "unlocked": [name for name, value in self.is_unlocked.items() if value]
+        }
 
-        data[servant_name] = {"unlocked": unlocked_list}
-
-        # Save back
         with open(SAVE_FILE, "w") as f:
             json.dump(data, f, indent=4)
 
@@ -164,11 +176,21 @@ class SkillTreeWidget(QGraphicsView):
 
                 # Check if it is an Armament
                 if name == self.armament_name:
-                    dlg = ArmamentDescriptionDialog(data, self)
+                    dlg = ArmamentDescriptionDialog(
+                        data=data,
+                        unlock_callback=lambda: self.unlock(name),
+                        can_unlock=self.can_unlock_armament(),
+                        parent=self
+                    )
                     dlg.exec_()
                     return
 
-                dlg = SkillDescriptionDialog(data, self)
+                dlg = SkillDescriptionDialog(
+                    data=data,
+                    unlock_callback=lambda: self.unlock(name),
+                    can_unlock=not self.is_unlocked.get(name, False),
+                    parent=self
+                )
                 dlg.exec_()
 
         super().mousePressEvent(event)

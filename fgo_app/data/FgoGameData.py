@@ -1,12 +1,6 @@
 import os
 
-ASSETS_DIR = "images"
-
-CARD_IMG_W = 256
-CARD_IMG_H = 362
-
-FULL_IMG_W = 512
-FULL_IMG_H = 724
+ASSETS_DIR = "fgo_app/images"
 
 CHARACTERS = {
     "Knights of the Round Table": [

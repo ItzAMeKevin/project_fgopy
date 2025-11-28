@@ -1,16 +1,19 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout
 from PyQt5.QtCore import Qt
 
-from skill_tree_widget import SkillTreeWidget
-from servant_data import CHAR_ARMAMENTS, ARMAMENT_SKILLS
+from fgo_app.ui.SkillTree import SkillTreeWidget
+from fgo_app.data.FgoGameData import CHAR_ARMAMENTS, ARMAMENT_SKILLS
+from fgo_app.ui.CharacterIntroPanel import CharacterIntroPanel
 
 
 class CharacterPage(QWidget):
     def __init__(self, character_name, on_back):
         super().__init__()
+        all_armament_names = [a["name"] for a in CHAR_ARMAMENTS[character_name]]
 
         self.character = character_name
         self.on_back = on_back
+        self.unlocked_state = SkillTreeWidget.load_progress_static(character_name)
 
         layout = QVBoxLayout(self)
 
@@ -49,7 +52,7 @@ class CharacterPage(QWidget):
             skills = ARMAMENT_SKILLS.get(arm_name, [])
 
             # Create the tree widget
-            tree = SkillTreeWidget(arm_name, skills, character_name, arm_data)
+            tree = SkillTreeWidget(arm_name, skills, character_name, arm_data, all_armament_names, self.unlocked_state)
             tree.setMinimumHeight(450)  # Adjust if needed
 
             layout.addWidget(tree)

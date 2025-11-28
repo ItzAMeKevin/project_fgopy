@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt
+from fgo_app.ui.ArchetypeInfoPanel import ArchetypeInfoPanel
 
 
 # =============================================================
@@ -37,12 +38,6 @@ def load_and_crop(path, target_w, target_h):
 # =============================================================
 
 class CollapsibleCategory(QWidget):
-    """
-    A collapsible section with:
-        ▶ Category Title
-        ▼ Expanded Title
-    Using a QToolButton with a real indicator arrow.
-    """
 
     def __init__(self, title="", parent=None, start_expanded=False):
         super().__init__(parent)

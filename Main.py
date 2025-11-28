@@ -6,12 +6,15 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QPixmap
 import sys, os
 
-from category import CollapsibleCategory
-from servant_page import CharacterPage
-from servant_data import CHARACTERS, CARD_IMG_W, CARD_IMG_H
+from fgo_app.ui.Category import CollapsibleCategory
+from fgo_app.ui.CharacterPage import CharacterPage
+from fgo_app.data.FgoGameData import CHARACTERS
 
 
 class MainWindow(QWidget):
+    CARD_IMG_W = 256
+    CARD_IMG_H = 362
+
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Fate Grand Order - Servant Core")
@@ -67,10 +70,10 @@ class MainWindow(QWidget):
                 # Load thumbnail
                 if os.path.exists(ch["image"]):
                     pixmap = QPixmap(ch["image"]).scaled(
-                        CARD_IMG_W, CARD_IMG_H, Qt.KeepAspectRatio, Qt.SmoothTransformation
+                        self.CARD_IMG_W, self.CARD_IMG_H, Qt.KeepAspectRatio, Qt.SmoothTransformation
                     )
                 else:
-                    pixmap = QPixmap(CARD_IMG_W, CARD_IMG_H)
+                    pixmap = QPixmap(self.CARD_IMG_W, self.CARD_IMG_H)
                     pixmap.fill(Qt.gray)
 
                 img_label = QLabel()
