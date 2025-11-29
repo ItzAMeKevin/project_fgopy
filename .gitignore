@@ -242,3 +242,7 @@ Desktop.ini
 *.bak
 *.swp
 *.swo
+
+# Allow release folder for distributing binaries
+!release/
+!release/*
