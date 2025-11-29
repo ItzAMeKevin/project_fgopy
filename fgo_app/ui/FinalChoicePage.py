@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QScrollArea, QHBoxLayout, QFrame
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QScrollArea, QHBoxLayout, QFrame, QTextEdit
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from fgo_app.ui.SkillDialog import SkillDescriptionDialog
@@ -21,6 +21,27 @@ class FinalChoicePage(QWidget):
 
         main_layout = QVBoxLayout(self)
 
+        # Header Section
+
+        header = QHBoxLayout()
+
+        back_button = QPushButton("Back")
+        back_button.setFixedWidth(100)
+        back_button.clicked.connect(self.on_back)
+        header.addWidget(back_button, alignment=Qt.AlignLeft)
+
+        title = QLabel(f"<h1>{character_name}</h1>")
+        title.setAlignment(Qt.AlignCenter)
+        header.addWidget(title, stretch=1)
+        header.addStretch()
+
+        main_layout.addLayout(header)
+
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+        main_layout.addWidget(line)
+
         # Scroll Area
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
@@ -29,17 +50,6 @@ class FinalChoicePage(QWidget):
         scroll_contents = QFrame()
         scroll_layout = QVBoxLayout(scroll_contents)
         scroll.setWidget(scroll_contents)
-
-        # Back button
-        back_button = QPushButton("Back")
-        back_button.setFixedWidth(100)
-        back_button.clicked.connect(self.on_back)
-        scroll_layout.addWidget(back_button, alignment=Qt.AlignLeft)
-
-        # Title
-        title = QLabel(f"<h1>{character_name}</h1>")
-        title.setAlignment(Qt.AlignCenter)
-        scroll_layout.addWidget(title)
 
         # Archetype Row
         archetype_name = get_archetype_for_character(self.character_name)
@@ -119,8 +129,18 @@ class FinalChoicePage(QWidget):
 
         helper_column.addWidget(status_btn)
         helper_column.addStretch()
-
         bottom_row.addLayout(helper_column, stretch=0)
+
+        notes_title = QLabel("<h2>Player Notes</h2>")
+        scroll_layout.addWidget(notes_title)
+
+        self.notes_box = QTextEdit()
+        self.notes_box.setPlaceholderText(
+            "Write status effects, temporary buffs, Resolve stacks, and notes here..."
+        )
+        self.notes_box.setMinimumHeight(300)
+        self.notes_box.setStyleSheet("font-size: 22px;")
+        scroll_layout.addWidget(self.notes_box)
 
         scroll_layout.addStretch()
 

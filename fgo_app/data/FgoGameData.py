@@ -30,6 +30,7 @@ ARCHETYPES = {
             <li>Apply your Primary Element for the first time in a round</li>
         </ul>
         <h3>Spending 3 Resolve — Knight's Valor</h3>
+        <p>Use a bonus action to activate Knight's Valor.</p>
         <ul>
             <li><b>Elemental Edge:</b> You remove the primary elemental status effect on the target and your next 
             attack before the end of your turn gains bonus damage equal to the applied elemental potency.</li>
@@ -441,10 +442,10 @@ CHAR_ARMAMENTS = {
             "effects": [
                 "<b>Stormspeed Drift:</b> Your movement speed increases by <b>5 feet</b>.",
                 
-                "<b>Thundertrail Wake:</b> If you move at least 10 feet on your turn, the first creature "
+                "<b>Thundertrail Wake:</b> If you move at least 10 feet straight on your turn, the first creature "
                 "you hit with a weapon attack takes <b>+1 lightning damage</b>.",
                 
-                "<b>Impact Ignition:</b> If you move at least 15 feet before hitting a creature with a "
+                "<b>Impact Ignition:</b> If you move at least 15 feet straight before hitting a creature with a "
                 "weapon attack, that creature is afflicted with <b>Shock (potency 1, duration 1)</b>. "
                 "This can only occur once per turn."
             ],
@@ -573,7 +574,7 @@ ARMAMENT_SKILLS = {
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
                 "Choose <b>one</b> weapon attack you make this turn.",
-                "On hit, the attack applies <b>Freeze (potency 1, duration 1)</b>.",
+                "On hit, the attack applies <b>Freeze (potency 1, duration 2)</b>.",
                 "If the target is already afflicted with Freeze, the attack instead deals <b>+2 cold damage</b>.",
                 "Only one attack can benefit from this feature per turn."
             ],
@@ -590,11 +591,11 @@ ARMAMENT_SKILLS = {
             "incantation": "Shatter beneath the weight of eternal frost! Cryo Blade!",
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn.",
                 "The attack deals <b>+2d6 cold damage</b> if the target is afflicted with Freeze.",
                 "If the target has Freeze at <b>maximum potency</b>, its speed becomes <b>0</b> "
-                "until the end of its next turn.",
-                "Only one attack can be designated for this feature per turn."
+                "until the end of its next turn."
+                "Then, at last, the target is afflicted by Freeze (potency 1, duration 1)."
             ],
             "tags": ["Cold", "Control", "Single-Hit"]
         },
@@ -609,7 +610,7 @@ ARMAMENT_SKILLS = {
             "incantation": "Radiance, shield my resolve! Coldlight Aegis!",
             "effects": [
                 "<b>Trigger:</b> A creature within 5 feet hits you with a melee attack.",
-                "You gain <b>resistance to radiant or cold damage</b> until the end of the current turn.",
+                "You gain <b>resistance to radiant or cold damage</b> until the start of your next turn.",
                 "The attacker becomes afflicted with <b>Freeze (potency 1, duration 1)</b>."
             ],
             "tags": ["Defense", "Reaction", "Freeze"]
@@ -664,7 +665,7 @@ ARMAMENT_SKILLS = {
                 "On hit, the target takes <b>+2d6 cold damage</b>.",
                 "Creatures within 5 feet take <b>1d6 cold damage</b>.",
                 "If the target is afflicted with Freeze: Remove Freeze and deal an additional <b>+2d6 cold damage</b>.",
-                "All creatures damaged by this effect become afflicted with <b>Freeze</b> "
+                "All creatures damaged by Tempest Break become afflicted with <b>Freeze</b> "
                 "(potency 1, duration 1)."
             ],
             "tags": ["Cold", "AoE", "Freeze", "Detonation"]
@@ -702,7 +703,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn.",
                 "The attack deals <b>+2d6 damage</b> of your choice: bludgeoning, piercing, or slashing.",
                 "If you currently have Breakform Shift active, the attack also applies <b>Freeze</b> "
                 "(potency 1, duration 1).",
@@ -712,7 +713,7 @@ ARMAMENT_SKILLS = {
         },
         {
             "name": "Overrun Vault",
-            "action_type": "Attack Action",
+            "action_type": "Action",
             "prerequisite": "Knight of Owner",
             "incantation": "No wall stands against unchecked fury—Overrun Vault!",
             "description": (
@@ -720,11 +721,10 @@ ARMAMENT_SKILLS = {
                 "your improvised strike into the enemy."
             ),
             "effects": [
-                "<b>Trigger:</b> When you take the Attack Action.",
-                "Move up to <b>10 feet</b> in a straight line before making one weapon attack.",
-                "If you moved at least 10 feet, the attack deals <b>+1d6 damage</b>.",
-                "If the target is afflicted with Freeze, you may immediately move <b>5 feet</b> without "
-                "provoking opportunity attacks."
+                "<b>Trigger:</b> When you use this Action.",
+                "Move up to <b>10 feet</b> in a straight line, then make one weapon attack.",
+                "If you moved at least 10 feet, the attack deals <b>+2 cold damage</b> ",
+                "and the target is afflicted with Freeze (potency 1, duration 1)."
             ],
             "tags": ["Mobility", "Momentum", "Cold", "Attack Action"]
         },
@@ -739,7 +739,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Make a single, empowered weapon attack.",
+                "Choose one weapon attack you make this turn.",
                 "On hit, the target takes <b>+2d6 force damage</b>.",
                 "If you hit a creature more than once on your previous turn (Momentum Overload triggered), "
                 "the attack deals an additional <b>+2d6 damage</b>.",
@@ -766,7 +766,7 @@ ARMAMENT_SKILLS = {
                 "The attack deals <b>+1d6 fire damage</b>.",
                 "Creatures adjacent to the target take <b>1 fire damage</b>.",
                 "If you are in bright light, the target is afflicted with "
-                "<b>Burn (potency 1, duration 1)</b>."
+                "<b>Burn (potency 1, duration 2)</b>."
             ],
             "tags": ["Fire", "Burn", "AoE", "Attack Action"]
         },
@@ -819,7 +819,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Make a single empowered weapon attack.",
+                "Choose one weapon attack this turn.",
                 "On hit, the attack deals <b>+2d6 fire damage</b>.",
                 "Create a <b>10-foot radius</b> zone of searing solar flame centered on the target "
                 "until the start of your next turn.",
@@ -844,7 +844,7 @@ ARMAMENT_SKILLS = {
                 "burning nearby foes with its solar brilliance."
             ),
             "effects": [
-                "<b>Trigger:</b> A creature hits you with an attack.",
+                "<b>Trigger:</b> A creature within 5 feet hits you with an attack.",
                 "Reduce the damage you take by <b>1d6</b>.",
                 "Enemies adjacent to <b>you</b> take <b>1 fire damage</b>.",
                 "If you are in bright light, the attacker is afflicted with "
@@ -854,7 +854,7 @@ ARMAMENT_SKILLS = {
         },
         {
             "name": "Solar Counterflare",
-            "action_type": "Reaction",
+            "action_type": "Special",
             "prerequisite": "Radiant Shielding",
             "incantation": "By the sun’s wrath—flare and repel! Solar Counterflare!",
             "description": (
@@ -864,7 +864,8 @@ ARMAMENT_SKILLS = {
             "effects": [
                 "<b>Trigger:</b> You reduce damage with Radiant Shielding.",
                 "The attacker takes <b>1d6 fire damage</b>.",
-                "All other creatures within 5 feet of the attacker take <b>1 fire damage</b>.",
+                "The attacker also is inflicted by <b>Burn (potency 1, duration 1)</b>"
+                "All other creatures within 5 feet of the attacker take <b>2 fire damage</b>.",
                 "If you are in bright light, the attacker is <b>blinded</b> until the start of its next turn."
             ],
             "tags": ["Fire", "Burn", "AoE", "Control", "Reaction"]
@@ -900,10 +901,10 @@ ARMAMENT_SKILLS = {
                 "Create a <b>10-foot radius</b> zone of shimmering sunlight centered on you until the "
                 "start of your next turn.",
                 "You and allies in the zone gain a <b>+1 bonus to AC</b>.",
-                "Enemies who enter or start their turn in the zone are afflicted with "
+                "Enemies who enter or start their turn for the first time in the zone are afflicted with "
                 "<b>Burn (potency 1, duration 1)</b>.",
-                "If you were in bright light when using this skill, you gain "
-                "<b>resistance to fire damage</b> until the start of your next turn."
+                "If you were in bright light when using this skill, the Burn effect is changed "
+                "<b>(potency 2, duration 2)</b>."
             ],
             "tags": ["Zone", "Defense", "Fire", "Support", "Action"]
         }
@@ -921,7 +922,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make in this turn.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "After the attack resolves, you take <b>6 lightning damage</b>.",
                 "The target is afflicted with <b>Shock (potency 1, duration 1)</b>."
@@ -942,8 +943,8 @@ ARMAMENT_SKILLS = {
                 "Choose one weapon attack you make this turn.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you are at or below half of your maximum hit points, the attack deals an additional "
-                "<b>+2d6 lightning damage</b>.",
-                "The target is afflicted with <b>Shock (potency 1, duration 1)</b>.",
+                "<b>+2d6 lightning damage</b> and the target is afflicted with "
+                "<b>Shock (potency 2, duration 1)</b>.",
                 "After all effects resolve, you regain <b>1d4 hit points</b>."
             ],
             "tags": ["Lightning", "Shock", "Attack Action", "High Risk", "Finisher"]
@@ -1002,7 +1003,7 @@ ARMAMENT_SKILLS = {
                 "Move up to <b>10 feet</b> without provoking opportunity attacks.",
                 "Your next weapon attack this turn deals <b>+1 lightning damage</b>.",
                 "If you moved at least 10 feet before that attack, the target takes an additional "
-                "<b>+1 lightning damage</b>."
+                "<b>+2 lightning damage</b>."
             ],
             "tags": ["Lightning", "Mobility", "Bonus Action"]
         },
@@ -1018,7 +1019,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Make one weapon attack.",
+                "Choose one weapon attack this turn.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you moved at least 10 feet before this attack, the target is afflicted with "
                 "<b>Shock (potency 1, duration 1)</b>.",
@@ -1057,11 +1058,11 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Make one empowered weapon attack.",
+                "Choose one weapon attack this turn.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you moved or jumped at least 10 feet before this attack, it deals an additional "
                 "<b>+1d6 thunder damage</b>.",
-                "If the target is afflicted with Shock, clear the Shock and deal <b>+2d6 fire damage</b> instead."
+                "If the target is afflicted with Shock, clear the Shock and deal <b>+2d6 fire damage</b>."
             ],
             "tags": ["Lightning", "Shock", "Attack Action", "Finisher"]
         }
