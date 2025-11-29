@@ -1,18 +1,19 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
-    QScrollArea, QGridLayout, QSizePolicy
+    QScrollArea, QGridLayout, QSizePolicy, QMainWindow
 )
 from PyQt5.QtGui import QPixmap
 import sys, os
 
 from fgo_app.ui.ArchetypeInfoPanel import ArchetypeInfoPanel
+from fgo_app.ui.FinalChoicePage import FinalChoicePage
 from fgo_app.ui.Category import CollapsibleCategory
 from fgo_app.ui.CharacterPage import CharacterPage
 from fgo_app.data.FgoGameData import CHARACTERS
 
 
-class MainWindow(QWidget):
+class MainWindow(QMainWindow):
     CARD_IMG_W = 256
     CARD_IMG_H = 362
 
@@ -20,8 +21,13 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Fate Grand Order - Servant Core")
         self.resize(2560, 1440)
+        self.setMinimumWidth(1920)
+        self.setMinimumHeight(1080)
 
-        self.main_layout = QVBoxLayout(self)
+        central = QWidget()
+        self.setCentralWidget(central)
+
+        self.main_layout = QVBoxLayout(central)
         self.build_main_page()
 
     def build_main_page(self):
@@ -122,6 +128,21 @@ class MainWindow(QWidget):
                 item.widget().deleteLater()
 
         page = CharacterPage(character_name, self.build_main_page)
+        self.main_layout.addWidget(page)
+
+    def open_final_choice_page(self, character_name, unlocked_skills):
+        # Clear current page content
+        while self.main_layout.count():
+            item = self.main_layout.takeAt(0)
+            if item.widget():
+                item.widget().deleteLater()
+
+        # Create the final choice page
+        page = FinalChoicePage(
+            character_name=character_name,
+            unlocked=unlocked_skills,
+            on_back=lambda: self.open_character_page(character_name)
+        )
         self.main_layout.addWidget(page)
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QScrollArea
 from PyQt5.QtCore import Qt
-
+import json
+from fgo_app.ui.FinalChoicePage import FinalChoicePage
 from fgo_app.ui.SkillTree import SkillTreeWidget
 from fgo_app.data.FgoGameData import CHAR_ARMAMENTS, ARMAMENT_SKILLS, getCharacter
 
@@ -21,12 +22,17 @@ class CharacterPage(QWidget):
         top = QHBoxLayout()
         back_btn = QPushButton("← Back")
         back_btn.clicked.connect(self.on_back)
-        top.addWidget(back_btn)
+        top.addWidget(back_btn, alignment=Qt.AlignLeft)
 
         title = QLabel(character_name)
         title.setStyleSheet("font-size: 34px; font-weight: bold; margin-left: 15px;")
-        top.addWidget(title)
+        top.addWidget(title, alignment=Qt.AlignCenter)
         top.addStretch()
+
+        confirm = QPushButton("Confirm")
+        confirm.setFixedWidth(190)
+        confirm.clicked.connect(self.onConfirmClicked)
+        top.addWidget(confirm, alignment=Qt.AlignRight)
 
         main_layout.addLayout(top)
 
@@ -48,7 +54,8 @@ class CharacterPage(QWidget):
         description.setWordWrap(True)
         description.setTextFormat(Qt.RichText)
         description.setAlignment(Qt.AlignLeft | Qt.AlignTop)
-        description.setText(self.character_data["description"])
+        description_html = self.character_data["description"]["summary"] + self.character_data["description"]["mini_ult"]
+        description.setText(description_html)
         middle.addWidget(description)
         scroll_layout.addLayout(middle)
 
@@ -83,3 +90,20 @@ class CharacterPage(QWidget):
         scroll.setWidget(scroll_container)
 
         main_layout.addWidget(scroll)
+
+    def onConfirmClicked(self):
+        # Load progress JSON
+        try:
+            with open("fgo_app/saves/servant_progress.json", "r") as f:
+                progress = json.load(f)
+        except:
+            progress = {}
+
+        unlocked = progress.get(self.character_name, {}).get("unlocked", [])
+
+        main_window = self.window()
+        if hasattr(main_window, "open_final_choice_page"):
+            main_window.open_final_choice_page(self.character_name, unlocked)
+        else:
+            # Fallback: just print if something is miswired
+            print("Main window has no open_final_choice_page method")

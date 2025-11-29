@@ -9,123 +9,224 @@ def getCharacter(name):
                 return character
     return None
 
+def get_archetype_for_character(name):
+    for archetype, characters in CHARACTERS.items():
+        for c in characters:
+            if c["name"] == name:
+                return archetype
+    return None
+
+ARCHETYPES = {
+    "Knights of the Round Table": (
+        """<h2>Knight's Resolve</h2>
+        <p>Your noble willpower manifests as Resolve, a combat resource generated through decisive action and chivalric mastery. 
+        Resolve can be spent to perform powerful techniques that enhance your elemental combat style. You can hold up to <b>6 Resolve.</b></p>
+
+        <h3>Gaining Resolve (+1)</h3>
+        <ul>
+            <li>Hit a target afflicted by your Primary Element for the first time in a round</li>
+            <li>Reduce a creature to 0 HP</li>
+            <li>Protect an ally</li>
+            <li>Apply your Primary Element for the first time in a round</li>
+        </ul>
+        <h3>Spending 3 Resolve — Knight's Valor</h3>
+        <ul>
+            <li><b>Elemental Edge:</b> You remove the primary elemental status effect on the target and your next 
+            attack before the end of your turn gains bonus damage equal to the applied elemental potency.</li>
+            <li><b>Chivalric Defense:</b> Gain resistance to your Primary Element until the start of your next turn.</li>
+            <li><b>Hero's Surge:</b> Make one additional weapon attack as part of your attack action.</li>
+            <li><b>Radiant Shield:</b> Gain temporary HP equal to your Proficiency Bonus + your Character Level / 2 (rounded down).</li>
+        </ul>
+        <h3>Spending 6 Resolve — Critical Exploit</h3>
+        <p>A devastating elemental finisher unique to each Knight. See an individual character page for details.</p>"""
+    ),
+    "Shinsengumi": (
+        """<h2>Iaijutsu Chain</h2>
+        <p>The Shinsengumi excel in precise, ruthless swordplay that flows from one decisive strike into the next.
+        Their combat style is built on <b>sequencing physical weaknesses</b> to create lethal finishing opportunities.
+        Each strike sets up the next, allowing the Shinsengumi to dismantle their foes through escalating pressure.</p>
+
+        <h3>Iaijutsu Chain Basics</h3>
+        <p>Whenever you hit a creature with a weapon attack and inflict or extend one of the following status effects:</p>
+        <ul>
+            <li><b>Bleed</b></li>
+            <li><b>Crush</b></li>
+            <li><b>Vulnerable</b></li>
+        </ul>
+        <p>you advance your <b>Iaijutsu Chain</b> by 1 step. The chain has three steps:</p>
+
+        <ol>
+            <li><b>Step 1 — First Weakness</b>: You have inflicted the first physical status effect this turn.</li>
+            <li><b>Step 2 — Second Weakness</b>: You have inflicted a different physical status effect from the first.</li>
+            <li><b>Step 3 — Execution Point</b>: You have inflicted all three <i>distinct</i> physical statuses this turn.</li>
+        </ol>
+
+        <p><b>You can only advance the Iaijutsu Chain by applying a status you have NOT applied earlier in the same turn.</b></p>
+        <p>The Iaijutsu Chain resets to <b>0</b> at the start of each of the chain intiator's turn.</p>
+
+        <h3>Execution Point</h3>
+        <p>When you reach <b>Step 3</b> of the Iaijutsu Chain, your next weapon attack before the end of your turn becomes an Execution Technique:</p>
+
+        <h4>Standard Execution</h4>
+        <ul>
+            <li>You have <b>advantage</b> on the attack roll.</li>
+            <li>The attack deals an additional <b>2d6 damage</b> of your weapon’s damage type.</li>
+            <li>You may remove <b>one</b> of Bleed, Crush, or Vulnerable from the target to deal <b>+2d6</b> bonus damage of the associated type:</li>
+        </ul>
+
+        <ul>
+            <li><b>Bleed removed:</b> +2d6 slashing damage.</li>
+            <li><b>Crush removed:</b> +2d6 bludgeoning damage.</li>
+            <li><b>Vulnerable removed:</b> +2d6 piercing damage.</li>
+        </ul>
+
+        <h4>Execution Arts</h4>
+        <p>Each Shinsengumi Servant Core gains a unique form of <b>Execution Art</b> when performing an Execution Technique.<br>
+        Instead of using a Standard Execution, you can choose to replace it with a powerful finisher that scales with <br>
+        the Servant’s signature status effect.</p>
+        <p>See each individual character page for full details.</p>
+
+        <p>The Iaijutsu Chain ends immediately after performing an Execution Technique.</p>
+
+        <h3>Perfect Style</h3>
+        <p>When you perform an Execution Technique, you gain <b>Perfect Style</b> until the end of your next turn:</p>
+        <ul>
+            <li>Your movement does not provoke opportunity attacks.</li>
+            <li>Your weapon attacks ignore half cover.</li>
+        </ul>
+
+        <p>This reflects the Shinsengumi’s unmatched battlefield footwork and cutting precision.</p>"""
+    ),
+    "Argonauts": (
+        """<h2>Placeholder</h2>"""
+    )
+}
 
 CHARACTERS = {
     "Knights of the Round Table": [
         {
             "name": "Lancelot",
             "image": os.path.join(ASSETS_DIR, "lancelot_saber.jpg"),
-            "description": (
-                "<h3>Lancelot — The Knight of the Lake</h3>"
-                "<p>Lancelot excels as a disciplined frost duelist who controls the battlefield through precision, "
-                "speed, and methodical application of <b>Freeze</b>. His playstyle revolves around building and "
-                "consuming Freeze stacks to enhance damage and to slow enemies, rewarding players who plan their turns "
-                "carefully and manipulate enemy movement.</p>"
+            "image2": os.path.join(ASSETS_DIR, "lancelot_berserker.jpg"),
+            "description": {
+                "summary": (
+                    "<h3>Lancelot — The Knight of the Lake</h3>"
+                    "<p>Lancelot excels as a disciplined frost duelist who controls the battlefield through precision, "
+                    "speed, and methodical application of <b>Freeze</b>. His playstyle revolves around building and "
+                    "consuming Freeze stacks to enhance damage and to slow enemies, rewarding players who plan their turns "
+                    "carefully and manipulate enemy movement.</p>"
 
-                "<p>Arondight empowers him with fluid, icy strikes that hinder opponents while opening opportunities "
-                "for devastating follow-ups. Lancelot’s abilities allow him to weave between offense and defense—"
-                "counterattacking foes who threaten him, repositioning with supernatural grace, and unleashing "
-                "powerful finishing blows when Freeze reaches its peak.</p>"
+                    "<p>Arondight empowers him with fluid, icy strikes that hinder opponents while opening opportunities "
+                    "for devastating follow-ups. Lancelot’s abilities allow him to weave between offense and defense—"
+                    "counterattacking foes who threaten him, repositioning with supernatural grace, and unleashing "
+                    "powerful finishing blows when Freeze reaches its peak.</p>"
 
-                "<p>Players who enjoy tactical combat, precise timing, and escalating elemental pressure will find "
-                "Lancelot a deeply rewarding Servant who controls the flow of every engagement.</p>"
-                
-                "<h3>Critical Exploit — Ice Shatter</h3>"
-                "<p><b>Trigger:</b> You spend 6 Resolve as a bonus action. "
-                "On your next successful weapon attack, if the target is afflicted with <b>Freeze</b>, "
-                "<i>Ice Shatter</i> activates.</p>"
+                    "<p>Players who enjoy tactical combat, precise timing, and escalating elemental pressure will find "
+                    "Lancelot a deeply rewarding Servant who controls the flow of every engagement.</p>"
+                ),
+                "mini_ult": (
+                    "<h3>Critical Exploit — Ice Shatter</h3>"
+                    "<p><b>Trigger:</b> You spend 6 Resolve as a bonus action. "
+                    "On your next successful weapon attack, if the target is afflicted with <b>Freeze</b>, "
+                    "<i>Ice Shatter</i> activates.</p>"
 
-                "<h4>Effect</h4>"
-                "<ul>"
-                    "<li><b>If Freeze is at maximum potency:</b>"
-                        "<ul>"
-                            "<li>Deal cold damage equal to <b>Freeze Potency × 5</b></li>"
-                            "<li>The target is <b>knocked prone</b></li>"
-                            "<li><b>Freeze is removed</b> from the target</li>"
-                        "</ul>"
-                    "</li>"
+                    "<h4>Effect</h4>"
+                    "<ul>"
+                        "<li><b>If Freeze is at maximum potency:</b>"
+                            "<ul>"
+                                "<li>Deal cold damage equal to <b>Freeze Potency × 5</b></li>"
+                                "<li>The target is <b>knocked prone</b></li>"
+                                "<li><b>Freeze is removed</b> from the target</li>"
+                            "</ul>"
+                        "</li>"
 
-                    "<li><b>If Freeze is NOT at max potency:</b>"
-                        "<ul>"
-                            "<li>Deal cold damage equal to <b>Freeze Potency × 3</b></li>"
-                            "<li><b>Freeze is removed</b> from the target</li>"
-                        "</ul>"
-                    "</li>"
-                "</ul>"
-            )
+                        "<li><b>If Freeze is NOT at max potency:</b>"
+                            "<ul>"
+                                "<li>Deal cold damage equal to <b>Freeze Potency × 3</b></li>"
+                                "<li><b>Freeze is removed</b> from the target</li>"
+                            "</ul>"
+                        "</li>"
+                    "</ul>"
+                )
+            }
         },
         {
             "name": "Gawain",
             "image": os.path.join(ASSETS_DIR, "gawain.jpg"),
-            "description": (
-                "<h3>Gawain — The Knight of the Sun</h3>"
-                "<p>Gawain embodies overwhelming strength empowered by blazing sunlight. "
-                "As a frontline juggernaut, he excels at sustained offense—his power rising "
-                "dramatically when fighting in bright light. His abilities leverage solar fire "
-                "to inflict Burn stacks on foes, bolster his defenses, and dominate close-quarters "
-                "combat with radiant might.</p>"
+            "description": {
+                "summary": (
+                    "<h3>Gawain — The Knight of the Sun</h3>"
+                    "<p>Gawain embodies overwhelming strength empowered by blazing sunlight. "
+                    "As a frontline juggernaut, he excels at sustained offense—his power rising "
+                    "dramatically when fighting in bright light. His abilities leverage solar fire "
+                    "to inflict Burn stacks on foes, bolster his defenses, and dominate close-quarters "
+                    "combat with radiant might.</p>"
 
-                "<p>Wielding Excalibur Galatine, Gawain sweeps the battlefield with wide arcs "
-                "of flame and holy radiance. His momentum builds as he lands consecutive blows, "
-                "letting him scale in damage over the course of a fight. With proper positioning "
-                "and control of light conditions, Gawain transforms into a relentless beacon of "
-                "burning destruction.</p>"
+                    "<p>Wielding Excalibur Galatine, Gawain sweeps the battlefield with wide arcs "
+                    "of flame and holy radiance. His momentum builds as he lands consecutive blows, "
+                    "letting him scale in damage over the course of a fight. With proper positioning "
+                    "and control of light conditions, Gawain transforms into a relentless beacon of "
+                    "burning destruction.</p>"
 
-                "<p>Players who enjoy heroic aggression, explosive fire bursts, and a “power-up” "
-                "playstyle will find Gawain’s solar combat both satisfying and spectacular.</p>"
+                    "<p>Players who enjoy heroic aggression, explosive fire bursts, and a “power-up” "
+                    "playstyle will find Gawain’s solar combat both satisfying and spectacular.</p>"
+                ),
+                "mini_ult": (
+                    "<h3>Critical Exploit — Solar Flare</h3>"
+                    "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
+                    "On your next successful attack, if the target is afflicted with <b>Burn</b>, "
+                    "<i>Solar Flare</i> activates.</p>"
 
-                "<h3>Critical Exploit — Solar Flare</h3>"
-                "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
-                "On your next successful attack, if the target is afflicted with <b>Burn</b>, "
-                "<i>Solar Flare</i> activates.</p>"
-
-                "<h4>Effect</h4>"
-                "<ul>"
-                    "<li>Deal <b>fire damage equal to Burn Potency × 2</b> to the target.</li>"
-                    "<li>The target emits a <b>Solar Shockwave</b>:"
-                        "<ul>"
-                            "<li>All creatures adjacent (within 5 feet / 4 tiles around) take "
-                            "<b>fire damage equal to Burn Potency</b>.</li>"
-                        "</ul>"
-                    "</li>"
-                    "<li>You gain <b>temporary HP equal to Burn Potency</b>.</li>"
-                    "<li><b>Burn is removed</b> from the target.</li>"
-                "</ul>"
-            )
+                    "<h4>Effect</h4>"
+                    "<ul>"
+                        "<li>Deal <b>fire damage equal to Burn Potency × 2</b> to the target.</li>"
+                        "<li>The target emits a <b>Solar Shockwave</b>:"
+                            "<ul>"
+                                "<li>All creatures adjacent (within 5 feet / 4 tiles around) take "
+                                "<b>fire damage equal to Burn Potency</b>.</li>"
+                            "</ul>"
+                        "</li>"
+                        "<li>You gain <b>temporary HP equal to Burn Potency</b>.</li>"
+                        "<li><b>Burn is removed</b> from the target.</li>"
+                    "</ul>"
+                )
+            }
         },
         {
             "name": "Mordred",
             "image": os.path.join(ASSETS_DIR, "mordred.jpg"),
-            "description": (
-                "<h3>Mordred — The Knight of Rebellion</h3>"
-                "<p>Mordred thrives on reckless aggression, channeling volatile lightning and burning fury "
-                "through Clarent. She is a close-range bruiser whose damage output skyrockets when she fights "
-                "at low HP, rewarding bold plays and unrelenting momentum. Shock and burning effects fuel her "
-                "chaotic style, letting her tear through enemies with explosive burst damage.</p>"
+            "description": {
+                "summary": (
+                    "<h3>Mordred — The Knight of Rebellion</h3>"
+                    "<p>Mordred thrives on reckless aggression, channeling volatile lightning and burning fury "
+                    "through Clarent. She is a close-range bruiser whose damage output skyrockets when she fights "
+                    "at low HP, rewarding bold plays and unrelenting momentum. Shock and burning effects fuel her "
+                    "chaotic style, letting her tear through enemies with explosive burst damage.</p>"
 
-                "<p>Her attacks often come with a cost—Mordred willingly harms herself to unleash Clarent’s "
-                "corrupted power. Yet her kit also provides ways to stabilize or recover through fiery backlash, "
-                "letting her walk the razor’s edge between survival and destruction. Players who enjoy high-risk, "
-                "high-reward gameplay will find Mordred’s lightning-charged rage both dangerous and exhilarating.</p>"
+                    "<p>Her attacks often come with a cost—Mordred willingly harms herself to unleash Clarent’s "
+                    "corrupted power. Yet her kit also provides ways to stabilize or recover through fiery backlash, "
+                    "letting her walk the razor’s edge between survival and destruction. Players who enjoy high-risk, "
+                    "high-reward gameplay will find Mordred’s lightning-charged rage both dangerous and exhilarating.</p>"
 
-                "<p>Prydwen serves as her alternate armament, granting unmatched mobility and aerial maneuvering. "
-                "It enables blistering movement-based combos that prime her targets with <b>Shock</b> before "
-                "delivering devastating finishers.</p>"
+                    "<p>Prydwen serves as her alternate armament, granting unmatched mobility and aerial maneuvering. "
+                    "It enables blistering movement-based combos that prime her targets with <b>Shock</b> before "
+                    "delivering devastating finishers.</p>"
+                ),
+                "mini_ult": (
+                    "<h3>Critical Exploit — Overload</h3>"
+                    "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
+                    "On your next successful attack, if the target is afflicted with <b>Shock</b>, "
+                    "<i>Overload</i> activates.</p>"
 
-                "<h3>Critical Exploit — Overload</h3>"
-                "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
-                "On your next successful attack, if the target is afflicted with <b>Shock</b>, "
-                "<i>Overload</i> activates.</p>"
-
-                "<h4>Effect</h4>"
-                "<ul>"
-                    "<li>Deal <b>lightning damage equal to Shock Potency × 4</b> to the target.</li>"
-                    "<li>The target <b>loses its Reaction</b> until the start of your next turn.</li>"
-                    "<li>The target has <b>disadvantage on concentration checks</b> until the start of your next turn.</li>"
-                    "<li><b>Shock is removed</b> from the target.</li>"
-                "</ul>"
-            )
-
+                    "<h4>Effect</h4>"
+                    "<ul>"
+                        "<li>Deal <b>lightning damage equal to Shock Potency × 4</b> to the target.</li>"
+                        "<li>The target <b>loses its Reaction</b> until the start of your next turn.</li>"
+                        "<li>The target has <b>disadvantage on concentration checks</b> until the start of your next turn.</li>"
+                        "<li><b>Shock is removed</b> from the target.</li>"
+                    "</ul>"
+                )
+            }
         },
     ],
 
@@ -133,17 +234,38 @@ CHARACTERS = {
         {
             "name": "Okita Souji",
             "image": os.path.join(ASSETS_DIR, "okita.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
         {
             "name": "Saito Hajime",
             "image": os.path.join(ASSETS_DIR, "hajime.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
         {
             "name": "Nagakura Shinpachi",
             "image": os.path.join(ASSETS_DIR, "shinpachi.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
     ],
 
@@ -151,17 +273,38 @@ CHARACTERS = {
         {
             "name": "Heracles",
             "image": os.path.join(ASSETS_DIR, "heracles.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
         {
             "name": "Caenis",
             "image": os.path.join(ASSETS_DIR, "caenis.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
         {
             "name": "Atalanta",
             "image": os.path.join(ASSETS_DIR, "atalanta.jpg"),
-            "description": ""
+            "description": {
+                "summary": (
+                    "<h2>Placeholder</h2>"
+                ),
+                "mini_ult": (
+                    "<h2>Placeholder</h2>"
+                )
+            }
         },
     ],
 }
@@ -314,33 +457,105 @@ CHAR_ARMAMENTS = {
     ],
 
     "Okita Souji": [
-        {"name": "Coat of Oaths", "description": "Symbol of her honor.", "type": "Clothing"},
-        {"name": "Iaijutsu", "description": "Assassin techniques.", "type": "Ability"},
+        {
+            "name": "Coat of Oaths",
+            "type": "Clothing",
+            "description": "Symbol of her honor.",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Something",
+            "effects": [],
+            "effects_data": []
+        },
     ],
 
     "Saito Hajime": [
-        {"name": "Gatotsu", "description": "Piercing thrust.", "type": "Sword Technique"},
-        {"name": "Silent Blade", "description": "Stealth attack.", "type": "Ability"},
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Something",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Something",
+            "effects": [],
+            "effects_data": []
+        },
     ],
 
     "Nagakura Shinpachi": [
-        {"name": "Twin Swords", "description": "Dual wielding katanas.", "type": "Katanas"},
-        {"name": "Swift Strike of the Iron Valley in the Mountain Beast Lord's Domain this is just a long text to test it out.", "description": "Quick attack.", "type": "Ability"},
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Something",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "something",
+            "description": "placeholder",
+            "effects": [],
+            "effects_data": []
+        },
     ],
 
     "Heracles": [
-        {"name": "God's Hand", "description": "Description.", "type": "Ability"},
-        {"name": "Nine Lives", "description": "Description.", "type": "Ability"},
+        {
+            "name": "God's Hand",
+            "type": "Ability",
+            "description": "Description.",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Description.",
+            "effects": [],
+            "effects_data": []
+        },
     ],
     
     "Caenis": [
-        {"name": "Divine Lance", "description": "Sacred spear.", "type": "Spear"},
-        {"name": "Transformation", "description": "Description.", "type": "Ability"},
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Something",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Description.",
+            "effects": [],
+            "effects_data": []
+        },
     ],
 
     "Atalanta": [
-        {"name": "Hunting Bow", "description": "Bow of the huntress.", "type": "Bow"},
-        {"name": "Wild Instinct", "description": "Description.", "type": "Ability"},
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Description",
+            "effects": [],
+            "effects_data": []
+        },
+        {
+            "name": "Placeholder",
+            "type": "placeholder",
+            "description": "Description.",
+            "effects": [],
+            "effects_data": []
+        },
     ],
 }
 

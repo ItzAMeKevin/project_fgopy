@@ -198,9 +198,12 @@ QDialog QPushButton {
         stop:1 #ffe9a3
     );
 }
- QLabel {
-    font-size: 26px;
- }
+
+/* Others ---------------------------------------------------- */
+
+QLabel {
+font-size: 26px;
+}
 
 QLabel#Description {
     border: 2px solid #d4af37;
@@ -209,4 +212,8 @@ QLabel#Description {
         stop:0 #fff7d1,
         stop:1 #ffe9a3
     );
+}
+
+QPushButton#FinalPageNode {
+    max-width: 330px;
 }
