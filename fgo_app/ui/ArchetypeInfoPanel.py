@@ -11,9 +11,14 @@ class ArchetypeInfoPanel(QFrame):
         layout.setSpacing(8)
         layout.setContentsMargins(10, 10, 10, 10)
 
-        if archetype_name == "Knights":
-            html = """
-            <h2>Knights Archetype — Overview</h2>
+        label = QLabel()
+        label.setWordWrap(True)
+        label.setTextFormat(Qt.RichText)
+        label.setAlignment(Qt.AlignLeft | Qt.AlignTop)
+
+        if "Knights" in archetype_name:
+            label.setText("""
+            <h2>Knight's Resolve</h2>
             <p>Knights wield elemental power through martial discipline, gaining Resolve as they act with chivalry on the battlefield.</p>
 
             <h3>Gaining Resolve</h3>
@@ -23,7 +28,6 @@ class ArchetypeInfoPanel(QFrame):
                 <li>Protect an ally</li>
                 <li>Apply your Primary Element for the first time in a round</li>
             </ul>
-
             <h3>Spending 3 Resolve — Knight's Valor</h3>
             <ul>
                 <li><b>Elemental Edge:</b> Empower your next attack by consuming your element.</li>
@@ -31,12 +35,22 @@ class ArchetypeInfoPanel(QFrame):
                 <li><b>Hero's Surge:</b> Make one additional weapon attack.</li>
                 <li><b>Radiant Shield:</b> Gain temporary HP.</li>
             </ul>
-
             <h3>Spending 6 Resolve — Critical Exploit</h3>
             <p>A devastating elemental finisher unique to each Knight. See an individual character page for details.</p>
-            """
-            label = QLabel(html)
-            label.setWordWrap(True)
-            layout.addWidget(label)
+            """)
+        elif "Shinsengumi" in archetype_name:
+            label.setText("""
+                <h2>Shinsengumi Archetype — Overview</h2>
+                <p>Shinsengumi excel at swift, precise strikes and battlefield repositioning, rewarding decisive aggression and discipline.</p>
+                <p><i>(Detailed mechanics TBD.)</i></p>
+            """)
+        elif "Argonauts" in archetype_name:
+            label.setText("""
+                <h2>Argonauts Archetype — Overview</h2>
+                <p>Argonauts embody heroic momentum and mythic synergy, growing stronger as the party overcomes adversity together.</p>
+                <p><i>(Detailed mechanics TBD.)</i></p>
+            """)
+        else:
+            label.setText(f"<h2>{archetype_name}</h2><p>No archetype information available yet.</p>")
 
-        self.setLayout(layout)
+        layout.addWidget(label)

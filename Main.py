@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtGui import QPixmap
 import sys, os
 
+from fgo_app.ui.ArchetypeInfoPanel import ArchetypeInfoPanel
 from fgo_app.ui.Category import CollapsibleCategory
 from fgo_app.ui.CharacterPage import CharacterPage
 from fgo_app.data.FgoGameData import CHARACTERS
@@ -50,9 +51,23 @@ class MainWindow(QWidget):
         # Create collapsible categories
         for category_name, character_list in CHARACTERS.items():
             col = CollapsibleCategory(category_name)
+            # Create a vertical layout for the content
+            content_layout = QVBoxLayout()
+            content_layout.setContentsMargins(10, 6, 10, 10)
+            content_layout.setSpacing(10)
+
+            # 1) Archetype info panel at the top
+            info_panel = ArchetypeInfoPanel(category_name)
+            content_layout.addWidget(info_panel)
+
+            # 2) Grid for servant "cards"
             grid = QGridLayout()
             grid.setAlignment(Qt.AlignLeft | Qt.AlignTop)
-            col.setContentLayout(grid)
+            grid.setSpacing(10)
+            content_layout.addLayout(grid)
+
+            # Plug this layout into the collapsible
+            col.setContentLayout(content_layout)
 
             # Insert characters
             for i, ch in enumerate(character_list):
