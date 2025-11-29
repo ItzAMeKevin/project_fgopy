@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QPixmap
 import sys, os
-
+from fgo_app.utils import resource_path
 from fgo_app.ui.ArchetypeInfoPanel import ArchetypeInfoPanel
 from fgo_app.ui.FinalChoicePage import FinalChoicePage
 from fgo_app.ui.Category import CollapsibleCategory
@@ -89,8 +89,8 @@ class MainWindow(QMainWindow):
                 card_layout.setSpacing(6)
 
                 # Load thumbnail
-                if os.path.exists(ch["image"]):
-                    pixmap = QPixmap(ch["image"]).scaled(
+                if os.path.exists(resource_path(ch["image"])):
+                    pixmap = QPixmap(resource_path(ch["image"])).scaled(
                         self.CARD_IMG_W, self.CARD_IMG_H, Qt.KeepAspectRatio, Qt.SmoothTransformation
                     )
                 else:
@@ -146,8 +146,11 @@ class MainWindow(QMainWindow):
         self.main_layout.addWidget(page)
 
 if __name__ == "__main__":
-    with open("style/fgo_theme.qss", "r") as f:
+    theme_qss = resource_path("style/fgo_theme.qss")
+
+    with open(theme_qss, "r") as f:
         style = f.read()
+
     app = QApplication(sys.argv)
     app.setStyleSheet(style)
     win = MainWindow()

@@ -1,11 +1,9 @@
-import os
 from PyQt5.QtWidgets import (
-    QWidget, QLabel, QToolButton, QVBoxLayout, QHBoxLayout,
+    QWidget, QToolButton, QVBoxLayout, QHBoxLayout,
     QFrame
 )
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt
-from fgo_app.ui.ArchetypeInfoPanel import ArchetypeInfoPanel
 
 
 # =============================================================

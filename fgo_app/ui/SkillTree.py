@@ -5,6 +5,7 @@ from PyQt5.QtCore import Qt, QRectF, QPointF
 from fgo_app.ui.SkillDialog import SkillDescriptionDialog
 from fgo_app.ui.ArmamentDialog import ArmamentDescriptionDialog
 from style.theme_loader import theme
+from fgo_app.utils import resource_path
 
 import json
 import os
@@ -114,7 +115,7 @@ class SkillTreeWidget(QGraphicsView):
     @staticmethod
     def load_progress_static(servant_name):
         try:
-            with open(SAVE_FILE, "r") as f:
+            with open(resource_path(SAVE_FILE)) as f:
                 data = json.load(f)
                 return {name: True for name in data.get(servant_name, {}).get("unlocked", [])}
         except:
@@ -122,10 +123,10 @@ class SkillTreeWidget(QGraphicsView):
     
     def load_progress(self, servant_name):
         """Load saved unlocked skills for this servant."""
-        if not os.path.exists(SAVE_FILE):
+        if not os.path.exists(resource_path(SAVE_FILE)):
             return
 
-        with open(SAVE_FILE, "r") as f:
+        with open(resource_path(SAVE_FILE)) as f:
             data = json.load(f)
 
         if servant_name not in data:
@@ -136,11 +137,11 @@ class SkillTreeWidget(QGraphicsView):
             self.is_unlocked[name] = True
 
     def save_progress(self, servant_name):
-        os.makedirs(os.path.dirname(SAVE_FILE), exist_ok=True)
+        os.makedirs(resource_path(os.path.dirname(SAVE_FILE)), exist_ok=True)
         data = {}
-        if os.path.exists(SAVE_FILE):
+        if os.path.exists(resource_path(SAVE_FILE)):
             try:
-                with open(SAVE_FILE, "r") as f:
+                with open(resource_path(SAVE_FILE), "r") as f:
                     data = json.load(f)
             except:
                 data = {}
@@ -149,7 +150,7 @@ class SkillTreeWidget(QGraphicsView):
             "unlocked": [name for name, value in self.is_unlocked.items() if value]
         }
 
-        with open(SAVE_FILE, "w") as f:
+        with open(resource_path(SAVE_FILE), "w") as f:
             json.dump(data, f, indent=4)
 
     # ---------------------------------------------------------

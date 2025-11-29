@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QScrollArea
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QScrollArea, QMessageBox
 from PyQt5.QtCore import Qt
-import json
-from fgo_app.ui.FinalChoicePage import FinalChoicePage
+import json, os
 from fgo_app.ui.SkillTree import SkillTreeWidget
 from fgo_app.data.FgoGameData import CHAR_ARMAMENTS, ARMAMENT_SKILLS, getCharacter
+from fgo_app.utils import resource_path
 
 
 class CharacterPage(QWidget):
@@ -33,6 +33,11 @@ class CharacterPage(QWidget):
         confirm.setFixedWidth(190)
         confirm.clicked.connect(self.onConfirmClicked)
         top.addWidget(confirm, alignment=Qt.AlignRight)
+
+        reset_btn = QPushButton("Reset")
+        reset_btn.setFixedWidth(190)
+        reset_btn.clicked.connect(self.onResetClicked)
+        top.addWidget(reset_btn, alignment=Qt.AlignRight)
 
         main_layout.addLayout(top)
 
@@ -94,7 +99,7 @@ class CharacterPage(QWidget):
     def onConfirmClicked(self):
         # Load progress JSON
         try:
-            with open("fgo_app/saves/servant_progress.json", "r") as f:
+            with open(resource_path("fgo_app/saves/servant_progress.json")) as f:
                 progress = json.load(f)
         except:
             progress = {}
@@ -107,3 +112,39 @@ class CharacterPage(QWidget):
         else:
             # Fallback: just print if something is miswired
             print("Main window has no open_final_choice_page method")
+
+    def onResetClicked(self):
+        # Confirm popup
+        reply = QMessageBox.question(
+            self,
+            "Reset Progress",
+            "Are you sure you want to delete all unlocked skills for EVERY character?\n"
+            "This action cannot be undone.",
+            QMessageBox.Yes | QMessageBox.No
+        )
+
+        if reply != QMessageBox.Yes:
+            return
+
+        # Delete progress file
+        save_path = resource_path("fgo_app/saves/servant_progress.json")
+        try:
+            if os.path.exists(save_path):
+                os.remove(save_path)
+        except Exception as e:
+            QMessageBox.warning(self, "Error", f"Could not delete save file:\n{e}")
+            return
+
+        # Reinitialize in-memory unlocked state
+        self.unlocked_state = {}
+
+        # Refresh the entire page
+        self.refreshPage()
+
+        QMessageBox.information(self, "Progress Reset", "All skill progress has been reset.")
+
+    def refreshPage(self):
+        main_window = self.window()
+        main_window.open_character_page(self.character_name)
+
+

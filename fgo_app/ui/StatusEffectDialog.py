@@ -1,8 +1,9 @@
-import json
+import json, os
 from PyQt5.QtWidgets import (
     QDialog, QVBoxLayout, QLabel, QScrollArea, QWidget, QHBoxLayout
 )
 from PyQt5.QtCore import Qt
+from fgo_app.utils import resource_path
 
 class StatusEffectDialog(QDialog):
     def __init__(self, parent=None):
@@ -12,7 +13,12 @@ class StatusEffectDialog(QDialog):
         self.setMinimumHeight(980)
 
         # Load JSON
-        with open("fgo_app/resources/status_effects.json", "r") as f:
+        json_path = resource_path("fgo_app/resources/status_effects.json")
+
+        if not os.path.exists(json_path):
+            raise FileNotFoundError(f"Status effects file missing: {json_path}")
+
+        with open(json_path) as f:
             self.effects = json.load(f)
 
         # --------- MAIN LAYOUT ----------

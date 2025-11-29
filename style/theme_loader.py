@@ -1,7 +1,7 @@
 import os
 import configparser
 from PyQt5.QtGui import QColor
-
+from fgo_app.utils import resource_path
 
 class ThemeLoader:
     """Loads color + theme data from an INI file."""
@@ -61,4 +61,4 @@ class ThemeLoader:
 #
 #     from style.theme_loader import theme
 #
-theme = ThemeLoader(os.path.join(os.path.dirname(__file__), "fgo_colors.ini"))
+theme = ThemeLoader(resource_path("style/fgo_colors.ini"))

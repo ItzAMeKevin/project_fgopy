@@ -6,6 +6,7 @@ from fgo_app.ui.ArmamentDialog import ArmamentDescriptionDialog
 from fgo_app.data.FgoGameData import ARMAMENT_SKILLS, CHAR_ARMAMENTS, ARCHETYPES, get_archetype_for_character
 from fgo_app.data.FgoGameData import getCharacter
 from fgo_app.ui.StatusEffectDialog import StatusEffectDialog
+from fgo_app.utils import resource_path
 
 
 class FinalChoicePage(QWidget):
@@ -66,7 +67,7 @@ class FinalChoicePage(QWidget):
         row = QHBoxLayout()
 
         portrait_label = QLabel()
-        pixmap = QPixmap(self.character_data["image"])
+        pixmap = QPixmap(resource_path(self.character_data["image"]))
         portrait_label.setPixmap(pixmap.scaledToWidth(300, Qt.SmoothTransformation))
         row.addWidget(portrait_label)
 
