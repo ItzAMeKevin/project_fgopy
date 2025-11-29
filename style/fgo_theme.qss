@@ -201,3 +201,12 @@ QDialog QPushButton {
  QLabel {
     font-size: 26px;
  }
+
+QLabel#Description {
+    border: 2px solid #d4af37;
+    background: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #fff7d1,
+        stop:1 #ffe9a3
+    );
+}

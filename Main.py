@@ -19,7 +19,7 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Fate Grand Order - Servant Core")
-        self.resize(1600, 900)
+        self.resize(2560, 1440)
 
         self.main_layout = QVBoxLayout(self)
         self.build_main_page()

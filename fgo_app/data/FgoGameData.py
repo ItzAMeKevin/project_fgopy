@@ -2,23 +2,167 @@ import os
 
 ASSETS_DIR = "fgo_app/images"
 
+def getCharacter(name):
+    for archetype, characters in CHARACTERS.items():
+        for character in characters:
+            if character["name"] == name:
+                return character
+    return None
+
+
 CHARACTERS = {
     "Knights of the Round Table": [
-        {"name": "Lancelot", "image": os.path.join(ASSETS_DIR, "lancelot_saber.jpg")},
-        {"name": "Gawain",   "image": os.path.join(ASSETS_DIR, "gawain.jpg")},
-        {"name": "Mordred", "image": os.path.join(ASSETS_DIR, "mordred.jpg")},
+        {
+            "name": "Lancelot",
+            "image": os.path.join(ASSETS_DIR, "lancelot_saber.jpg"),
+            "description": (
+                "<h3>Lancelot — The Knight of the Lake</h3>"
+                "<p>Lancelot excels as a disciplined frost duelist who controls the battlefield through precision, "
+                "speed, and methodical application of <b>Freeze</b>. His playstyle revolves around building and "
+                "consuming Freeze stacks to enhance damage and to slow enemies, rewarding players who plan their turns "
+                "carefully and manipulate enemy movement.</p>"
+
+                "<p>Arondight empowers him with fluid, icy strikes that hinder opponents while opening opportunities "
+                "for devastating follow-ups. Lancelot’s abilities allow him to weave between offense and defense—"
+                "counterattacking foes who threaten him, repositioning with supernatural grace, and unleashing "
+                "powerful finishing blows when Freeze reaches its peak.</p>"
+
+                "<p>Players who enjoy tactical combat, precise timing, and escalating elemental pressure will find "
+                "Lancelot a deeply rewarding Servant who controls the flow of every engagement.</p>"
+                
+                "<h3>Critical Exploit — Ice Shatter</h3>"
+                "<p><b>Trigger:</b> You spend 6 Resolve as a bonus action. "
+                "On your next successful weapon attack, if the target is afflicted with <b>Freeze</b>, "
+                "<i>Ice Shatter</i> activates.</p>"
+
+                "<h4>Effect</h4>"
+                "<ul>"
+                    "<li><b>If Freeze is at maximum potency:</b>"
+                        "<ul>"
+                            "<li>Deal cold damage equal to <b>Freeze Potency × 5</b></li>"
+                            "<li>The target is <b>knocked prone</b></li>"
+                            "<li><b>Freeze is removed</b> from the target</li>"
+                        "</ul>"
+                    "</li>"
+
+                    "<li><b>If Freeze is NOT at max potency:</b>"
+                        "<ul>"
+                            "<li>Deal cold damage equal to <b>Freeze Potency × 3</b></li>"
+                            "<li><b>Freeze is removed</b> from the target</li>"
+                        "</ul>"
+                    "</li>"
+                "</ul>"
+            )
+        },
+        {
+            "name": "Gawain",
+            "image": os.path.join(ASSETS_DIR, "gawain.jpg"),
+            "description": (
+                "<h3>Gawain — The Knight of the Sun</h3>"
+                "<p>Gawain embodies overwhelming strength empowered by blazing sunlight. "
+                "As a frontline juggernaut, he excels at sustained offense—his power rising "
+                "dramatically when fighting in bright light. His abilities leverage solar fire "
+                "to inflict Burn stacks on foes, bolster his defenses, and dominate close-quarters "
+                "combat with radiant might.</p>"
+
+                "<p>Wielding Excalibur Galatine, Gawain sweeps the battlefield with wide arcs "
+                "of flame and holy radiance. His momentum builds as he lands consecutive blows, "
+                "letting him scale in damage over the course of a fight. With proper positioning "
+                "and control of light conditions, Gawain transforms into a relentless beacon of "
+                "burning destruction.</p>"
+
+                "<p>Players who enjoy heroic aggression, explosive fire bursts, and a “power-up” "
+                "playstyle will find Gawain’s solar combat both satisfying and spectacular.</p>"
+
+                "<h3>Critical Exploit — Solar Flare</h3>"
+                "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
+                "On your next successful attack, if the target is afflicted with <b>Burn</b>, "
+                "<i>Solar Flare</i> activates.</p>"
+
+                "<h4>Effect</h4>"
+                "<ul>"
+                    "<li>Deal <b>fire damage equal to Burn Potency × 2</b> to the target.</li>"
+                    "<li>The target emits a <b>Solar Shockwave</b>:"
+                        "<ul>"
+                            "<li>All creatures adjacent (within 5 feet / 4 tiles around) take "
+                            "<b>fire damage equal to Burn Potency</b>.</li>"
+                        "</ul>"
+                    "</li>"
+                    "<li>You gain <b>temporary HP equal to Burn Potency</b>.</li>"
+                    "<li><b>Burn is removed</b> from the target.</li>"
+                "</ul>"
+            )
+        },
+        {
+            "name": "Mordred",
+            "image": os.path.join(ASSETS_DIR, "mordred.jpg"),
+            "description": (
+                "<h3>Mordred — The Knight of Rebellion</h3>"
+                "<p>Mordred thrives on reckless aggression, channeling volatile lightning and burning fury "
+                "through Clarent. She is a close-range bruiser whose damage output skyrockets when she fights "
+                "at low HP, rewarding bold plays and unrelenting momentum. Shock and burning effects fuel her "
+                "chaotic style, letting her tear through enemies with explosive burst damage.</p>"
+
+                "<p>Her attacks often come with a cost—Mordred willingly harms herself to unleash Clarent’s "
+                "corrupted power. Yet her kit also provides ways to stabilize or recover through fiery backlash, "
+                "letting her walk the razor’s edge between survival and destruction. Players who enjoy high-risk, "
+                "high-reward gameplay will find Mordred’s lightning-charged rage both dangerous and exhilarating.</p>"
+
+                "<p>Prydwen serves as her alternate armament, granting unmatched mobility and aerial maneuvering. "
+                "It enables blistering movement-based combos that prime her targets with <b>Shock</b> before "
+                "delivering devastating finishers.</p>"
+
+                "<h3>Critical Exploit — Overload</h3>"
+                "<p><b>Trigger:</b> You spend 6 Resolve with a bonus action. "
+                "On your next successful attack, if the target is afflicted with <b>Shock</b>, "
+                "<i>Overload</i> activates.</p>"
+
+                "<h4>Effect</h4>"
+                "<ul>"
+                    "<li>Deal <b>lightning damage equal to Shock Potency × 4</b> to the target.</li>"
+                    "<li>The target <b>loses its Reaction</b> until the start of your next turn.</li>"
+                    "<li>The target has <b>disadvantage on concentration checks</b> until the start of your next turn.</li>"
+                    "<li><b>Shock is removed</b> from the target.</li>"
+                "</ul>"
+            )
+
+        },
     ],
 
     "Shinsengumi": [
-        {"name": "Okita Souji", "image": os.path.join(ASSETS_DIR, "okita.jpg")},
-        {"name": "Saito Hajime", "image": os.path.join(ASSETS_DIR, "hajime.jpg")},
-        {"name": "Nagakura Shinpachi", "image": os.path.join(ASSETS_DIR, "shinpachi.jpg")},
+        {
+            "name": "Okita Souji",
+            "image": os.path.join(ASSETS_DIR, "okita.jpg"),
+            "description": ""
+        },
+        {
+            "name": "Saito Hajime",
+            "image": os.path.join(ASSETS_DIR, "hajime.jpg"),
+            "description": ""
+        },
+        {
+            "name": "Nagakura Shinpachi",
+            "image": os.path.join(ASSETS_DIR, "shinpachi.jpg"),
+            "description": ""
+        },
     ],
 
     "Argonauts": [
-        {"name": "Heracles", "image": os.path.join(ASSETS_DIR, "heracles.jpg")},
-        {"name": "Caenis", "image": os.path.join(ASSETS_DIR, "caenis.jpg")},
-        {"name": "Atalanta", "image": os.path.join(ASSETS_DIR, "atalanta.jpg")},
+        {
+            "name": "Heracles",
+            "image": os.path.join(ASSETS_DIR, "heracles.jpg"),
+            "description": ""
+        },
+        {
+            "name": "Caenis",
+            "image": os.path.join(ASSETS_DIR, "caenis.jpg"),
+            "description": ""
+        },
+        {
+            "name": "Atalanta",
+            "image": os.path.join(ASSETS_DIR, "atalanta.jpg"),
+            "description": ""
+        },
     ],
 }
 
