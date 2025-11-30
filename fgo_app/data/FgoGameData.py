@@ -240,7 +240,20 @@ CHARACTERS = {
                     "<h2>Placeholder</h2>"
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """<h3>Execution Art — Zantetsu-sen (斬鉄閃)</h3>
+                    <p><b>Trigger:</b> When you reach <b>Execution Point</b>, you may choose to use this Execution Art
+                    instead of performing a Standard Execution. It enhances the next weapon attack you make this turn.</p>
+
+                    <h4>Effect</h4>
+                    <ul>
+                        <li>You have <b>advantage</b> on the attack roll.</li>
+                        <li>The attack deals an additional <b>2d6 slashing damage</b>.</li>
+                        <li>If the target is afflicted with <b>Bleed</b>, the attack deals additional slashing damage
+                        equal to <b>Bleed Potency × 2</b>.</li>
+                        <li>If the attack reduces a creature to 0 hit points, you may move <b>up to 10 feet</b> without provoking opportunity attacks.</li>
+                    </ul>
+
+                    <p>Zantetsu-sen ends the Iaijutsu Chain and immediately grants <b>Perfect Style</b>.</p>"""
                 )
             }
         },
@@ -459,18 +472,61 @@ CHAR_ARMAMENTS = {
 
     "Okita Souji": [
         {
-            "name": "Coat of Oaths",
-            "type": "Clothing",
-            "description": "Symbol of her honor.",
-            "effects": [],
-            "effects_data": []
+            "name": "Sakura-Nagashi (桜流し)",
+            "type": "Katana",
+            "description": (
+                "A graceful katana whose pale edge drifts like falling blossoms in the wind. Its slashes are light, "
+                "effortless, and deceptively lethal—each cut leaving a winding crimson trail. Sakura-Nagashi embodies "
+                "Okita's elegant, flowing swordsmanship, turning every motion into a drifting petal of death."
+            ),
+            "effects": [
+                "<b>Petalstep Footwork:</b> Your movement speed increases by <b>5 feet</b>.",
+
+                "<b>Winding Petals:</b> When you hit a creature already afflicted with <b>Bleed</b>, your attack deals "
+                "<b>+2 slashing damage</b>.",
+
+                "<b>Crimson Drift:</b> Once per turn, when you hit a creature with a weapon attack, you may move "
+                "<b>5 feet</b> without provoking opportunity attacks.",
+
+                "<b>Cherryblade Form:</b> The first time each turn you apply <b>Bleed</b>, its <b>duration</b> increases "
+                "by <b>+1</b>."
+            ],
+            "effects_data": [
+                {"id": "sakura_speed_bonus", "value": 5},
+                {"id": "sakura_bleed_bonus_damage", "value": 2},
+                {"id": "sakura_crimson_drift", "value": 5},
+                {"id": "sakura_bleed_duration_increase", "value": 1}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Something",
-            "effects": [],
-            "effects_data": []
+            "name": "Mugetsu-no-Hamon (無月の刃文)",
+            "type": "Katana",
+            "description": ("""
+                A pitch-black cursed katana whose edge glows faintly pink, like moonlight reflected in blood.
+                Its hamon is broken and moonless — a phantom edge said to cleave through impossible angles.
+                Only those with perfect footwork and flawless spatial awareness can unlock its true potential.
+            """),
+            "effects": [
+                "<b>Moonless Footwork:</b> If you move at least <b>15 feet</b> on your turn, moving <i>only diagonally</i> "
+                "and without entering any space you have previously occupied since the start of your turn, your first "
+                "weapon attack this turn deals <b>+2 slashing damage</b>.",
+
+                "<b>Shadowline Cut:</b> Once per turn, when you make a weapon attack, it gains <b>+5 feet of reach</b>. "
+                "This extended reach applies only to that attack.",
+
+                "<b>Blind-Angle Opening:</b> When you hit a creature that is <b>flanked</b> (two allies threatening it "
+                "from opposite sides), you apply <b>Vulnerable (potency 1, duration 1)</b>. This can occur "
+                "<b>once per turn</b>.",
+
+                "<b>Crescent Void Edge:</b> When you perform an <b>Execution Technique</b>, if the target has "
+                "<b>no adjacent allies</b>, the attack deals an additional <b>1d6 slashing damage</b>."
+            ],
+            "effects_data": [
+                {"id": "mugetsu_moonless_footwork_bonus", "value": 2},
+                {"id": "mugetsu_extended_reach", "value": 5},
+                {"id": "mugetsu_vulnerable_on_flank", "value": 1},
+                {"id": "mugetsu_execution_isolated_bonus", "value": "1d6"}
+            ]
         },
     ],
 
@@ -1068,5 +1124,82 @@ ARMAMENT_SKILLS = {
         }
     ],
 
+    "Sakura-Nagashi (桜流し)": [
+        {
+            "name": "Sakura-giri (桜斬り) — Petal Cut",
+            "action_type": "Attack Action",
+            "prerequisite": "Sakura-Nagashi (桜流し)",
+            "incantation": "A single petal cleaves… Sakura-giri!",
+            "description": (
+                "Your blade flicks forward like a drifting cherry petal, slicing a clean opening and drawing first blood. "
+                "A precise Bleed-focused opener to Sakura-Nagashi’s flowing form."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose <b>one</b> weapon attack you make this turn.",
+                "On hit, apply <b>Bleed (potency 1, duration 1)</b>.",
+                "If the target already has Bleed, the attack deals <b>+1d4 slashing damage</b>.",
+                "If Bleed is at <b>maximum duration</b>, increase its <b>potency by +1</b> (respecting max potency)."
+            ],
+            "tags": ["Bleed", "Attack Action", "Single-Hit"]
+        },
 
+        {
+            "name": "Nagare-zan (流れ斬) — Flowing Rend",
+            "action_type": "Attack Action",
+            "prerequisite": "Sakura-giri (桜斬り) — Petal Cut",
+            "incantation": "Flow with the wind—Nagare-zan!",
+            "description": (
+                "A drifting horizontal cut that deepens the wound in a flowing arc, extending Sakura-Nagashi’s bleeding "
+                "pressure before a blooming finish."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one</b> weapon attack.",
+                "On hit, deal <b>+1d6 slashing damage</b>.",
+                "If the target is afflicted with <b>Bleed</b>, extend its <b>duration by +1</b>.",
+                "If you moved at least <b>5 feet</b> this turn, this attack deals an additional <b>+1 slashing damage</b>."
+            ],
+            "tags": ["Bleed", "Attack Action", "Finisher", "Setup"]
+        },
+
+        {
+            "name": "Kurenai-ippo (紅一歩) — Crimson Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Sakura-Nagashi (桜流し)",
+            "incantation": "Step through the bloom… Kurenai-ippo!",
+            "description": (
+                "A drifting crimson stride that positions Okita perfectly for an opening cut. Fluid motion creates "
+                "a momentary opening to draw blood."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this ability as a Bonus Action.",
+                "Move up to <b>10 feet</b> without provoking opportunity attacks.",
+                "Your next weapon attack this turn applies <b>Bleed (potency 1, duration 1)</b>.",
+                "If that attack already applies Bleed, increase its <b>duration by +1</b>."
+            ],
+            "tags": ["Mobility", "Bleed", "Bonus Action"]
+        },
+
+        {
+            "name": "Sakura-mai (桜舞い) — Cherryburst Spiral",
+            "action_type": "Attack Action",
+            "prerequisite": "Kurenai-ippo (紅一歩) — Crimson Step",
+            "incantation": "Scatter, petals… Sakura-mai!",
+            "description": (
+                "You whirl into a blooming spiral of drifting petals, striking twice in a graceful flurry that deepens "
+                "the enemy’s bleeding wounds."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>two</b> weapon attacks instead of one.",
+                "Each attack deals <b>+1 slashing damage</b>.",
+                "If either attack hits a creature afflicted with <b>Bleed</b>, extend its <b>duration by +1</b>.",
+                "If both attacks hit, deal an additional <b>1d8 slashing damage</b>."
+            ],
+            "tags": ["Bleed", "Multi-Hit", "Finisher", "Attack Action"]
+        },
+    ],
+
+    "Mugetsu-no-Hamon (無月の刃文)": [],
 }

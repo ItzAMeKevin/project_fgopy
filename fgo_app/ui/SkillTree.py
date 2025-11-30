@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QGraphicsTextItem
-from PyQt5.QtGui import QPen, QBrush, QPainter, QColor
+from PyQt5.QtGui import QPen, QBrush, QPainter, QColor, QTextOption
 from PyQt5.QtCore import Qt, QRectF, QPointF
 
 from fgo_app.ui.SkillDialog import SkillDescriptionDialog
@@ -325,7 +325,7 @@ class SkillTreeWidget(QGraphicsView):
         self.node_items.clear()
         self.node_rectangles.clear()
 
-        node_w = 300
+        node_w = 350
         spacing_x = 120
         spacing_y = 120
 
@@ -354,6 +354,10 @@ class SkillTreeWidget(QGraphicsView):
             current_font.setBold(True)
             text_item.setFont(current_font)
 
+            opt = QTextOption()
+            opt.setAlignment(Qt.AlignCenter)
+            text_item.document().setDefaultTextOption(opt)
+
             text_rect = text_item.boundingRect()
             node_h = max(base_h, text_rect.height() + 20)
 
@@ -366,10 +370,9 @@ class SkillTreeWidget(QGraphicsView):
                 QBrush(fill_color)
             )
 
-            text_item.setPos(
-                x + 10,
-                y + (node_h - text_rect.height()) / 2
-            )
+            text_x = x + (node_w - text_rect.width()) / 2
+            text_y = y + (node_h - text_rect.height()) / 2
+            text_item.setPos(text_x, text_y)
             text_item.setZValue(1)
 
             # Register items
