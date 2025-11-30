@@ -237,10 +237,28 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "okita.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """<h2>Okita Souji</h2>
+
+                    <p>A swift and graceful swordswoman of the Shinsengumi, Okita Souji fights with a drifting elegance that
+                    belies the lethality of her technique. Her blade strikes like falling petals—light, effortless, and
+                    deceptively fatal. She flows across the battlefield in silent diagonal steps, slipping through blind
+                    angles before carving precise, blooming wounds into her foes.</p>
+
+                    <p>Okita specializes in <b>Bleed</b>, drawing out her enemy’s vitality through rapid, refined cuts.
+                    Whether she drifts in a smooth cherry-blossom flow or dances through impossible angles beneath a
+                    moonless sky, her combat style revolves around building and exploiting openings with perfect timing.</p>
+
+                    <p>Her Iaijutsu Chain rewards striking from new weaknesses in sequence, culminating in a decisive
+                    Execution Technique that reflects her mastery of drifting swordplay. Okita’s two armaments shape her
+                    approach: <b>Sakura-Nagashi</b> offers fluid motion and elegant Bleed pressure, while
+                    <b>Mugetsu-no-Hamon</b> challenges the most skilled fighters to leverage flawless positioning and
+                    spatial awareness.</p>
+
+                    <p>In the hands of a tactician who values efficiency, precision, and movement, Okita becomes a crimson
+                    storm—an artist painting death in flowing strokes of drifting petals and moonless cuts.</p>"""
                 ),
                 "mini_ult": (
-                    """<h3>Execution Art — Zantetsu-sen (斬鉄閃)</h3>
+                    """<h3>Execution Art — Zantetsu-sen</h3>
                     <p><b>Trigger:</b> When you reach <b>Execution Point</b>, you may choose to use this Execution Art
                     instead of performing a Standard Execution. It enhances the next weapon attack you make this turn.</p>
 
@@ -327,6 +345,7 @@ CHARACTERS = {
 CHAR_ARMAMENTS = {
     "Lancelot": [
         {
+            "key": "Arondight",
             "name": "Arondight",
             "type": "Longsword",
             "description": (
@@ -472,7 +491,7 @@ CHAR_ARMAMENTS = {
 
     "Okita Souji": [
         {
-            "name": "Sakura-Nagashi (桜流し)",
+            "name": "Sakura-Nagashi — Drifiting Sakura",
             "type": "Katana",
             "description": (
                 "A graceful katana whose pale edge drifts like falling blossoms in the wind. Its slashes are light, "
@@ -499,7 +518,7 @@ CHAR_ARMAMENTS = {
             ]
         },
         {
-            "name": "Mugetsu-no-Hamon (無月の刃文)",
+            "name": "Mugetsu-no-Hamon — Moonless Blade Pattern",
             "type": "Katana",
             "description": ("""
                 A pitch-black cursed katana whose edge glows faintly pink, like moonlight reflected in blood.
@@ -629,7 +648,7 @@ ARMAMENT_SKILLS = {
             "incantation": "Let winter claim your weakness… Frostbite Slash!",
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "On hit, the attack applies <b>Freeze (potency 1, duration 2)</b>.",
                 "If the target is already afflicted with Freeze, the attack instead deals <b>+2 cold damage</b>.",
                 "Only one attack can benefit from this feature per turn."
@@ -647,7 +666,7 @@ ARMAMENT_SKILLS = {
             "incantation": "Shatter beneath the weight of eternal frost! Cryo Blade!",
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "The attack deals <b>+2d6 cold damage</b> if the target is afflicted with Freeze.",
                 "If the target has Freeze at <b>maximum potency</b>, its speed becomes <b>0</b> "
                 "until the end of its next turn."
@@ -759,7 +778,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "The attack deals <b>+2d6 damage</b> of your choice: bludgeoning, piercing, or slashing.",
                 "If you currently have Breakform Shift active, the attack also applies <b>Freeze</b> "
                 "(potency 1, duration 1).",
@@ -795,7 +814,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "On hit, the target takes <b>+2d6 force damage</b>.",
                 "If you hit a creature more than once on your previous turn (Momentum Overload triggered), "
                 "the attack deals an additional <b>+2d6 damage</b>.",
@@ -818,7 +837,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "The attack deals <b>+1d6 fire damage</b>.",
                 "Creatures adjacent to the target take <b>1 fire damage</b>.",
                 "If you are in bright light, the target is afflicted with "
@@ -875,7 +894,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack this turn.",
+                "Choose one weapon attack this turn before you hit.",
                 "On hit, the attack deals <b>+2d6 fire damage</b>.",
                 "Create a <b>10-foot radius</b> zone of searing solar flame centered on the target "
                 "until the start of your next turn.",
@@ -978,7 +997,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make in this turn.",
+                "Choose one weapon attack you make in this turn before you hit.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "After the attack resolves, you take <b>6 lightning damage</b>.",
                 "The target is afflicted with <b>Shock (potency 1, duration 1)</b>."
@@ -996,7 +1015,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack you make this turn.",
+                "Choose one weapon attack you make this turn before you hit.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you are at or below half of your maximum hit points, the attack deals an additional "
                 "<b>+2d6 lightning damage</b> and the target is afflicted with "
@@ -1075,7 +1094,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack this turn.",
+                "Choose one weapon attack this turn before you hit.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you moved at least 10 feet before this attack, the target is afflicted with "
                 "<b>Shock (potency 1, duration 1)</b>.",
@@ -1114,7 +1133,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose one weapon attack this turn.",
+                "Choose one weapon attack this turn before you hit.",
                 "On hit, the attack deals <b>+2d6 lightning damage</b>.",
                 "If you moved or jumped at least 10 feet before this attack, it deals an additional "
                 "<b>+1d6 thunder damage</b>.",
@@ -1124,11 +1143,11 @@ ARMAMENT_SKILLS = {
         }
     ],
 
-    "Sakura-Nagashi (桜流し)": [
+    "Sakura-Nagashi — Drifiting Sakura": [
         {
-            "name": "Sakura-giri (桜斬り) — Petal Cut",
+            "name": "Sakura-giri — Petal Cut",
             "action_type": "Attack Action",
-            "prerequisite": "Sakura-Nagashi (桜流し)",
+            "prerequisite": "Sakura-Nagashi — Drifiting Sakura",
             "incantation": "A single petal cleaves… Sakura-giri!",
             "description": (
                 "Your blade flicks forward like a drifting cherry petal, slicing a clean opening and drawing first blood. "
@@ -1136,7 +1155,7 @@ ARMAMENT_SKILLS = {
             ),
             "effects": [
                 "<b>Trigger:</b> When you take the Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn.",
+                "Choose <b>one</b> weapon attack you make this turn before you hit.",
                 "On hit, apply <b>Bleed (potency 1, duration 1)</b>.",
                 "If the target already has Bleed, the attack deals <b>+1d4 slashing damage</b>.",
                 "If Bleed is at <b>maximum duration</b>, increase its <b>potency by +1</b> (respecting max potency)."
@@ -1145,9 +1164,9 @@ ARMAMENT_SKILLS = {
         },
 
         {
-            "name": "Nagare-zan (流れ斬) — Flowing Rend",
+            "name": "Nagare-zan — Flowing Rend",
             "action_type": "Attack Action",
-            "prerequisite": "Sakura-giri (桜斬り) — Petal Cut",
+            "prerequisite": "Sakura-giri — Petal Cut",
             "incantation": "Flow with the wind—Nagare-zan!",
             "description": (
                 "A drifting horizontal cut that deepens the wound in a flowing arc, extending Sakura-Nagashi’s bleeding "
@@ -1164,9 +1183,9 @@ ARMAMENT_SKILLS = {
         },
 
         {
-            "name": "Kurenai-ippo (紅一歩) — Crimson Step",
+            "name": "Kurenai-ippo — Crimson Step",
             "action_type": "Bonus Action",
-            "prerequisite": "Sakura-Nagashi (桜流し)",
+            "prerequisite": "Sakura-Nagashi — Drifiting Sakura",
             "incantation": "Step through the bloom… Kurenai-ippo!",
             "description": (
                 "A drifting crimson stride that positions Okita perfectly for an opening cut. Fluid motion creates "
@@ -1182,9 +1201,9 @@ ARMAMENT_SKILLS = {
         },
 
         {
-            "name": "Sakura-mai (桜舞い) — Cherryburst Spiral",
+            "name": "Sakura-mai — Cherryburst Spiral",
             "action_type": "Attack Action",
-            "prerequisite": "Kurenai-ippo (紅一歩) — Crimson Step",
+            "prerequisite": "Kurenai-ippo — Crimson Step",
             "incantation": "Scatter, petals… Sakura-mai!",
             "description": (
                 "You whirl into a blooming spiral of drifting petals, striking twice in a graceful flurry that deepens "
@@ -1201,5 +1220,84 @@ ARMAMENT_SKILLS = {
         },
     ],
 
-    "Mugetsu-no-Hamon (無月の刃文)": [],
+    "Mugetsu-no-Hamon — Moonless Blade Pattern": [
+        {
+            "name": "Mugetsu Hohō — Moonless Footwork",
+            "action_type": "Bonus Action",
+            "prerequisite": "Mugetsu-no-Hamon — Moonless Blade Pattern",
+            "incantation": "A shadow without moonlight… Mugetsu Hohō!",
+            "description": (
+                "Through silent diagonal steps, you drift like a moonless shadow across the battlefield. This flowing "
+                "footwork creates an unexpected opening to draw blood before your true technique begins."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this as a Bonus Action.",
+                "Move up to <b>15 feet</b>, but every square moved must be <i>diagonal</i>.",
+                "Your next weapon attack this turn applies <b>Bleed (potency 1, duration 2)</b>.",
+                "If you did not enter the same square twice during this turn, the attack deals <b>+1 slashing damage</b>."
+            ],
+            "tags": ["Mobility", "Bleed", "Positioning", "Bonus Action"]
+        },
+
+        {
+            "name": "Mugetsu Mai — Moonless Dance",
+            "action_type": "Attack Action",
+            "prerequisite": "Mugetsu Hohō — Moonless Footwork",
+            "incantation": "Dance beneath a moonless sky… Mugetsu Mai!",
+            "description": (
+                "You weave in a silent dancing step around your foe, striking from an impossible diagonal angle. "
+                "The flowing motion deepens their bleeding wound in a single, elegant execution."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one</b> weapon attack.",
+                "If you moved at least <b>15 feet diagonally</b> this turn, the attack gains <b>advantage</b>.",
+                "On hit, if the target was already afflicted with <b>Bleed</b> at the start of your turn, "
+                "deal additional slashing damage equal to <b>Bleed Potency × 2</b>.",
+                "Then, you inflict <b>Bleed (potency 1, duration 1)</b>.",
+                "You may remove Bleed from the target to deal <b>+1d6 slashing damage</b>.",
+                "After the attack, you may move <b>5 feet</b> without provoking opportunity attacks."
+            ],
+            "tags": ["Bleed", "Finisher", "Positioning", "Attack Action"]
+        },
+
+        {
+            "name": "Kage-sashi — Shadow-Piercing Step",
+            "action_type": "Attack Action",
+            "prerequisite": "Mugetsu-no-Hamon — Moonless Blade Pattern",
+            "incantation": "A thrust from the unseen… Kage-sashi!",
+            "description": (
+                "You slip into an enemy’s blind angle and pierce with a shadowed thrust. The technique weakens their "
+                "defenses for a decisive execution."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose <b>one</b> weapon attack this turn before you hit.",
+                "If you are in a <b>flanking position</b>, the attack deals <b>+1d6 slashing damage</b>.",
+                "If you are the <b>only creature</b> flanking the target, apply <b>Vulnerable (potency 1, duration 1)</b>.",
+                "If the target already has Vulnerable, increase its <b>duration by +1</b> (respecting max duration)."
+            ],
+            "tags": ["Vulnerable", "Positioning", "Attack Action"]
+        },
+
+        {
+            "name": "Getsumen-Sōkei — Moonshadow Twin Path",
+            "action_type": "Attack Action",
+            "prerequisite": "Kage-sashi — Shadow-Piercing Step",
+            "incantation": "Two cuts under a moonless sky… Getsumen-Sōkei!",
+            "description": (
+                "You deliver a precise twin-path strike from the target’s blind angle, opening them to a devastating "
+                "follow-up blow. A technique that perfectly complements Mugetsu’s spatial mastery."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one</b> empowered weapon attack.",
+                "If you strike from a <b>diagonal square</b>, the attack gains <b>advantage</b>.",
+                "On hit, deal <b>+1d6 slashing damage</b>.",
+                "If the target is afflicted with <b>Vulnerable</b>, deal an additional <b>+2d6 slashing damage</b>.",
+                "If the target has <b>no adjacent allies</b>, increase Vulnerable’s <b>duration by +1</b>."
+            ],
+            "tags": ["Vulnerable", "Finisher", "Positioning", "Attack Action"]
+        }
+    ],
 }
