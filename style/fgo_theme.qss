@@ -215,5 +215,5 @@ QLabel#Description {
 }
 
 QPushButton#FinalPageNode {
-    max-width: 330px;
+    max-width: 740px;
 }

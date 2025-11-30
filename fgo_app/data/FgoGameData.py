@@ -258,7 +258,8 @@ CHARACTERS = {
                     storm—an artist painting death in flowing strokes of drifting petals and moonless cuts.</p>"""
                 ),
                 "mini_ult": (
-                    """<h3>Execution Art — Zantetsu-sen</h3>
+                    """
+                    <h3>Execution Art — Zantetsu-sen (斬鉄閃)</h3>
                     <p><b>Trigger:</b> When you reach <b>Execution Point</b>, you may choose to use this Execution Art
                     instead of performing a Standard Execution. It enhances the next weapon attack you make this turn.</p>
 
@@ -271,19 +272,55 @@ CHARACTERS = {
                         <li>If the attack reduces a creature to 0 hit points, you may move <b>up to 10 feet</b> without provoking opportunity attacks.</li>
                     </ul>
 
-                    <p>Zantetsu-sen ends the Iaijutsu Chain and immediately grants <b>Perfect Style</b>.</p>"""
+                    <p>Zantetsu-sen ends the Iaijutsu Chain and immediately grants <b>Perfect Style</b>.</p>
+                    """
                 )
             }
         },
         {
-            "name": "Saito Hajime",
+            "name": "Saitō Hajime",
             "image": os.path.join(ASSETS_DIR, "hajime.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h2>Saitō Hajime</h2>
+
+                    <p>A cold, quiet master of the blade, Saitō Hajime is the Shinsengumi’s most disciplined and unshakable swordsman.
+                    Where others advance with flourish or brute strength, Saitō stands in absolute stillness—an immovable pillar of
+                    composure whose killing intent is sharp enough to cut before the sword ever moves.</p>
+
+                    <p>His combat philosophy is built on <b>clarity of intent</b>: he reads his opponent’s centerline, studies their breath,
+                    and strikes at the exact instant their stance falters. Whether through the rapid-fire aggression of
+                    <b>Happa-zuki</b> or the steadfast counterduelist posture of <b>Mibu no Kurai</b>, Saitō dismantles his enemies not with
+                    flashy spectacle, but with overwhelming precision.</p>
+
+                    <p>Saitō specializes in inflicting <b>Vulnerable</b>, exposing the weak points he predicts through impeccable timing and
+                    observation. His techniques reward players who attack with purpose—either by maintaining relentless pressure with
+                    multi-hit thrusts or by standing firm and punishing enemy aggression with devastating counterstrikes. Few warriors
+                    can match his mastery of centerline control or his icy calm under pressure.</p>
+
+                    <p>Through the Iaijutsu Chain, Saitō sets up lethal finishing opportunities, culminating in his Execution Art,
+                    <b>Migiri no Tachi</b>—a perfectly timed, insight-driven thrust delivered at the precise moment the opponent’s guard
+                    shatters. In the hands of a tactician who values poise, decisiveness, and surgical precision, Saitō becomes a
+                    one-man execution squad… the quiet edge that ends a battle before it begins.</p>
+                    """
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h3>Execution Art — Migiri no Tachi (見切りの太刀)</h3>
+                    <p><b>Trigger:</b> When you reach <b>Execution Point</b>, you may replace your Standard Execution
+                    with this technique.</p>
+                    <ul>
+                        <li>You have <b>advantage</b> on the attack roll.</li>
+                        <li>The attack deals an additional <b>1d10 piercing damage</b>.</li>
+                        <li>If the target made an attack against you since the start of your last turn, 
+                            deal an additional <b>+2d6 piercing damage</b>.</li>
+                        <li>If the enemy is afflicted with <b>Vulnerable</b>, increase its <b>duration by +1</b> and add 
+                            <b>+1d6 slashing damage</b>.</li>
+                    </ul>
+
+                    <p>Migiri no Tachi ends the Iaijutsu Chain and immediately grants <b>Perfect Style</b>.</p>
+                    """
                 )
             }
         },
@@ -292,10 +329,46 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "shinpachi.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h2>Nagakura Shinpachi</h2>
+
+                    <p>Nagakura Shinpachi charges into battle with the unstoppable confidence of a warrior who has survived 
+                    every fight by refusing to back down. Loud, bold, and full of spirit, he stands as the Shinsengumi’s 
+                    frontline powerhouse—a bruiser whose every strike hits like a falling boulder. While Okita cuts with 
+                    grace and Saitō pierces with precision, Shinpachi wins fights the way he lives: head-on, with fierce 
+                    energy and overwhelming strength.</p>
+
+                    <p>Shinpachi specializes in using <b>Crush</b> to break an enemy’s stance wide open. Whether he’s battering through 
+                    armor with the raw force of <b>Oni-Satsu</b> or knocking foes off balance with the disruptive pressure of 
+                    <b>Kuzushi-no-Kamae</b>, Shinpachi excels at forcing enemies exactly where he wants them. His techniques can 
+                    shove, stagger, slow, or outright immobilize his opponents, twisting their footing and scattering their 
+                    formations until the entire battlefield bends to his momentum.</p>
+
+                    <p>Where Okita dances and Saitō waits for the perfect line, Shinpachi thrives in the chaos of the front line. 
+                    He can deliver crushing combos with relentless aggression or break entire enemy ranks apart with disruptive 
+                    blade pressure. His presence alone shapes the fight—enemies who stand against him quickly learn that their 
+                    stance, speed, and even their courage can be shattered in a single swing.</p>
+
+                    <p>At the peak of his power, Shinpachi unleashes <b>Ryougeki</b>, a thunderous execution that sends shockwaves 
+                    through friend and foe alike. With a roaring impact befitting a demon-slayer, he scatters opponents, 
+                    collapses defenses, and announces to the whole battlefield that the Shinsengumi’s loudest warrior has 
+                    claimed another victory.</p>
+                    """
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <b>Execution Art — Ryougeki (轟撃)</b><br>
+                    <p>A deafening smash that sends shockwaves across the battlefield.</p>
+
+                    <ul>
+                        <li>You gain <b>advantage</b> on the attack roll.</li>
+                        <li>Deal <b>+2d6 thunder damage</b>.</li>
+                        <li>If the target is afflicted with <b>Crush</b>, you may remove it to deal <b>+2d8</b> bonus damage.</li>
+                        <li>All creatures adjacent to the target must succeed on a <b>DC 14 Strength save</b> or be pushed <b>5 feet</b>.</li>
+                    </ul>
+
+                    <p>Shinpachi yells something triumphant as he smacks everyone away with sheer force.</p>
+                    """
                 )
             }
         },
@@ -549,38 +622,120 @@ CHAR_ARMAMENTS = {
         },
     ],
 
-    "Saito Hajime": [
+    "Saitō Hajime": [
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Something",
-            "effects": [],
-            "effects_data": []
+            "name": "Mibu no Kurai",
+            "type": "Katana",
+            "description": (
+                "<b>Mibu no Kurai</b> embodies the stillness and discipline of a true duelist’s stance. Rather than "
+                "chasing openings through motion, this style roots the swordsman in unshakable posture, reading the "
+                "enemy’s intent and striking back with precise, punishing counterthrusts the moment their guard falters."
+            ),
+            "effects": [
+                "<b>Stillness of Mibu:</b> If you move <b>5 feet or less</b> on your turn, you gain <b>+1 AC</b> until "
+                "the start of your next turn.",
+                
+                "<b>Deflect and Pierce:</b> When a creature within your reach makes an attack against you, you may use "
+                "your <b>reaction</b> to impose <b>disadvantage</b> on the attack roll. After the attack resolves, if the "
+                "creature is within reach, you may make <b>one weapon attack</b> against it.",
+                
+                "<b>Counter-Expose:</b> If your reaction attack from Deflect and Pierce hits, apply "
+                "<b>Vulnerable (potency 1, duration 1)</b>.",
+                
+                "<b>Unyielding Posture:</b> You cannot be moved against your will while you are standing on solid ground."
+            ],
+            "effects_data": [
+                {"id": "mibu_stillness_ac_bonus", "value": 1},
+                {"id": "mibu_deflect_reaction", "value": 1},
+                {"id": "mibu_vulnerable_on_counter", "value": 1},
+                {"id": "mibu_immovable", "value": 1}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Something",
-            "effects": [],
-            "effects_data": []
-        },
+            "name": "Happa-zuki",
+            "type": "Katana",
+            "description": (
+                "<b>Happa-zuki</b> is a rapid-fire thrusting style built on overwhelming pressure. Rather than waiting "
+                "for perfect openings or holding a steady stance, this form unleashes a barrage of sharp, consecutive "
+                "piercing attacks—each one incrementally widening the opponent’s guard. The name evokes the imagery of "
+                "“eight breaks”: a relentless sequence of thrusts that shatters defenses step by step."
+            ),
+            "effects": [
+                "<b>Rapid Pressure:</b> If you make more than <b>one</b> weapon attack on your turn, your <b>last</b> "
+                "attack this turn gains <b>+1 piercing damage</b>.",
+                
+                "<b>Sequence Momentum:</b> Once per turn, when you hit a creature with a weapon attack, you may "
+                "immediately deal <b>1 piercing damage</b> to the same target as a follow-up flick thrust.",
+                
+                "<b>Guard Fracture:</b> If you hit the same creature with <b>two or more</b> attacks on your turn, "
+                "apply <b>Vulnerable (potency 1, duration 1)</b>.",
+                
+                "<b>Break Rhythm:</b> If all attacks you made this turn targeted the <b>same creature</b>, increase "
+                "your next weapon attack’s damage by <b>+1d4 piercing</b>."
+            ],
+            "effects_data": [
+                {"id": "happa_rapid_pressure_bonus", "value": 1},
+                {"id": "happa_sequence_momentum_poke", "value": 1},
+                {"id": "happa_vulnerable_on_chain", "value": 1},
+                {"id": "happa_break_rhythm_bonus", "value": "1d4"}
+            ]
+        }
     ],
 
     "Nagakura Shinpachi": [
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Something",
-            "effects": [],
-            "effects_data": []
+            "name": "Oni-Satsu",
+            "type": "Katana",
+            "description": (
+                "<b>Oni-Satsu</b> embodies the raw, overwhelming power needed to cut down even demons. This style focuses "
+                "on simple, brutal strikes—each swing delivering crushing force without need for finesse or technique. "
+                "A perfect choice for warriors who want to hit hard and hit often."
+            ),
+            "effects": [
+                "<b>Heavy Swing:</b> Your first weapon attack each turn deals <b>+2 damage</b>.",
+                
+                "<b>Crush Specialist:</b> When you apply <b>Crush</b> to a creature, increase its <b>potency by +1</b> "
+                "(once per turn).",
+                
+                "<b>Brutal Momentum:</b> When you hit a creature afflicted with <b>Crush</b>, deal an additional "
+                "<b>+1 bludgeoning damage</b>.",
+                
+                "<b>Simple Power:</b> Once per turn, when you hit a creature with a weapon attack, you may deal "
+                "<b>1 extra damage</b> of your weapon’s type."
+            ],
+            "effects_data": [
+                {"id": "onisatsu_first_swing_bonus", "value": 2},
+                {"id": "onisatsu_crush_potency", "value": 1},
+                {"id": "onisatsu_bonus_damage_on_crush", "value": 1},
+                {"id": "onisatsu_simple_power", "value": 1}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "something",
-            "description": "placeholder",
-            "effects": [],
-            "effects_data": []
-        },
+            "name": "Kuzushi-no-Kamae",
+            "type": "Katana",
+            "description": (
+                "<b>Kuzushi-no-Kamae</b> is a stance focused on breaking posture, disrupting balance, and controlling "
+                "space through sheer force. Instead of overpowering a single foe, this style manipulates enemy movement—"
+                "shoving, staggering, and steering opponents into disadvantageous positions."
+            ),
+            "effects": [
+                "<b>Stagger Step:</b> When you hit a creature with a weapon attack, you may push it <b>5 feet</b>. "
+                "This can occur <b>once per turn</b>.",
+                
+                "<b>Crush Displacement:</b> If the target is afflicted with <b>Crush</b>, you may instead move it "
+                "<b>up to 10 feet</b> in any direction.",
+                
+                "<b>Unstable Footing:</b> A creature you push cannot take <b>opportunity attacks</b> until the start of your next turn.",
+                
+                "<b>Break Formation:</b> If you push a creature into another creature, both take <b>1 bludgeoning damage</b>."
+            ],
+            "effects_data": [
+                {"id": "kuzushi_push_basic", "value": 5},
+                {"id": "kuzushi_push_crush_bonus", "value": 10},
+                {"id": "kuzushi_no_reactions", "value": 1},
+                {"id": "kuzushi_collisions_damage", "value": 1}
+            ]
+        }
     ],
 
     "Heracles": [
@@ -1298,6 +1453,302 @@ ARMAMENT_SKILLS = {
                 "If the target has <b>no adjacent allies</b>, increase Vulnerable’s <b>duration by +1</b>."
             ],
             "tags": ["Vulnerable", "Finisher", "Positioning", "Attack Action"]
+        }
+    ],
+
+    "Mibu no Kurai": [
+        {
+            "name": "Osae Ippō — Guard Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Mibu no Kurai",
+            "incantation": "Hold the line… Osae Ippō.",
+            "description": (
+                "You shift your stance by a single controlled step, lowering your center of gravity and tightening "
+                "your guard without compromising your stillness."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this as a Bonus Action.",
+                "Move <b>5 feet</b> forward.",
+                "Gain <b>+1 AC</b> until the start of your next turn.",
+                "Your next weapon attack this turn applies <b>Vulnerable (potency 1, duration 1)</b>."
+            ],
+            "tags": ["Vulnerable", "Defense", "Bonus Action", "Positioning"]
+        },
+        {
+            "name": "Mibu Gyorin — Mibu Counter",
+            "action_type": "Reaction",
+            "prerequisite": "Osae Ippō — Guard Step",
+            "incantation": "Read… and strike—Mibu Gyorin!",
+            "description": (
+                "You respond instantly to an opening created by your guarded stance. Your blade lashes out the moment "
+                "your opponent overextends."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You used your reaction for Deflect and Pierce.",
+                "This skill counts as a follow-up to the reaction.",
+                "Make another weapon attack against the attacker after your first attack.",
+                "On hit, deal <b>+2d6 piercing damage</b>.",
+                "If the target is afflicted with <b>Vulnerable</b>, your attack's damage is increase by the <b>Vulnerable potency X 2</b>."
+            ],
+            "tags": ["Reaction", "Vulnerable", "Counter", "Defense"]
+        },
+        {
+            "name": "Mikiri Ha — Reading Blade",
+            "action_type": "Attack Action",
+            "prerequisite": "Mibu no Kurai",
+            "incantation": "I see through you… Mikiri Ha.",
+            "description": (
+                "You read the enemy’s stance, testing their guard with a quiet probing cut that exposes where they "
+                "will falter next."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one</b> weapon attack.",
+                "On hit, apply <b>Vulnerable (potency 1, duration 1)</b>.",
+                "If the enemy attacked you since the start of your last turn, increase Vulnerable’s duration by <b>+1</b>."
+            ],
+            "tags": ["Vulnerable", "Attack Action", "Insight"]
+        },
+        {
+            "name": "Kanshi-zan — Insight Sever",
+            "action_type": "Attack Action",
+            "prerequisite": "Mikiri Ha — Reading Blade",
+            "incantation": "Your weakness… revealed—Kanshi-zan!",
+            "description": (
+                "You strike at the exact flaw you predicted, severing the enemy’s stance and exposing their guard "
+                "to an overwhelming finishing thrust."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one empowered weapon attack</b>.",
+                "On hit, deal <b>+1d8 piercing damage</b>.",
+                "If the target is afflicted with <b>Vulnerable</b>, you may remove it to deal an additional <b>2d6 damage</b> "
+                "of your weapon’s type.",
+                "If the target attacked you since the start of your last turn, this attack gains <b>advantage</b>."
+            ],
+            "tags": ["Vulnerable", "Finisher", "Attack Action", "Insight"]
+        }
+    ],
+
+    "Happa-zuki": [
+        {
+            "name": "Renda Ippō — Chain Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Happa-zuki",
+            "incantation": "Drive forward—Renda Ippō!",
+            "description": (
+                "A sharp, decisive advance that initiates the rhythm of your chained thrusts. This opening step "
+                "throws your weight forward, adding force to the first strike and setting the tempo for a relentless assault."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this as a Bonus Action.",
+                "Move up to <b>10 feet</b> toward a creature you can see and use a weapon attack on that creature.",
+                "If that attack hits the <b>same target</b> you damaged last turn, increase the damage to <b>+2d4</b>.",
+                "If that attack reduces that target to <b>0 hit points</b>, you gain <b>+5 feet of movement</b>."
+            ],
+            "tags": ["Bonus Action", "Piercing", "Aggressive", "Positioning"]
+        },
+        {
+            "name": "Renda-zan — Linked Slash Thrust",
+            "action_type": "Attack Action",
+            "prerequisite": "Renda Ippō — Chain Step",
+            "incantation": "Break through—Renda-zan!",
+            "description": (
+                "A brutal follow-through thrust unleashed after your advancing step. Each consecutive strike in your "
+                "assault compounds the force of this decisive finishing thrust."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one</b> weapon attack.",
+                "On hit, deal <b>+2d6 piercing damage</b>.",
+                "If you have hit this target <b>once already</b> this turn, deal an additional <b>+2d4 piercing damage</b>.",
+                "If you have hit this target <b>twice already</b> this turn, deal an additional <b>+1d8 piercing damage</b>.",
+                "<b>Finisher:</b> If this attack reduces the target to <b>0 hit points</b>, you immediately "
+                "regain your <b>Bonus Action</b>.",
+            ],
+            "tags": ["Finisher", "Multi-Hit", "Piercing", "Attack Action", "Aggressive"]
+        },
+        {
+            "name": "Shigure-dan — Drizzle Burst",
+            "action_type": "Attack Action",
+            "prerequisite": "Happa-zuki",
+            "incantation": "Rain down—Shigure-dan!",
+            "description": (
+                "You unleash several quick flicking thrusts, each light but relentlessly precise, like a sudden rainfall "
+                "of piercing blows. This barrage creates an opening in the opponent’s stance."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one weapon attack you make this turn before you hit.",
+                "Make <b>two</b> weapon attacks instead of one.",
+                "Each attack deals <b>-1 damage</b> (minimum 1).",
+                "If both attacks hit the <b>same target</b>, apply <b>Vulnerable (potency 1, duration 1)</b>.",
+                "If at least one attack hits and the target already has Vulnerable, increase its <b>duration by +1</b>."
+            ],
+            "tags": ["Multi-Hit", "Vulnerable", "Attack Action", "Aggressive"]
+        },
+        {
+            "name": "Happa Kyōdan — Eightfold Break",
+            "action_type": "Attack Action",
+            "prerequisite": "Shigure-dan — Drizzle Burst",
+            "incantation": "Shatter—Happa Kyōdan!",
+            "description": (
+                "You channel the full aggression of Happa-zuki into a devastating decisive thrust. The strike carries the "
+                "momentum of eight symbolic blows, rupturing any weakness exposed by your earlier flurry."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one weapon attack you make this turn before you hit.",
+                "On hit, deal <b>+1d8 piercing damage</b>.",
+                "If the target was hit <b>twice</b> by you this turn, deal an additional <b>+2d6 piercing damage</b>.",
+                "If the target is afflicted with <b>Vulnerable</b>, you may remove it to deal <b>+1d8 damage</b> "
+                "of your weapon’s type."
+            ],
+            "tags": ["Finisher", "Vulnerable", "Multi-Hit", "Attack Action"]
+        }
+    ],
+
+    "Oni-Satsu": [
+        {
+            "name": "Oni Ippō — Demon Step Strike",
+            "action_type": "Bonus Action",
+            "prerequisite": "Oni-Satsu",
+            "incantation": "One heavy step… Oni Ippō!",
+            "description": (
+                "You take a crushing step forward and swing with raw force, striking before your full attack begins."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this as a Bonus Action.",
+                "Make <b>one weapon attack</b>.",
+                "On hit, apply <b>Crush (potency 1, duration 1)</b>.",
+                "If the target is already afflicted with Crush, this attack deals <b>+1d4 bludgeoning damage</b>."
+            ],
+            "tags": ["Bonus Action", "Crush", "Damage"]
+        },
+        {
+            "name": "Oni Kōdan — Demon Beatdown",
+            "action_type": "Attack Action",
+            "prerequisite": "Oni Ippō — Demon Step Strike",
+            "incantation": "Break them apart—Oni Kōdan!",
+            "description": (
+                "You follow up your opening blow with a brutal full-force strike, overwhelming your opponent with "
+                "a two-hit crushing assault."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose <b>one</b> weapon attack you make this turn before you hit.",
+                "On hit, deal <b>+1d8 bludgeoning damage</b>.",
+                "If you hit the same target with <b>Oni Ippō</b> this turn, deal an additional <b>+2d6</b> damage.",
+                "If the target is afflicted with <b>Crush</b>, increase its <b>duration by +1</b>."
+            ],
+            "tags": ["Finisher", "Crush", "Damage", "Attack Action"]
+        },
+        {
+            "name": "Oni Kōsha — Demon Cleaver",
+            "action_type": "Attack Action",
+            "prerequisite": "Oni-Satsu",
+            "incantation": "Split them—Oni Kōsha!",
+            "description": (
+                "A single overhead smash with the force of an oni-slayer, crushing armor and stunning foes."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one heavy weapon attack</b>.",
+                "On hit, deal <b>+1d6 bludgeoning damage</b>.",
+                "Apply <b>Crush (potency 1, duration 1)</b>.",
+                "If the target already has Crush, this attack gains <b>advantage</b>."
+            ],
+            "tags": ["Crush", "Damage", "Attack Action"]
+        },
+        {
+            "name": "Oni Rekkazan — Rending Mountain Slash",
+            "action_type": "Attack Action",
+            "prerequisite": "Oni Kōsha — Demon Cleaver",
+            "incantation": "Tear mountains—Oni Rekkazan!",
+            "description": (
+                "You unleash a devastating full-force swing, crashing down with enough power to split stone."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make <b>one empowered weapon attack</b>.",
+                "On hit, deal <b>+2d8 bludgeoning damage</b>.",
+                "If the target is afflicted with <b>Crush</b>, deal an additional <b>+1d6</b> damage and increase "
+                "Crush’s <b>duration by +1</b>.",
+                "If you moved <b>5 feet or less</b> this turn, this attack has <b>advantage</b>."
+            ],
+            "tags": ["Finisher", "Crush", "Damage", "Attack Action"]
+        }
+    ],
+
+    "Kuzushi-no-Kamae": [
+        {
+            "name": "Kuzushi Ippō — Break Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Kuzushi-no-Kamae",
+            "incantation": "Off-balance—Kuzushi Ippō!",
+            "description": (
+                "A sudden step and blade shove that knocks a target off balance, opening them to further disruption."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Bonus Action.",
+                "Attempt to push a creature within reach <b>5 feet</b>.",
+                "If the push succeed, the target takes 1d6 bludgeoning damage.",
+                "If the creature is afflicted with <b>Crush</b>, increase the push distance to <b>10 feet</b>.",
+                "A creature pushed by this takes an additional <b>+1d4 damage</b> on your next attack."
+            ],
+            "tags": ["Bonus Action", "Control", "Push"]
+        },
+        {
+            "name": "Kuzushi Nidan — Double Break",
+            "action_type": "Attack Action",
+            "prerequisite": "Kuzushi Ippō — Break Step",
+            "incantation": "Stumble again—Kuzushi Nidan!",
+            "description": (
+                "You follow up your initial shove with a destructive second impact, sending the target stumbling further."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Attack Action.",
+                "Make <b>one</b> weapon attack.",
+                "On hit, push the target <b>5 feet</b>.",
+                "If you pushed it earlier this turn, push it an additional <b>5 feet</b>.",
+                "If the target collides with a creature or wall, it takes <b>3d6 bludgeoning damage</b> "
+                "and the target becomes afflicted by <b>Crush (potency 1, duration 2)</b>."
+            ],
+            "tags": ["Control", "Push", "Collision", "Finisher"]
+        },
+        {
+            "name": "Kuzushi Shibori — Binding Step",
+            "action_type": "Attack Action",
+            "prerequisite": "Kuzushi-no-Kamae",
+            "incantation": "Your footing's gone—Kuzushi Shibori!",
+            "description": (
+                "A sharp twist and downward blade bind that crushes the enemy's stance, slowing their advance."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Attack Action.",
+                "Choose <b>one</b> weapon attack you make this turn before you hit.",
+                "On hit, apply <b>Crush (potency 1, duration 1)</b> and your damage is increase by <b>+1d4</b>.",
+                "Reduce the target’s <b>speed by 10 feet</b> until the end of its next turn."
+            ],
+            "tags": ["Crush", "Slow", "Attack Action"]
+        },
+        {
+            "name": "Kuzushi Gekisen — Violent Crash",
+            "action_type": "Attack Action",
+            "prerequisite": "Kuzushi Shibori — Binding Step",
+            "incantation": "Fall apart—Kuzushi Gekisen!",
+            "description": (
+                "A crushing impact that completely destabilizes the enemy’s stance, locking down their movement."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Attack Action.",
+                "Choose <b>one</b> weapon attack you make this turn before you hit.",
+                "On hit, deal <b>+2d8 bludgeoning damage</b>.",
+                "Increase <b>Crush duration by +1</b>.",
+                "Reduce the target’s <b>speed to 0</b> until the start of your next turn if it fails a <b>DC 12 Strength save</b>.",
+                "Whether it succeeds or fails, the target has <b>disadvantage on its next weapon attack</b>."
+            ],
+            "tags": ["Crush", "Slow", "Stagger", "Finisher"]
         }
     ],
 }
