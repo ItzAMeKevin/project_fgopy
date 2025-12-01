@@ -5,7 +5,7 @@ class SkillDescriptionDialog(BaseDescriptionDialog):
         title = data.get("name")
         description = data.get("description", "")
         effects = data.get("effects", [])
-
+        is_unlocked = data.get("is_unlocked", False)
         extra_fields = {
             "Action Type": data.get("action_type"),
             "Incantation": data.get("incantation"),
@@ -19,5 +19,6 @@ class SkillDescriptionDialog(BaseDescriptionDialog):
             extra_fields=extra_fields,
             unlock_callback=unlock_callback,
             can_unlock=can_unlock,
+            is_unlocked=is_unlocked,
             parent=parent
         )

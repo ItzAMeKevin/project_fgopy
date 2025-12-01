@@ -5,7 +5,7 @@ class ArmamentDescriptionDialog(BaseDescriptionDialog):
         title = data.get("name")
         description = data.get("description", "")
         effects = data.get("effects", [])
-
+        is_unlocked = data.get("is_unlocked", False)
         extra_fields = {
             "Type": data.get("type"),
         }
@@ -17,5 +17,6 @@ class ArmamentDescriptionDialog(BaseDescriptionDialog):
             extra_fields=extra_fields,
             unlock_callback=unlock_callback,
             can_unlock=can_unlock,
+            is_unlocked=is_unlocked,
             parent=parent
         )

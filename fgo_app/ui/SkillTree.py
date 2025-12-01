@@ -165,31 +165,32 @@ class SkillTreeWidget(QGraphicsView):
                 data = self.node_items[item]
                 name = data["name"]
 
-                # Check pre-req
+                # Determine if skill can be unlocked
                 prereq = self.prereq_map[name]
-                if prereq is not None and not self.is_unlocked.get(prereq, False):
-                    from PyQt5.QtWidgets import QMessageBox
-                    box = QMessageBox()
-                    box.setWindowTitle("Locked Skill")
-                    box.setText(f"You must unlock **{prereq}** first.")
-                    box.exec_()
-                    return
+                meets_prereq = (prereq is None) or self.is_unlocked.get(prereq, False)
+
+                can_unlock_skill = (
+                    meets_prereq
+                    and not self.is_unlocked.get(name, False)
+                )
+                data_with_flag = dict(data)
+                data_with_flag["is_unlocked"] = self.is_unlocked.get(name, False)
 
                 # Check if it is an Armament
                 if name == self.armament_name:
                     dlg = ArmamentDescriptionDialog(
-                        data=data,
+                        data=data_with_flag,
                         unlock_callback=lambda: self.unlock(name),
-                        can_unlock=self.can_unlock_armament(),
+                        can_unlock=self.can_unlock_armament() and meets_prereq,
                         parent=self
                     )
                     dlg.exec_()
                     return
 
                 dlg = SkillDescriptionDialog(
-                    data=data,
+                    data=data_with_flag,
                     unlock_callback=lambda: self.unlock(name),
-                    can_unlock=not self.is_unlocked.get(name, False),
+                    can_unlock=can_unlock_skill,
                     parent=self
                 )
                 dlg.exec_()
