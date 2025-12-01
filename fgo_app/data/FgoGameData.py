@@ -566,7 +566,29 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "atalanta.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h2>Atalanta — Divine Huntress of Arcadia</h2>
+
+                    <p>Atalanta is a swift and disciplined huntress whose arrows strike with divine precision. 
+                    Raised in the wilds of Arcadia and blessed by the goddess Artemis, her combat style embodies 
+                    the perfect balance of agility, patience, and lethal certainty. Each movement is deliberate, 
+                    each arrow purposeful, and every strike guided by a hunter’s instinct woven into her very blood.</p>
+
+                    <p>As a Child of the Olympians, Atalanta draws power from Artemis’s sacred Boon of the Huntress. 
+                    This divine influence sharpens her senses, enhances her accuracy, and infuses her attacks with radiant fury. 
+                    Whether she is repositioning at incredible speeds or firing from impossible angles, Atalanta excels 
+                    at marking prey and eliminating them with unerring focus.</p>
+
+                    <p>Her armaments reflect two complementary aspects of her legend. The 
+                    <b>Celestial Bow of the Huntress</b> turns her into a relentless ranged predator—marking targets, 
+                    striking from long distances, and unleashing radiant arrowwork that punishes anyone who dares flee her line of sight. 
+                    The <b>Pelt of the Golden Hind</b> highlights her evasive mastery, granting supernatural agility, silent movement, 
+                    keen senses, and devastating ambush potential from hidden positions.</p>
+
+                    <p>Players who enjoy <b>long-range precision</b>, <b>hit-and-run combat</b>, and <b>stealthy ambush tactics</b> 
+                    will find Atalanta an exceptional Servant Core. Her toolkit rewards sharp positioning and tactical patience, 
+                    transforming her into the perfect predator—silent, deadly, and guided by the watchful eyes of Artemis.</p>
+                    """
                 ),
                 "mini_ult": (
                     """
@@ -1042,19 +1064,58 @@ CHAR_ARMAMENTS = {
 
     "Atalanta": [
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Description",
-            "effects": [],
-            "effects_data": []
+            "name": "Celestial Bow of the Huntress",
+            "type": "Bow",
+            "description": (
+                "A sacred bow blessed by Artemis, its string resonating with starlight. Every arrow unleashed from "
+                "this weapon carries the inevitability of a divine hunt, flying swift and true toward its chosen prey."
+            ),
+            "effects": [
+                "<b>Starlight Arrow:</b> Your first ranged weapon attack each turn deals <b>+1 radiant damage</b>.",
+                
+                "<b>Guided Shot:</b> If you move at least <b>10 feet straight</b> before making a ranged attack, "
+                "you gain a <b>+1 bonus</b> to the attack roll.",
+
+                "<b>Mark the Chosen:</b> Once per turn when you hit a creature with a ranged attack, you may mark it. "
+                "Your next ranged attack against that creature deals <b>+1 piercing damage</b>.",
+
+                "<b>Swift Nock:</b> When you reduce a creature to 0 HP with a ranged attack, you may immediately regain "
+                "one ammunition of the weapon used, gaining <b>+5 feet</b> of movement."
+            ],
+            "effects_data": [
+                {"id": "atalanta_bow_radiant_bonus", "value": 1},
+                {"id": "atalanta_bow_accuracy_bonus", "value": 1},
+                {"id": "atalanta_bow_mark_damage", "value": 1},
+                {"id": "atalanta_bow_kill_move", "value": 5}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Description.",
-            "effects": [],
-            "effects_data": []
-        },
+            "name": "Pelt of the Golden Hind",
+            "type": "Pelt",
+            "description": (
+                "The sacred pelt of the Golden Hind radiates Artemis’s blessing, granting supernatural agility and "
+                "primal senses to those swift enough to wear it. Deep in the hunt, Atalanta moves silently, strikes "
+                "without warning, and tracks prey even when sight alone fails."
+            ),
+            "effects": [
+                "<b>Fleet-Footed:</b> Your movement speed increases by <b>5 feet</b>.",
+                
+                "<b>Silent Step:</b> When you move at least <b>10 feet straight</b>, you gain <b>+1 AC</b> until the start "
+                "of your next turn.",
+                
+                "<b>Hunter’s Scent:</b> You gain <b>Blindsense (10 ft)</b>, allowing you to perceive creatures within 10 feet "
+                "of you even if they are hidden or invisible.",
+                
+                "<b>Ambush Shot:</b> When you hit a creature with a ranged attack while you are hidden from it, the attack deals "
+                "<b>+1 piercing damage</b>."
+            ],
+            "effects_data": [
+                {"id": "atalanta_pelt_speed_bonus", "value": 5},
+                {"id": "atalanta_pelt_ac_bonus", "value": 1},
+                {"id": "atalanta_pelt_blindsense_range", "value": 10},
+                {"id": "atalanta_pelt_ambush_damage", "value": 1}
+            ]
+        }
     ],
 }
 
@@ -2360,4 +2421,149 @@ ARMAMENT_SKILLS = {
             "tags": ["Spell", "Poison", "Necrotic", "Debuff", "Curse"]
         }
     ],
+
+    "Celestial Bow of the Huntress": [
+        {
+            "name": "Starlight Arrow",
+            "action_type": "Attack Action",
+            "prerequisite": "Celestial Bow of the Huntress",
+            "incantation": "Guide my hand—Starlight Arrow!",
+            "description": (
+                "You draw in a breath of divine air and let loose an arrow illuminated by starlight. "
+                "Your aim sharpens, and the arrow streaks with radiant brilliance."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action to make a ranged attack.",
+                "Your first ranged attack this turn deals <b>+1 radiant damage</b>.",
+                "If you moved at least <b>10 feet straight</b> before making this attack, you gain a <b>+1 bonus</b> "
+                "to the attack roll."
+            ],
+            "tags": ["Ranged", "Radiant", "Accuracy", "Attack Action"]
+        },
+        {
+            "name": "Divine Star-Pierce",
+            "action_type": "Attack Action",
+            "prerequisite": "Starlight Arrow",
+            "incantation": "Pierce the heavens—DIVINE STAR-PIERCE!",
+            "description": (
+                "You unleash a radiant arrow that spears through the air like a falling star. "
+                "The strike intensifies against prey already marked by your hunt."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one ranged weapon attack you make this turn before you hit.",
+                "The attack deals <b>+2d6 radiant damage</b>.",
+                "If the target is marked by <b>Mark the Chosen</b>, deal an additional "
+                "<b>+1d4 piercing damage</b>."
+            ],
+            "tags": ["Ranged", "Radiant", "Piercing", "Burst", "Attack Action"]
+        },
+        {
+            "name": "Hunter’s Glide",
+            "action_type": "Bonus Action",
+            "prerequisite": "Celestial Bow of the Huntress",
+            "incantation": "Glide with the hunt—Hunter’s Glide!",
+            "description": (
+                "You slip across the battlefield with the grace of the Golden Hind, lining up a clean, deadly angle "
+                "for your next arrow."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Use this ability as a Bonus Action.",
+                "Move up to <b>10 feet straight</b> without provoking opportunity attacks.",
+                "Your next ranged attack this turn deals <b>+1 piercing damage</b>.",
+                "If you end your movement in partial cover, gain an additional <b>+1 bonus</b> to your next attack roll."
+            ],
+            "tags": ["Ranged", "Mobility", "Piercing", "Bonus Action"]
+        },
+        {
+            "name": "Artemis Twinshot",
+            "action_type": "Attack Action",
+            "prerequisite": "Hunter’s Glide",
+            "incantation": "In Artemis’s name—TWINSHOT!",
+            "description": (
+                "You release two arrows in swift succession, striking like a goddess-guided volley. "
+                "The second shot lands with perfect precision against prey caught in your sights."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you make a ranged weapon attack as part of the Attack Action.",
+                "After resolving the attack, you may immediately make a <b>second ranged attack</b> against the same target.",
+                "The second attack deals <b>+1d4 piercing damage</b>.",
+                "If you moved at least <b>15 feet straight</b> this turn, the second attack gains <b>+1 radiant damage</b>."
+            ],
+            "tags": ["Ranged", "Multishot", "Piercing", "Radiant", "Attack Action"]
+        }
+    ],
+
+    "Pelt of the Golden Hind": [
+        {
+            "name": "Hindshadow Veil",
+            "action_type": "Bonus Action",
+            "prerequisite": "Pelt of the Golden Hind",
+            "incantation": "Hide me in moonlit brush—Hindshadow Veil!",
+            "description": (
+                "You wrap yourself in the silent grace of the Golden Hind, your form blurring into shifting greenery "
+                "and moonlit motion. Predators hunt from unseen angles—and so do you."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Use this ability as a Bonus Action.",
+                "You may immediately attempt to <b>Hide</b>.",
+                "If you moved at least <b>10 feet straight</b> before using this skill, gain <b>advantage</b> on your Hide check.",
+                "Your first ranged attack made while hidden before the end of your turn deals <b>+2 piercing damage</b>."
+            ],
+            "tags": ["Stealth", "Ranged", "Ambush", "Bonus Action"]
+        },
+        {
+            "name": "Moon-Ambush Shot",
+            "action_type": "Attack Action",
+            "prerequisite": "Hindshadow Veil",
+            "incantation": "Silent arrow under moonlight—Moon-Ambush Shot!",
+            "description": (
+                "You strike from total silence, releasing a divine hunting arrow the moment your prey lets its guard down. "
+                "The ambush lands with deadly precision."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one ranged attack you make this turn before you hit.",
+                "If you are <b>hidden</b> from the target when you make the attack: The attack deals <b>+2d6 piercing damage</b>.",
+                "If you moved at least <b>10 feet straight</b> this turn, deal an additional <b>+1 radiant damage</b>.",
+                "Whether the attack hits or misses, you may move <b>5 feet straight</b> without provoking opportunity attacks."
+            ],
+            "tags": ["Ranged", "Ambush", "Piercing", "Radiant", "Stealth", "Attack Action"]
+        },
+        {
+            "name": "Evasive Bounding Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Pelt of the Golden Hind",
+            "incantation": "Bound like the Hind—swift and unseen!",
+            "description": (
+                "Your body becomes light and untouchable, bounding with supernatural quickness. "
+                "You weave through danger as though the wind carries your steps."
+            ),
+            "effects": [
+                "<b>Trigger:</b> Use this ability as a Bonus Action.",
+                "Move up to <b>10 feet straight</b> without provoking opportunity attacks.",
+                "Until the start of your next turn, gain <b>+1 AC</b>.",
+                "If you moved at least <b>15 feet straight</b> this turn, gain <b>advantage</b> on Dexterity saving throws."
+            ],
+            "tags": ["Mobility", "Defense", "Evasion", "Bonus Action"]
+        },
+        {
+            "name": "Divine Hindstep",
+            "action_type": "Reaction",
+            "prerequisite": "Evasive Bounding Step",
+            "incantation": "Slip beyond reach—DIVINE HINDSTEP!",
+            "description": (
+                "You react with the impossible reflexes of the Golden Hind, vanishing from harm and reappearing where "
+                "the foe least expects. Each motion is silent, perfect, divine."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When a creature targets you with an attack.",
+                "You may move <b>10 feet</b> without provoking opportunity attacks.",
+                "If this movement places you in partial or total cover against the attack, the attack is made "
+                "at <b>disadvantage</b> and your next ranged attack before the end "
+                "of your next turn deals <b>+1d4 piercing damage</b>.",
+            ],
+            "tags": ["Reaction", "Mobility", "Defense", "Stealth", "Ambush", "Ranged"]
+        }
+    ]
 }

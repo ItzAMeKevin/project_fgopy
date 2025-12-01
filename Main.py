@@ -99,7 +99,7 @@ class MainWindow(QMainWindow):
 
                 img_label = QLabel()
                 img_label.setPixmap(pixmap)
-                card_layout.addWidget(img_label)
+                card_layout.addWidget(img_label, alignment=Qt.AlignCenter)
 
                 name_label = QLabel(ch["name"])
                 name_label.setStyleSheet("font-weight: bold; margin-top: 6px;")
