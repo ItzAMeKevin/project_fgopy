@@ -98,8 +98,98 @@ ARCHETYPES = {
 
         <p>This reflects the Shinsengumi’s unmatched battlefield footwork and cutting precision.</p>"""
     ),
-    "Argonauts": (
-        """<h2>Placeholder</h2>"""
+    "Children of the Olympians": (
+        """
+        <h2>Children of the Olympians</h2>
+
+        <p>The Children of the Olympians carry the spark of the gods in their blood. Their strength does not come from
+        prayer or worship, but from <b>innate divine lineage</b>. In battle, they channel the power of the Olympians one
+        at a time, invoking different divine aspects to shape their attacks, movement, and status effects.</p>
+
+        <p>Their core mechanic revolves around <b>Divine Boons</b>—short-lived blessings granted by individual gods. Each Boon
+        provides a powerful effect for a single turn and inflicts (or enhances) a status condition. As the fight goes on,
+        each Boon can be sealed to rest, and once all six have been sealed, the child of the gods may unleash an
+        <b>Olympian Ascension</b>, a personal mythic finisher. After that, the cycle of divine power begins anew.</p>
+
+        <h3>Divine Boons</h3>
+
+        <p>At the <b>start of each of your turns</b>, choose one <b>Divine Boon</b> that is not currently sealed. You gain that Boon’s
+        effects until the end of your turn.</p>
+
+        <p>At the <b>end of your turn</b>, you may choose to <b>seal</b> the Boon you used. A sealed Boon cannot be chosen again
+        until all six Boons are sealed.</p>
+
+        <p>Once <b>all six Boons</b> have been sealed, you unlock your archetype’s <b>Olympian Ascension</b>—a powerful, personal
+        finishing technique that can be used as an Action. After performing your Olympian Ascension, <b>all Boons become
+        unsealed</b>, and you can begin calling upon the gods again from the start.</p>
+
+        <h3>The Six Divine Boons</h3>
+
+        <h4>Zeus — Boon of Storm-Wrath</h4>
+        <p><b>Status Effect:</b> Shock (on the target)</p>
+        <ul>
+            <li>The first time you hit a creature with a weapon attack this turn, the attack deals
+                <b>+1d6 lightning damage</b>.</li>
+            <li>That creature is afflicted with <b>Shock (potency 1, duration 1)</b>.</li>
+            <li>If you moved at least <b>10 feet</b> before making that attack, it deals an additional
+                <b>+1 lightning damage</b>.</li>
+        </ul>
+
+        <h4>Poseidon — Boon of the Earthshaker</h4>
+        <p><b>Status Effect:</b> Crush (on the target)</p>
+        <ul>
+            <li>The next time you hit a creature with a <b>melee weapon attack</b> this turn, the attack deals
+                <b>+1d6 bludgeoning damage</b>.</li>
+            <li>That creature is afflicted with <b>Crush (potency 1, duration 1)</b>.</li>
+            <li>If you moved at least <b>15 feet</b> this turn before that hit, you may <b>Shove</b> the target
+                <b>5 feet</b> (no save) in a direction of your choice.</li>
+        </ul>
+
+        <h4>Artemis — Boon of the Huntress</h4>
+        <p><b>Status Effect:</b> Focus (on yourself)</p>
+        <ul>
+            <li>You gain <b>Focus (potency 1, duration 1)</b>.</li>
+            <li>The first <b>ranged or finesse weapon attack</b> you make this turn has <b>advantage</b> and deals
+                <b>+1 damage per Focus potency</b> (normally +1).</li>
+            <li>After resolving that attack, you may move <b>5 feet</b> without provoking opportunity attacks.</li>
+        </ul>
+
+        <h4>Hecate — Boon of Witchflame</h4>
+        <p><b>Status Effect:</b> Burn (on the target)</p>
+        <ul>
+            <li>The next time you deal damage with a <b>spell</b> (including cantrips) this turn, that spell deals an
+                additional <b>+1d6 damage</b> of its own damage type.</li>
+            <li>The primary target of that spell is afflicted with <b>Burn (potency 1, duration 1)</b>.</li>
+            <li>If the target is already afflicted with Burn, instead <b>increase Burn’s potency by +1</b>, respecting
+                any maximum potency rules you use.</li>
+        </ul>
+
+        <h4>Athena — Boon of the Stratagem</h4>
+        <p><b>Status Effect:</b> Vulnerable (on the target)</p>
+        <ul>
+            <li>When you choose this Boon, designate one creature you can see as your <b>Exposed Foe</b>.</li>
+            <li>Until the end of your turn, your attacks against your Exposed Foe have <b>advantage</b>.</li>
+            <li>The first time you hit your Exposed Foe this turn, it is afflicted with
+                <b>Vulnerable (potency 1, duration 1)</b>.</li>
+        </ul>
+
+        <h4>Ares — Boon of Bloodshed</h4>
+        <p><b>Status Effect:</b> Bleed (on the target)</p>
+        <ul>
+            <li>Your <b>melee weapon attacks</b> deal <b>+1 flat damage</b> this turn.</li>
+            <li>The next time you hit a creature with a melee weapon attack this turn, that attack deals an additional
+                <b>+1d6 damage</b>, and the target is afflicted with <b>Bleed (potency 1, duration 2)</b>.</li>
+            <li>If you have taken any damage since the start of your last turn, that same attack also deals an additional
+                <b>+1d4 damage</b>.</li>
+        </ul>
+
+        <h3>Olympian Ascension</h3>
+        <p>Once all six Divine Boons have been sealed, you unlock your <b>Olympian Ascension</b>, a powerful, personal
+        finishing technique that you can use as an <b>Action</b>. Each Child of the Olympians has their own unique
+        Ascension, often reflecting their lineage, fighting style, and favored gods. After you perform your Olympian
+        Ascension, <b>all Divine Boons immediately become unsealed</b>, and you may begin invoking them again from the start
+        of the cycle.</p>
+        """
     )
 }
 
@@ -372,28 +462,59 @@ CHARACTERS = {
         },
     ],
 
-    "Argonauts": [
+    "Children of the Olympians": [
         {
-            "name": "Heracles",
-            "image": os.path.join(ASSETS_DIR, "heracles.jpg"),
+            "name": "Achilles",
+            "image": os.path.join(ASSETS_DIR, "achilles.jpg"),
             "description": {
                 "summary": (
                     "<h2>Placeholder</h2>"
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <b>Olympian Ascension — Areion’s Meteor Rush</b><br>
+                    <p>Achilles channels divine speed and unstoppable momentum into a single armor-shattering charge.</p>
+
+                    <ul>
+                        <li>Move up to <b>30 feet</b> in a straight line without provoking opportunity attacks. You may pass through hostile spaces.</li>
+                        <li>At the end of this movement, make <b>one melee weapon attack with advantage</b>.</li>
+                        <li>On hit, deal <b>+3d6 bludgeoning damage</b>.</li>
+                        <li>If you moved at least <b>20 feet</b>, deal an additional <b>+2d6 piercing damage</b>.</li>
+                        <li>If the target has <b>Crush</b>, you may remove it to deal <b>+2d8 thunder damage</b>.</li>
+                        <li>All creatures adjacent to the target must succeed on a <b>DC 14 Strength save</b> or be pushed <b>10 feet</b>.</li>
+                        <li>After the attack, gain <b>Courage (potency 5, duration 3)</b>.</li>
+                    </ul>
+
+                    <p>The Olympian cycle ends and all Divine Boons become unsealed.</p>
+                    """
                 )
             }
         },
         {
-            "name": "Caenis",
-            "image": os.path.join(ASSETS_DIR, "caenis.jpg"),
+            "name": "Medea",
+            "image": os.path.join(ASSETS_DIR, "medea.jpg"),
             "description": {
                 "summary": (
                     "<h2>Placeholder</h2>"
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <b>Olympian Ascension — Hecate’s Tri-Flame Cataclysm</b><br>
+                    <p>Medea summons triple sorcery—fire, lightning, and force—converging into a devastating witchfire blast.</p>
+
+                    <ul>
+                        <li>Choose a point within <b>60 feet</b>. Creatures in a <b>10-foot radius</b> make a Dexterity save against your spell save DC 
+                            (DC 14 if you lack a spell save DC).</li>
+                        <li>On failure: they take <b>1d6 fire</b>, <b>1d6 lightning</b>, and <b>1d6 force</b> damage and are afflicted by 
+                            <b>Burn (potency 1, duration 1)</b>.</li>
+                        <li>On success: they take half damage and are not inflicted with Burn.</li>
+                        <li>Afterward, make a <b>spell attack</b> against one creature damaged by the blast.</li>
+                        <li>On hit: deal <b>2d6 damage</b> of either fire, lightning or force damage (your choice)</li>
+                        <li>If the target has <b>Burn</b>, increase Burn’s potency by <b>+1</b>.</li>
+                    </ul>
+
+                    <p>The Olympian cycle ends and all Divine Boons become unsealed.</p>
+                    """
                 )
             }
         },
@@ -405,7 +526,20 @@ CHARACTERS = {
                     "<h2>Placeholder</h2>"
                 ),
                 "mini_ult": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <b>Olympian Ascension — Corona of the Huntress</b><br>
+                    <p>Atalanta unleashes a divine spiral of arrows, guided by Artemis’ radiant blessing.</p>
+
+                    <ul>
+                        <li>Make <b>three ranged weapon attacks</b> before any movement or Bonus Action.</li>
+                        <li>Each attack has <b>advantage</b>, deals <b>+1d6 radiant damage</b>, ignores <b>half and three-quarters cover</b>, and has <b>double range</b>.</li>
+                        <li>The first creature hit becomes your <b>Mythic Prey</b> until end of turn.</li>
+                        <li>Subsequent attacks against your Mythic Prey deal <b>+1 piercing damage per 10 feet</b> you moved this turn (min +1, max +3).</li>
+                        <li>If any attack reduces a creature to <b>0 HP</b>, you may immediately move <b>10 feet</b> without provoking opportunity attacks.</li>
+                    </ul>
+
+                    <p>The Olympian cycle ends and all Divine Boons become unsealed.</p>
+                    """
                 )
             }
         },
@@ -749,10 +883,10 @@ CHAR_ARMAMENTS = {
         }
     ],
 
-    "Heracles": [
+    "Achilles": [
         {
-            "name": "God's Hand",
-            "type": "Ability",
+            "name": "Placeholder",
+            "type": "Placeholder",
             "description": "Description.",
             "effects": [],
             "effects_data": []
@@ -766,7 +900,7 @@ CHAR_ARMAMENTS = {
         },
     ],
     
-    "Caenis": [
+    "Medea": [
         {
             "name": "Placeholder",
             "type": "placeholder",

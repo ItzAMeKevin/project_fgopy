@@ -69,16 +69,6 @@
     "duration": 1
   },
 
-  "Might": {
-    "type": "positive",
-    "description": "The target gains a bonus to damage rolls equal to potency.",
-    "potency": 1,
-    "max_potency": 5,
-    "tags": ["buff", "power"],
-    "max_duration": 4,
-    "duration": 1
-  },
-
   "Focus": {
     "type": "positive",
     "description": "Enhanced accuracy and precision. Grants +potency to attack rolls and increases critical damage by potency.",
@@ -87,15 +77,5 @@
     "tags": ["buff", "accuracy", "crit-damage"],
     "max_duration": 3,
     "duration": 1
-    },
-
-  "Guarding": {
-    "type": "neutral",
-    "description": "The target adopts a defensive stance, reducing incoming damage by potency.",
-    "potency": 1,
-    "max_potency": 5,
-    "tags": ["defense", "stance"],
-    "max_duration": 4,
-    "duration": 1
-  }
+    }
 }
