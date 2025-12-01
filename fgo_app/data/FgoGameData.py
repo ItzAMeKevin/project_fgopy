@@ -332,27 +332,25 @@ CHARACTERS = {
                     """
                     <h2>Nagakura Shinpachi</h2>
 
-                    <p>Nagakura Shinpachi charges into battle with the unstoppable confidence of a warrior who has survived 
-                    every fight by refusing to back down. Loud, bold, and full of spirit, he stands as the Shinsengumi’s 
-                    frontline powerhouse—a bruiser whose every strike hits like a falling boulder. While Okita cuts with 
-                    grace and Saitō pierces with precision, Shinpachi wins fights the way he lives: head-on, with fierce 
-                    energy and overwhelming strength.</p>
+                    <p>Nagakura Shinpachi charges into battle with the unstoppable confidence of a warrior who refuses to yield. 
+                    Loud, bold, and brimming with fighting spirit, he is the Shinsengumi’s frontline brawler—one who overwhelms 
+                    enemies not with finesse, but with sheer force and relentless pressure. Where Okita moves like wind and Saitō 
+                    strikes with precision, Shinpachi hurls himself forward like a battering ram, crushing anyone who stands in his path.</p>
 
-                    <p>Shinpachi specializes in using <b>Crush</b> to break an enemy’s stance wide open. Whether he’s battering through 
-                    armor with the raw force of <b>Oni-Satsu</b> or knocking foes off balance with the disruptive pressure of 
-                    <b>Kuzushi-no-Kamae</b>, Shinpachi excels at forcing enemies exactly where he wants them. His techniques can 
-                    shove, stagger, slow, or outright immobilize his opponents, twisting their footing and scattering their 
-                    formations until the entire battlefield bends to his momentum.</p>
+                    <p>Shinpachi specializes in exploiting <b>Crush</b> by driving opponents across the battlefield with full-body shoves. 
+                    Through <b>Kuzushi-no-Kamae</b>, he bodies through foes with unstoppable momentum, slamming them into walls, staggering 
+                    their footing, and following through with brutal takedowns. His rushdown style allows him to shove, trip, and even 
+                    impale prone enemies in a single fluid sequence. Once a target hits the ground, Shinpachi can lock them in a crushing 
+                    grapple, twisting limbs and applying joint-cracking pressure until their defenses collapse entirely.</p>
 
-                    <p>Where Okita dances and Saitō waits for the perfect line, Shinpachi thrives in the chaos of the front line. 
-                    He can deliver crushing combos with relentless aggression or break entire enemy ranks apart with disruptive 
-                    blade pressure. His presence alone shapes the fight—enemies who stand against him quickly learn that their 
-                    stance, speed, and even their courage can be shattered in a single swing.</p>
+                    <p>Alternatively, he can adopt <b>Oni-Satsu</b> to focus on raw destructive power—striking harder with each blow, 
+                    controlling the space directly in front of him, and punishing weakened enemies with overwhelming force. 
+                    Whether barreling through lines of soldiers or pinning opponents beneath his weight, Shinpachi dominates the 
+                    close-quarters fight with chaotic, physical aggression.</p>
 
-                    <p>At the peak of his power, Shinpachi unleashes <b>Ryougeki</b>, a thunderous execution that sends shockwaves 
-                    through friend and foe alike. With a roaring impact befitting a demon-slayer, he scatters opponents, 
-                    collapses defenses, and announces to the whole battlefield that the Shinsengumi’s loudest warrior has 
-                    claimed another victory.</p>
+                    <p>At the height of his fury, Shinpachi unleashes <b>Ryougeki</b>, a thunderous execution that sends shockwaves 
+                    rippling across the battlefield. Armor buckles, formations break, and enemies scatter as he announces with 
+                    full volume and full strength that the Shinsengumi’s loudest warrior has claimed another victory.</p>
                     """
                 ),
                 "mini_ult": (
@@ -714,26 +712,39 @@ CHAR_ARMAMENTS = {
             "name": "Kuzushi-no-Kamae",
             "type": "Katana",
             "description": (
-                "<b>Kuzushi-no-Kamae</b> is a stance focused on breaking posture, disrupting balance, and controlling "
-                "space through sheer force. Instead of overpowering a single foe, this style manipulates enemy movement—"
-                "shoving, staggering, and steering opponents into disadvantageous positions."
+                "<b>Kuzushi-no-Kamae</b> transforms Shinpachi’s fighting style into a full-force bull rush. Through sheer "
+                "physical dominance, he shoves enemies across the battlefield, crashing them into walls or allies while "
+                "charging directly behind them with unstoppable momentum. This stance turns forced movement into a "
+                "devastating combo engine, generating Crush, crash damage, and powerful follow-up attacks."
             ),
             "effects": [
-                "<b>Stagger Step:</b> When you hit a creature with a weapon attack, you may push it <b>5 feet</b>. "
-                "This can occur <b>once per turn</b>.",
+                "<b>Shove Rush:</b> Use your <b>Bonus Action</b> to Shove a creature (push or knock prone), then immediately "
+                "move the same distance in the same direction. This movement does <b>not provoke Opportunity Attacks</b>, "
+                "and you must end adjacent to the creature. The following effects can only be activated from this Shove Rush.",
                 
-                "<b>Crush Displacement:</b> If the target is afflicted with <b>Crush</b>, you may instead move it "
-                "<b>up to 10 feet</b> in any direction.",
+                "<b>Crash and Crush:</b> If a shoved creature collides with a wall, object, or another creature, it takes "
+                "<b>1d4 bludgeoning damage for every 5 feet</b> it was shoved and it gains <b>Crush (potency 1, duration 1)</b>..",
                 
-                "<b>Unstable Footing:</b> A creature you push cannot take <b>opportunity attacks</b> until the start of your next turn.",
+                "<b>Crush on Prone:</b> If you shove a creature prone—or if you attack a creature that became prone from "
+                "your shove—your next weapon attack against that creature applies <b>Crush (potency 1, duration 1)</b> on hit.",
                 
-                "<b>Break Formation:</b> If you push a creature into another creature, both take <b>1 bludgeoning damage</b>."
+                "<b>Momentum Strike:</b> After Shove Rush, your next weapon attack this turn deals <b>+1 damage</b> of your "
+                "weapon’s type.",
+                
+                "<b>Driving Advantage:</b> If you shoved a creature <b>10 feet or more</b>, your next weapon attack this "
+                "turn has <b>advantage</b>.",
+                
+                "<b>Crush Displacement:</b> If the target is afflicted with <b>Crush</b>, your shove distance increases "
+                "to <b>10 feet</b> instead of 5."
             ],
             "effects_data": [
-                {"id": "kuzushi_push_basic", "value": 5},
-                {"id": "kuzushi_push_crush_bonus", "value": 10},
-                {"id": "kuzushi_no_reactions", "value": 1},
-                {"id": "kuzushi_collisions_damage", "value": 1}
+                {"id": "rush_shove_distance", "value": 5},
+                {"id": "rush_shove_distance_crush", "value": 10},
+                {"id": "momentum_bonus_damage", "value": 1},
+                {"id": "advantage_distance_threshold", "value": 10},
+                {"id": "crash_damage_per_5ft", "value": "1d4"},
+                {"id": "crush_applied_on_collision", "value": 1},
+                {"id": "crush_applied_on_prone_attack", "value": 1}
             ]
         }
     ],
@@ -1682,73 +1693,104 @@ ARMAMENT_SKILLS = {
 
     "Kuzushi-no-Kamae": [
         {
-            "name": "Kuzushi Ippō — Break Step",
+            "name": "Kuzushi Fumikomi — Crushing Step-In",
             "action_type": "Bonus Action",
             "prerequisite": "Kuzushi-no-Kamae",
-            "incantation": "Off-balance—Kuzushi Ippō!",
+            "incantation": "Stay down—Kuzushi Fumikomi!",
             "description": (
-                "A sudden step and blade shove that knocks a target off balance, opening them to further disruption."
+                "You burst forward with a crushing step-in shove. If the target stays standing, you sweep their legs with "
+                "a judo-like foot reap, slamming them to the ground."
             ),
             "effects": [
-                "<b>Trigger:</b> Bonus Action.",
-                "Attempt to push a creature within reach <b>5 feet</b>.",
-                "If the push succeed, the target takes 1d6 bludgeoning damage.",
-                "If the creature is afflicted with <b>Crush</b>, increase the push distance to <b>10 feet</b>.",
-                "A creature pushed by this takes an additional <b>+1d4 damage</b> on your next attack."
+                "<b>Trigger:</b> You use your Bonus Action to Shove a creature <i>and the shove does not knock it prone</i>.",
+                
+                "Immediately after <b>Shove Rush</b>, you may attempt a <b>second shove</b> against the same creature.",
+                
+                "This second shove can only attempt to <b>knock the target prone</b> as you attempt a Judo Sweep with your leg.",
+                
+                "For this shove attempt, you make the contested check with <b>advantage</b>.",
+                
+                "If the target is knocked prone by this effect, you fiercely step on them as they take <b>1d6 bludgeoning damage</b>.",
+                
+                "This follow-up shove does <b>not</b> trigger Shove Rush again."
             ],
-            "tags": ["Bonus Action", "Control", "Push"]
+            "tags": ["Bonus Action", "Shove", "Control", "Prone", "Combo"]
         },
         {
-            "name": "Kuzushi Nidan — Double Break",
+            "name": "Kuzushi Gashō — Crushing Impale",
             "action_type": "Attack Action",
-            "prerequisite": "Kuzushi Ippō — Break Step",
-            "incantation": "Stumble again—Kuzushi Nidan!",
+            "prerequisite": "Kuzushi Fumikomi — Crushing Step-In",
+            "incantation": "Hold still—Kuzushi Gashō!",
             "description": (
-                "You follow up your initial shove with a destructive second impact, sending the target stumbling further."
+                "You follow your takedown with a brutal downward thrust, driving your blade into the prone enemy with "
+                "unstoppable force."
             ),
             "effects": [
-                "<b>Trigger:</b> Attack Action.",
+                "<b>Trigger:</b> When you take the Attack Action.",
+                
                 "Make <b>one</b> weapon attack.",
-                "On hit, push the target <b>5 feet</b>.",
-                "If you pushed it earlier this turn, push it an additional <b>5 feet</b>.",
-                "If the target collides with a creature or wall, it takes <b>3d6 bludgeoning damage</b> "
-                "and the target becomes afflicted by <b>Crush (potency 1, duration 2)</b>."
+                
+                "If the target is <b>prone</b>, this attack deals <b>+2d6 piercing damage</b>.",
+                
+                "If the target became prone <i>this turn</i> from your shove or your abilities, "
+                "this attack applies <b>Crush (potency 1, duration 1)</b> on hit.",
+                
+                "If the prone target also collided with a wall or creature this turn, "
+                "increase the bonus damage to <b>+2d8</b> instead."
             ],
-            "tags": ["Control", "Push", "Collision", "Finisher"]
+            "tags": ["Finisher", "Prone", "Crush", "Damage", "Attack Action"]
         },
         {
-            "name": "Kuzushi Shibori — Binding Step",
+            "name": "Kuzushi Kake-nuki — Pitfall Clinch",
             "action_type": "Attack Action",
             "prerequisite": "Kuzushi-no-Kamae",
-            "incantation": "Your footing's gone—Kuzushi Shibori!",
+            "incantation": "You're not getting up—Kuzushi Kake-nuki!",
             "description": (
-                "A sharp twist and downward blade bind that crushes the enemy's stance, slowing their advance."
+                "You hurl yourself onto a prone enemy, locking their limbs in a crushing grounded clinch. "
+                "Once you secure the hold, neither of you can freely move until one breaks the other."
             ),
             "effects": [
-                "<b>Trigger:</b> Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn before you hit.",
-                "On hit, apply <b>Crush (potency 1, duration 1)</b> and your damage is increase by <b>+1d4</b>.",
-                "Reduce the target’s <b>speed by 10 feet</b> until the end of its next turn."
+                "<b>Trigger:</b> When you take the Attack Action against a <b>prone creature</b>.",
+                
+                "Make <b>one</b> weapon attack.",
+                
+                "On hit, the creature takes normal damage and becomes <b>Grappled</b> by you.",
+                
+                "You and the grappled creature both become <b>Restrained</b> for the duration of the grapple.",
+                
+                "The grappled creature may attempt to escape as normal using its <b>Action</b> "
+                "(contested Strength (Athletics) or Dexterity (Acrobatics) vs your Strength (Athletics)).",
+                
+                "You may release the grapple at any time (no action required).",
+                
+                "The target also gains <b>Crush (potency 1, duration 1)</b> when this grapple begins "
+                "and that refreshes at the start of every turn of yours <b>while you're both restrained this way</b>."
             ],
-            "tags": ["Crush", "Slow", "Attack Action"]
+            "tags": ["Prone", "Grapple", "Restrained", "Crush", "Control", "Attack Action"]
         },
         {
-            "name": "Kuzushi Gekisen — Violent Crash",
+            "name": "Kuzushi Hazushi — Joint-Break Hold",
             "action_type": "Attack Action",
-            "prerequisite": "Kuzushi Shibori — Binding Step",
-            "incantation": "Fall apart—Kuzushi Gekisen!",
+            "prerequisite": "Kuzushi Kake-nuki — Pitfall Clinch",
+            "incantation": "Bones don't bend that way—Kuzushi Hazushi!",
             "description": (
-                "A crushing impact that completely destabilizes the enemy’s stance, locking down their movement."
+                "With the enemy pinned beneath you, you torque their limb in a vicious lock, threatening to break it with "
+                "a single brutal wrench."
             ),
             "effects": [
-                "<b>Trigger:</b> Attack Action.",
-                "Choose <b>one</b> weapon attack you make this turn before you hit.",
-                "On hit, deal <b>+2d8 bludgeoning damage</b>.",
-                "Increase <b>Crush duration by +1</b>.",
-                "Reduce the target’s <b>speed to 0</b> until the start of your next turn if it fails a <b>DC 12 Strength save</b>.",
-                "Whether it succeeds or fails, the target has <b>disadvantage on its next weapon attack</b>."
+                "<b>Trigger:</b> While you are grappling a prone creature.",
+                
+                "Make <b>one</b> weapon attack with advantage.",
+                
+                "On hit, deal <b>+2d6 bludgeoning damage</b> as you torque the limb.",
+                
+                "If the target is afflicted with <b>Crush</b>, increase the bonus damage to <b>+3d6</b> "
+                "and extend Crush’s duration by <b>+1</b>.",
+                
+                "If this reduces the creature to <b>0 HP</b>, the limb breaks with a loud snap and you may stand up "
+                "without using movement."
             ],
-            "tags": ["Crush", "Slow", "Stagger", "Finisher"]
+            "tags": ["Finisher", "Prone", "Grapple", "Crush", "Damage", "Attack Action"]
         }
     ],
 }
