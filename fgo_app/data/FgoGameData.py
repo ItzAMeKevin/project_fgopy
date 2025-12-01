@@ -125,7 +125,7 @@ ARCHETYPES = {
 
         <h2>The Six Divine Boons</h2>
 
-        <h3 style="color: #d8c07f;">Zeus — Boon of Storm-Wrath</h3>
+        <h3 style="color: #d8c07f;">⚡ Zeus — Boon of Storm-Wrath</h3>
         <p><b>Status Effect:</b> Shock (on the target)</p>
         <ul>
             <li>The first time you hit a creature with a weapon attack this turn, the attack deals
@@ -135,7 +135,7 @@ ARCHETYPES = {
                 <b>+1 lightning damage</b>.</li>
         </ul>
 
-        <h3 style="color: blue;">Poseidon — Boon of the Earthshaker</h3>
+        <h3 style="color: blue;">🌊 Poseidon — Boon of the Earthshaker</h3>
         <p><b>Status Effect:</b> Crush (on the target)</p>
         <ul>
             <li>The next time you hit a creature with a <b>melee weapon attack</b> this turn, the attack deals
@@ -145,7 +145,7 @@ ARCHETYPES = {
                 <b>5 feet</b> (no save) in a direction of your choice.</li>
         </ul>
 
-        <h3 style="color: green;">Artemis — Boon of the Huntress</h3>
+        <h3 style="color: green;">🏹 Artemis — Boon of the Huntress</h3>
         <p><b>Status Effect:</b> Focus (on yourself)</p>
         <ul>
             <li>You gain <b>Focus (potency 1, duration 1)</b>.</li>
@@ -154,7 +154,7 @@ ARCHETYPES = {
             <li>After resolving that attack, you may move <b>5 feet</b> without provoking opportunity attacks.</li>
         </ul>
 
-        <h3 style="color: purple;">Hecate — Boon of Witchflame</h3>
+        <h3 style="color: purple;">🔮 Hecate — Boon of Witchflame</h3>
         <p><b>Status Effect:</b> Burn (on the target)</p>
         <ul>
             <li>The next time you deal damage with a <b>spell</b> (including cantrips) this turn, that spell deals an
@@ -164,7 +164,7 @@ ARCHETYPES = {
                 any maximum potency rules you use.</li>
         </ul>
 
-        <h3 style="color: #17b2bd;">Athena — Boon of the Stratagem</h3>
+        <h3 style="color: #17b2bd;">🦉 Athena — Boon of the Stratagem</h3>
         <p><b>Status Effect:</b> Vulnerable (on the target)</p>
         <ul>
             <li>When you choose this Boon, designate one creature you can see as your <b>Exposed Foe</b>.</li>
@@ -173,7 +173,7 @@ ARCHETYPES = {
                 <b>Vulnerable (potency 1, duration 1)</b>.</li>
         </ul>
 
-        <h3 style="color: red;">Ares — Boon of Bloodshed</h3>
+        <h3 style="color: red;">🔥 Ares — Boon of Bloodshed</h3>
         <p><b>Status Effect:</b> Bleed (on the target)</p>
         <ul>
             <li>Your <b>melee weapon attacks</b> deal <b>+1 flat damage</b> this turn.</li>
@@ -514,7 +514,31 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "medea.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h2>Medea — Witch of Colchis, Priestess of Hecate</h2>
+
+                    <p>Medea is a master of ancient cursecraft and ritual sorcery whose magic strikes with unnerving precision.
+                    Born a princess of Colchis and blessed—or burdened—by Hecate’s dark divinity, Medea wields spells fueled by
+                    witchflame, hexes, and the forbidden rites of the crossroads. She excels at debilitating foes, unraveling
+                    their defenses, and amplifying the suffering of any who fall under her spells.</p>
+
+                    <p>As a Child of the Olympians, Medea channels divine boons that reflect her connection to the triple-faced
+                    goddess. The <b>Boon of Witchflame</b> empowers her magic with scorching fire, while other boons enhance
+                    her control, accuracy, or curse potency. She excels at layering multiple negative status effects—Burn,
+                    Poison, and other magical afflictions—then detonating them for devastating results.</p>
+
+                    <p>Medea’s armaments emphasize two distinct approaches to sorcery. The <b>Witchflame Grimoire</b> amplifies
+                    her offensive magic, letting her spark witchfire, intensify burns, and unleash spell detonations that
+                    combine fire and lightning. The <b>Strophalos of Colchis</b> leans into ritual control—slowing enemies,
+                    binding them in place, poisoning their bodies, or punishing any attempt to act through forceful hexcraft.</p>
+
+                    <p>Players who enjoy <b>strategic control</b>, <b>status layering</b>, and <b>spell-driven burst damage</b> will find
+                    Medea a deeply rewarding Servant Core. She is not a frontliner, but a battlefield manipulator—one who
+                    twists fate with every incantation and punishes enemies for every move they dare to make.</p>
+
+                    <p>With each spell cast and each curse woven, Medea embodies Hecate’s ancient wisdom and terrible power,
+                    making her one of the most dangerous sorceresses of myth and legend.</p>
+                    """
                 ),
                 "mini_ult": (
                     """
@@ -960,18 +984,59 @@ CHAR_ARMAMENTS = {
     
     "Medea": [
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Something",
-            "effects": [],
-            "effects_data": []
+            "name": "Hecate’s Witchflame Grimoire",
+            "type": "Spellbook",
+            "description": (
+                "A grimoire steeped in Hecate’s triple-faced sorcery, its pages glow with shifting witchflame. "
+                "Medea channels its cursed fire to scorch enemies, intensify harmful magic, and weave spells that "
+                "burn both body and fate."
+            ),
+            "effects": [
+                "<b>Witchflame Focus:</b> Your damaging spells deal <b>+1 fire damage</b>.",
+                
+                "<b>Hexfire Surge:</b> When you inflict <b>Burn</b> with a spell, you may increase its "
+                "<b>duration by +1</b> (once per turn).",
+                
+                "<b>Cursed Overheat:</b> If you damage a creature already afflicted with Burn, deal "
+                "<b>+1 lightning damage</b> as witchflame crackles through them.",
+                
+                "<b>Thrice-Bound Incantation:</b> Once per turn, when you cast a spell using an attack roll, "
+                "you gain a <b>+1 bonus</b> to that roll."
+            ],
+            "effects_data": [
+                {"id": "medea_grimoire_fire_bonus", "value": 1},
+                {"id": "medea_grimoire_burn_duration", "value": 1},
+                {"id": "medea_grimoire_lightning_on_burn", "value": 1},
+                {"id": "medea_grimoire_spell_attack_bonus", "value": 1}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Description.",
-            "effects": [],
-            "effects_data": []
+            "name": "Strophalos of Colchis",
+            "type": "Catalyst",
+            "description": (
+                "A sacred rotating star-wheel used in ancient Colchian rituals. The Strophalos amplifies Medea’s "
+                "cursecraft, binding enemies in place, unraveling their defenses, and channeling the dread authority "
+                "of Hecate’s dark miracles."
+            ),
+            "effects": [
+                "<b>Cursed Binding:</b> Once per turn, when you damage a creature with a spell, you may reduce its "
+                "<b>speed by 5 feet</b> until the end of its next turn.",
+                
+                "<b>Warding Circle:</b> If a creature within <b>5 feet</b> of you forces you to make a saving throw, "
+                "that creature takes <b>1 force damage</b>.",
+                
+                "<b>Hexmark Seal:</b> When you apply a <b>negative status effect</b> to a creature, you gain a "
+                "<b>+1 bonus to AC</b> until the end of your next turn.",
+                
+                "<b>Ritual Reversal:</b> Once per turn, when a creature afflicted with Burn deals damage, it takes "
+                "<b>1 fire damage</b> from backlash witchflame."
+            ],
+            "effects_data": [
+                {"id": "medea_strophalos_slow_amount", "value": 5},
+                {"id": "medea_strophalos_force_aura", "value": 1},
+                {"id": "medea_strophalos_ac_on_status", "value": 1},
+                {"id": "medea_strophalos_burn_reversal", "value": 1}
+            ]
         },
     ],
 
@@ -2143,6 +2208,156 @@ ARMAMENT_SKILLS = {
                 "All other creatures whose spaces you moved through this turn take <b>4 lightning damage</b>."
             ],
             "tags": ["Momentum", "Thunder", "Lightning", "Prone", "Attack Action", "Charge"]
+        }
+    ],
+
+    "Hecate’s Witchflame Grimoire": [
+        {
+            "name": "Witchflame Bolt",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Hecate’s Witchflame Grimoire",
+            "incantation": "Burn at my command—Witchflame Bolt!",
+            "description": (
+                "You lace a spell attack with shifting witchfire, sending a streak of cursed flame toward the target. "
+                "The bolt ignites flesh and spirit alike."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that requires a spell attack roll.",
+                "On hit, the spell deals <b>+1 fire damage</b> and applies <b>Burn (potency 1, duration 1)</b>.",
+                "If the target already has Burn, the spell instead deals <b>+1d4 fire damage</b>."
+            ],
+            "tags": ["Spell", "Burn", "Fire"]
+        },
+        {
+            "name": "Witchflame Convergence",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Witchflame Bolt",
+            "incantation": "Gather, converge… WITCHFLAME CONVERGENCE!",
+            "description": (
+                "You draw multiple strands of witchfire together, detonating your spell in a radiant burst. "
+                "Burning targets erupt in lightning-charged flames."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a damaging spell.",
+                "Choose one target affected by the spell.",
+                "If the spell hits or they fail the save, the target takes <b>+2d6 fire damage</b>.",
+                "If the target is afflicted with Burn, remove it to deal <b>+1d6 lightning damage</b>.",
+                "Creatures adjacent to the target take <b>1 fire damage</b>."
+            ],
+            "tags": ["Spell", "Burn", "Fire", "Lightning", "AoE"]
+        },
+        {
+            "name": "Hexbrand Spark",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Hecate’s Witchflame Grimoire",
+            "incantation": "Let my curse take root—Hexbrand Spark!",
+            "description": (
+                "You ignite your curse with a flash of secret witchfire, branding the foe with a searing omen of flame."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that forces a creature to make a saving throw.",
+                "If the creature fails the save, it takes <b>+1 fire damage</b> and gains "
+                "<b>Burn (potency 1, duration 1)</b>.",
+                "If the creature already has Burn, increase Burn’s <b>potency by +1</b> instead "
+                "(respecting max potency)."
+            ],
+            "tags": ["Spell", "Burn", "Fire", "Curse"]
+        },
+        {
+            "name": "Triple-Moon Malediction",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Hexbrand Spark",
+            "incantation": "O Hecate—dark, bright, and hidden—TRIPLE-MOON MALEDICTION!",
+            "description": (
+                "You invoke the triple aspects of the goddess, unleashing a curse that weakens defenses and "
+                "turns burning foes into conduits of witchflame."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that causes a creature to make a saving throw.",
+                "If the creature fails the save, it takes <b>+1d6 fire damage</b>.",
+                "If the creature is afflicted with Burn, remove Burn to deal an additional <b>+1d6 force damage</b>.",
+                "If the creature had any negative status effect when affected by this spell, "
+                "you gain <b>+1 AC</b> until the start of your next turn."
+            ],
+            "tags": ["Spell", "Burn", "Fire", "Force", "Curse", "Debuff"]
+        }
+
+    ],
+
+    "Strophalos of Colchis": [
+        {
+            "name": "Binding Hex",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Strophalos of Colchis",
+            "incantation": "By the circles of the crossroads—Binding Hex!",
+            "description": (
+                "You invoke a ritual sigil beneath the target, causing spectral bindrunes to coil around their feet. "
+                "The curse stiffens their movements and denies their momentum."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that forces a creature to make a saving throw.",
+                "If the creature fails its save, reduce its <b>speed by 10 feet</b> until the end of its next turn.",
+                "If the creature was already under a negative status effect, further reduce its speed by <b>5 feet</b> "
+                "(total -15 feet)."
+            ],
+            "tags": ["Spell", "Control", "Curse", "Speed Reduction"]
+        },
+        {
+            "name": "Colchian Rootbind",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Binding Hex",
+            "incantation": "Roots of ancient Colchis—entwine and seize! Rootbind!",
+            "description": (
+                "Dark vines and spectral roots erupt beneath the cursed foe, seizing their limbs in a ritual snare. "
+                "The binding punishes any attempt to struggle against it, raking them with force as they resist."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a damaging spell.",
+                "Choose one creature affected by that spell.",
+                "If the creature fails its saving throw or is hit by the spell, it becomes <b>Restrained</b> until the end of its next turn.",
+
+                "<b>While Restrained by this effect:</b>",
+                "• Each time the creature takes an <b>Action</b>, it takes <b>1d6 force damage</b>.",
+                "• Each time the creature makes an <b>attack</b>, it takes <b>1d6 force damage</b>.",
+                "• Each time it uses a <b>Bonus Action</b>, it takes <b>1d6 force damage</b>.",
+
+                "If the creature is already suffering from a negative status effect, deal an additional <b>+1d4 force damage</b> on the first trigger."
+            ],
+            "tags": ["Spell", "Control", "Restrained", "Force", "Curse"]
+        },
+        {
+            "name": "Serpents of Colchis",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Strophalos of Colchis",
+            "incantation": "Venom of Coils unending—Serpents of Colchis!",
+            "description": (
+                "You conjure illusory serpent-spirits born from Colchian ritual, injecting the target with a magical toxin "
+                "that gnaws at the body and mind."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that forces a creature to make a saving throw.",
+                "If the creature fails its save, it takes <b>1d4 poison damage</b> and becomes <b>Poisoned</b> until the start of your next turn.",
+                "If the creature is already Poisoned, increase the poison damage to <b>1d6</b> instead."
+            ],
+            "tags": ["Spell", "Poison", "Debuff", "Curse"]
+        },
+        {
+            "name": "Miasma of the Triple Moon",
+            "action_type": "Cast a Spell",
+            "prerequisite": "Serpents of Colchis",
+            "incantation": "Under the moon’s three faces—let miasma rise!",
+            "description": (
+                "You evoke a cloud of shimmering ritual toxins, empowered by the threefold gaze of Hecate. "
+                "The curse weakens body and spirit, amplifying poison already in the foe’s veins."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you cast a spell that targets a creature.",
+                "That creature takes <b>+1d6 poison damage</b>.",
+                "If the creature is <b>Poisoned</b>, extend the poisoned condition’s duration by <b>+1</b>.",
+                "If the creature is Poisoned and also has another negative status effect, deal an additional "
+                "<b>+1d4 necrotic damage</b>."
+            ],
+            "tags": ["Spell", "Poison", "Necrotic", "Debuff", "Curse"]
         }
     ],
 }
