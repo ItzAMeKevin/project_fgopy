@@ -445,9 +445,9 @@ CHARACTERS = {
                 ),
                 "mini_ult": (
                     """
-                    <b>Execution Art — Ryougeki (轟撃)</b><br>
-                    <p>A deafening smash that sends shockwaves across the battlefield.</p>
-
+                    <h3>Execution Art — Ryougeki (轟撃)</h3>
+                    <p><b>Trigger:</b> When you reach <b>Execution Point</b>, you may replace your Standard Execution
+                    with this technique.</p>
                     <ul>
                         <li>You gain <b>advantage</b> on the attack roll.</li>
                         <li>Deal <b>+2d6 thunder damage</b>.</li>
@@ -468,11 +468,30 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "achilles.jpg"),
             "description": {
                 "summary": (
-                    "<h2>Placeholder</h2>"
+                    """
+                    <h2>Achilles — The Aristeia of the Trojan War</h2>
+
+                    <p>Achilles is a lightning-fast frontline skirmisher who dominates the battlefield through sheer speed, divine momentum,
+                    and relentless forward pressure. Born from the union of the hero Peleus and the sea-goddess Thetis, Achilles fights with 
+                    the certainty of one blessed by Olympian blood—his every motion propelled by mythic vigor and unstoppable will.</p>
+
+                    <p>His playstyle revolves around <b>straight-line movement</b>, driving charges, and impact-based effects. Whether hurling 
+                    himself across the field with <b>Phaeton</b> or thrusting forward with the <b>Celestial Comet Spear</b>, Achilles excels at 
+                    initiating combat, breaking enemy lines, and punishing any foe who cannot escape his blistering acceleration.</p>
+
+                    <p>The <b>Children of the Olympians</b> archetype enhances his kit even further. Each Divine Boon fuels his speed or empowers 
+                    his next strike—with Zeus granting stunning bursts of lightning, Ares feeding his relentless aggression, and Athena allowing 
+                    him to harry exposed foes with flawless precision. As he seals more Boons, Achilles builds toward his legendary 
+                    <b>Olympian Ascension</b>, unleashing a mythic finishing charge worthy of his ancient epics.</p>
+
+                    <p>Players who enjoy <b>high mobility</b>, <b>aggressive initiation</b>, and a playstyle built around positioning and forward 
+                    momentum will find Achilles a thrilling Servant Core. With each turn spent sprinting headfirst into danger, he becomes not 
+                    just a warrior—but a living comet streaking across the battlefield.</p>
+                    """
                 ),
                 "mini_ult": (
                     """
-                    <b>Olympian Ascension — Areion’s Meteor Rush</b><br>
+                    <h3>Olympian Ascension — Areion’s Meteor Rush</h3>
                     <p>Achilles channels divine speed and unstoppable momentum into a single armor-shattering charge.</p>
 
                     <ul>
@@ -499,7 +518,7 @@ CHARACTERS = {
                 ),
                 "mini_ult": (
                     """
-                    <b>Olympian Ascension — Hecate’s Tri-Flame Cataclysm</b><br>
+                    <h3>Olympian Ascension — Hecate’s Tri-Flame Cataclysm</h3>
                     <p>Medea summons triple sorcery—fire, lightning, and force—converging into a devastating witchfire blast.</p>
 
                     <ul>
@@ -527,7 +546,7 @@ CHARACTERS = {
                 ),
                 "mini_ult": (
                     """
-                    <b>Olympian Ascension — Corona of the Huntress</b><br>
+                    <h3>Olympian Ascension — Corona of the Huntress</h3>
                     <p>Atalanta unleashes a divine spiral of arrows, guided by Artemis’ radiant blessing.</p>
 
                     <ul>
@@ -885,18 +904,57 @@ CHAR_ARMAMENTS = {
 
     "Achilles": [
         {
-            "name": "Placeholder",
-            "type": "Placeholder",
-            "description": "Description.",
-            "effects": [],
-            "effects_data": []
+            "name": "Diatrekhōn Astēr Lonkhē — Celestial Comet Spear",
+            "type": "Spear",
+            "description": (
+                "The divine spear of Achilles shines like a falling star. Forged with cosmic brilliance, it channels "
+                "unimaginable speed into piercing strikes that blur the line between motion and impact."
+            ),
+            "effects": [
+                "<b>Comet Reach:</b> Your spear gains <b>reach +5 feet</b> on the first attack you make each turn.",
+                
+                "<b>Starfall Momentum:</b> If you move at least <b>10 feet</b> before you hit a creature with a weapon attack, "
+                "the attack deals <b>+1 piercing damage</b>.",
+                
+                "<b>Celestial Impact:</b> If you move at least <b>20 feet</b> before your first hit each turn, the attack "
+                "deals an additional <b>+1d4 radiant damage</b> (once per turn).",
+                
+                "<b>Heaven-Piercing Lunge:</b> When you reduce a creature to 0 HP with a weapon attack, you may move "
+                "<b>10 feet</b> without provoking opportunity attacks."
+            ],
+            "effects_data": [
+                {"id": "achilles_spear_reach_bonus", "value": 5},
+                {"id": "achilles_starfall_bonus", "value": 1},
+                {"id": "achilles_celestial_radiant_bonus", "value": "1d4"},
+                {"id": "achilles_free_move_on_kill", "value": 10}
+            ]
         },
         {
-            "name": "Placeholder",
-            "type": "placeholder",
-            "description": "Description.",
-            "effects": [],
-            "effects_data": []
+            "name": "Phaeton — Divine Chariot",
+            "type": "Ride-Armament",
+            "description": (
+                "The legendary chariot of Achilles, drawn by divine stallions blessed by Poseidon and Thetis. "
+                "It grants superhuman mobility, crushing charges, and battlefield dominance through speed alone."
+            ),
+            "effects": [
+                "<b>Divine Acceleration:</b> Your movement speed increases by <b>10 feet</b>.",
+                
+                "<b>Trampling Charge:</b> If you move at least <b>15 feet</b> straight before hitting a creature "
+                "with a weapon attack, the creature takes <b>+1 bludgeoning damage</b> and must succeed on a "
+                "<b>DC 13 Strength save</b> or be pushed <b>5 feet</b>.",
+                
+                "<b>Chariot Drift:</b> Once per turn, after you move at least 10 feet, you may move an additional "
+                "<b>5 feet</b> without provoking opportunity attacks.",
+                
+                "<b>Momentum Shield:</b> If you moved at least <b>20 feet</b> straight this turn, you gain <b>+1 AC</b> "
+                "until the start of your next turn."
+            ],
+            "effects_data": [
+                {"id": "achilles_chariot_speed_bonus", "value": 10},
+                {"id": "achilles_trample_damage", "value": 1},
+                {"id": "achilles_drift_bonus_move", "value": 5},
+                {"id": "achilles_momentum_ac_bonus", "value": 1}
+            ]
         },
     ],
     
@@ -1925,6 +1983,166 @@ ARMAMENT_SKILLS = {
                 "without using movement."
             ],
             "tags": ["Finisher", "Prone", "Grapple", "Crush", "Damage", "Attack Action"]
+        }
+    ],
+
+    "Diatrekhōn Astēr Lonkhē — Celestial Comet Spear": [
+        {
+            "name": "Comet Flash",
+            "action_type": "Attack Action",
+            "prerequisite": "Diatrekhōn Astēr Lonkhē — Celestial Comet Spear",
+            "incantation": "Flash across the heavens—Comet Flash!",
+            "description": (
+                "You surge forward in a streak of light, driving the spear with accelerating force. "
+                "The more distance you cover, the harsher the impact."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one weapon attack before you hit.",
+                "If you moved at least <b>10 feet straight</b> this turn, the attack deals <b>+1d4 piercing damage</b>.",
+                "If you moved at least <b>20 feet straight</b>, it instead deals <b>+1d6 piercing damage</b>.",
+                "Only one attack can benefit from this skill per turn."
+            ],
+            "tags": ["Momentum", "Piercing", "Attack Action"]
+        },
+        {
+            "name": "Celestial Lunge",
+            "action_type": "Attack Action",
+            "prerequisite": "Comet Flash",
+            "incantation": "Pierce the vault of heaven—Celestial Lunge!",
+            "description": (
+                "You extend the spear in a blinding comet thrust, the weapon’s reach and force magnified "
+                "by your godlike acceleration."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Choose one weapon attack before you hit.",
+                "The attack gains <b>+5 feet of reach</b>.",
+                "On hit, deal <b>+2d6 piercing damage</b>.",
+                "If you moved at least <b>15 feet straight</b> before the attack, deal an additional <b>+1d4 radiant damage</b>."
+            ],
+            "tags": ["Momentum", "Piercing", "Radiant", "Reach", "Attack Action"]
+        },
+        {
+            "name": "Starlance Approach",
+            "action_type": "Bonus Action",
+            "prerequisite": "Diatrekhōn Astēr Lonkhē — Celestial Comet Spear",
+            "incantation": "Starfire, guide my stride—Starlance Approach!",
+            "description": (
+                "You dart forward in a radiant dash, building stellar charge into the next thrust."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this ability as a Bonus Action.",
+                "Move up to <b>10 feet</b> without provoking opportunity attacks.",
+                "Your next weapon attack this turn deals <b>+1 radiant damage</b>.",
+                "If you moved at least <b>15 feet straight</b> this turn, the next attack also applies "
+                "<b>Shock (potency 1, duration 1)</b>."
+            ],
+            "tags": ["Radiant", "Shock", "Mobility", "Bonus Action"]
+        },
+        {
+            "name": "Starfall Crash",
+            "action_type": "Attack Action",
+            "prerequisite": "Starlance Approach",
+            "incantation": "Fall, blazing star—Starfall Crash!",
+            "description": (
+                "You plunge the spear downward like a falling star, detonating radiant force on impact "
+                "and shaking the battlefield."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make one empowered weapon attack.",
+                "On hit, deal <b>+2d6 radiant damage</b>.",
+                "Creatures within <b>5 feet</b> of the target take <b>1d4 radiant damage</b>.",
+                "If the target is afflicted with <b>Shock</b>, remove it to deal an additional <b>+1d6 lightning damage</b>."
+            ],
+            "tags": ["Radiant", "AoE", "Lightning", "Detonation", "Attack Action"]
+        }
+    ],
+
+    "Phaeton — Divine Chariot": [
+        {
+            "name": "Chariot Rush",
+            "action_type": "Bonus Action",
+            "prerequisite": "Phaeton — Divine Chariot",
+            "incantation": "Ride, Phaeton—Chariot Rush!",
+            "description": (
+                "You surge forward atop Phaeton, gathering momentum for a devastating mounted strike. "
+                "Your wheels tear across the ground in a blazing straight-line dash."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this ability as a Bonus Action.",
+                "Move up to <b>10 feet straight</b> without provoking opportunity attacks.",
+                "Your next weapon attack this turn deals <b>+1 bludgeoning damage</b>.",
+                "If you moved at least <b>15 feet straight</b> this turn, your next attack also "
+                "forces the target to succeed on a <b>DC 13 Strength save</b> or be pushed <b>5 feet</b>."
+            ],
+            "tags": ["Momentum", "Mobility", "Push", "Bonus Action"]
+        },
+        {
+            "name": "Phaeton Crashbreak",
+            "action_type": "Attack Action",
+            "prerequisite": "Chariot Rush",
+            "incantation": "Break through—PHAETON CRASHBREAK!",
+            "description": (
+                "You hurl yourself forward in a high-speed chariot slam, the wheels screeching as divine force "
+                "explodes outward on impact."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                "Make one empowered weapon attack.",
+                "On hit, deal <b>+2d6 bludgeoning damage</b>.",
+                "If you moved at least <b>15 feet straight</b> before the attack, deal an additional <b>+1d6 thunder damage</b>.",
+                "Creatures within <b>5 feet</b> of the target take <b>1 thunder damage</b>.",
+                "If the target collides with a wall, creature, or object from the push, deal an additional "
+                "<b>1d4 bludgeoning damage</b> to both the target and the collided."
+            ],
+            "tags": ["Momentum", "Bludgeoning", "Thunder", "AoE", "Attack Action", "Detonation"]
+        },
+        {
+            "name": "Drift Step",
+            "action_type": "Bonus Action",
+            "prerequisite": "Phaeton — Divine Chariot",
+            "incantation": "Lean with the storm—Drift Step!",
+            "description": (
+                "You skid the chariot sideways in a controlled divine drift, using the momentum to slip past "
+                "enemy lines and prepare a sudden counter-thrust."
+            ),
+            "effects": [
+                "<b>Trigger:</b> You use this ability as a Bonus Action.",
+                "Move up to <b>10 feet</b> without provoking opportunity attacks.",
+                "Your next weapon attack this turn deals <b>+1 thunder damage</b>.",
+                "If you end this movement adjacent to a creature, that creature takes <b>1 bludgeoning damage</b>."
+            ],
+            "tags": ["Mobility", "Thunder", "Bonus Action", "Drift"]
+        },
+        {
+            "name": "Stormwheel Overrun",
+            "action_type": "Attack Action",
+            "prerequisite": "Drift Step",
+            "incantation": "Ride the storm—STORMWHEEL OVERRUN!",
+            "description": (
+                "You kick Phaeton into full acceleration, thundering in a straight line as divine wheels spark with stormfire. "
+                "You crash through the front line with unstoppable momentum, unleashing lightning along the chariot’s path."
+            ),
+            "effects": [
+                "<b>Trigger:</b> When you take the Attack Action.",
+                
+                "You must move <b>15 feet straight</b> in a line before making an attack. "
+                "This movement does <b>not</b> provoke opportunity attacks.",
+
+                "You may move through creatures during this charge, but you must end your movement in an <b>available space</b>. "
+                "If there is no such space, you stop in the closest valid square <b>in front of the first creature</b>.",
+
+                "After beginning this movement, make <b>one empowered melee weapon attack</b> against the <b>first creature</b> in your path.",
+                
+                "On hit, the attack deals <b>+2d6 thunder damage</b>.",
+                
+                "The creature must succeed on a <b>DEX saving throw (DC 15)</b> or be <b>knocked prone</b>.",
+                
+                "All other creatures whose spaces you moved through this turn take <b>4 lightning damage</b>."
+            ],
+            "tags": ["Momentum", "Thunder", "Lightning", "Prone", "Attack Action", "Charge"]
         }
     ],
 }
