@@ -18,18 +18,18 @@ def get_archetype_for_character(name):
 
 ARCHETYPES = {
     "Knights of the Round Table": (
-        """<h2>Knight's Resolve</h2>
+        """<h1>Knight's Resolve</h1>
         <p>Your noble willpower manifests as Resolve, a combat resource generated through decisive action and chivalric mastery. 
         Resolve can be spent to perform powerful techniques that enhance your elemental combat style. You can hold up to <b>6 Resolve.</b></p>
 
-        <h3>Gaining Resolve (+1)</h3>
+        <h2>Gaining Resolve (+1)</h2>
         <ul>
             <li>Hit a target afflicted by your Primary Element for the first time in a round</li>
             <li>Reduce a creature to 0 HP</li>
             <li>Protect an ally</li>
             <li>Apply your Primary Element for the first time in a round</li>
         </ul>
-        <h3>Spending 3 Resolve — Knight's Valor</h3>
+        <h2>Spending 3 Resolve — Knight's Valor</h2>
         <p>Use a bonus action to activate Knight's Valor.</p>
         <ul>
             <li><b>Elemental Edge:</b> You remove the primary elemental status effect on the target and your next 
@@ -38,16 +38,16 @@ ARCHETYPES = {
             <li><b>Hero's Surge:</b> Make one additional weapon attack as part of your attack action.</li>
             <li><b>Radiant Shield:</b> Gain temporary HP equal to your Proficiency Bonus + your Character Level / 2 (rounded down).</li>
         </ul>
-        <h3>Spending 6 Resolve — Critical Exploit</h3>
+        <h2>Spending 6 Resolve — Critical Exploit</h2>
         <p>A devastating elemental finisher unique to each Knight. See an individual character page for details.</p>"""
     ),
     "Shinsengumi": (
-        """<h2>Iaijutsu Chain</h2>
+        """<h1>Iaijutsu Chain</h1>
         <p>The Shinsengumi excel in precise, ruthless swordplay that flows from one decisive strike into the next.
         Their combat style is built on <b>sequencing physical weaknesses</b> to create lethal finishing opportunities.
         Each strike sets up the next, allowing the Shinsengumi to dismantle their foes through escalating pressure.</p>
 
-        <h3>Iaijutsu Chain Basics</h3>
+        <h2>Iaijutsu Chain Basics</h2>
         <p>Whenever you hit a creature with a weapon attack and inflict or extend one of the following status effects:</p>
         <ul>
             <li><b>Bleed</b></li>
@@ -65,10 +65,10 @@ ARCHETYPES = {
         <p><b>You can only advance the Iaijutsu Chain by applying a status you have NOT applied earlier in the same turn.</b></p>
         <p>The Iaijutsu Chain resets to <b>0</b> at the start of each of the chain intiator's turn.</p>
 
-        <h3>Execution Point</h3>
+        <h2>Execution Point</h2>
         <p>When you reach <b>Step 3</b> of the Iaijutsu Chain, your next weapon attack before the end of your turn becomes an Execution Technique:</p>
 
-        <h4>Standard Execution</h4>
+        <h3>Standard Execution</h3>
         <ul>
             <li>You have <b>advantage</b> on the attack roll.</li>
             <li>The attack deals an additional <b>2d6 damage</b> of your weapon’s damage type.</li>
@@ -81,7 +81,7 @@ ARCHETYPES = {
             <li><b>Vulnerable removed:</b> +2d6 piercing damage.</li>
         </ul>
 
-        <h4>Execution Arts</h4>
+        <h3>Execution Arts</h3>
         <p>Each Shinsengumi Servant Core gains a unique form of <b>Execution Art</b> when performing an Execution Technique.<br>
         Instead of using a Standard Execution, you can choose to replace it with a powerful finisher that scales with <br>
         the Servant’s signature status effect.</p>
@@ -89,7 +89,7 @@ ARCHETYPES = {
 
         <p>The Iaijutsu Chain ends immediately after performing an Execution Technique.</p>
 
-        <h3>Perfect Style</h3>
+        <h2>Perfect Style</h2>
         <p>When you perform an Execution Technique, you gain <b>Perfect Style</b> until the end of your next turn:</p>
         <ul>
             <li>Your movement does not provoke opportunity attacks.</li>
@@ -100,7 +100,7 @@ ARCHETYPES = {
     ),
     "Children of the Olympians": (
         """
-        <h2>Children of the Olympians</h2>
+        <h1>Children of the Olympians</h1>
 
         <p>The Children of the Olympians carry the spark of the gods in their blood. Their strength does not come from
         prayer or worship, but from <b>innate divine lineage</b>. In battle, they channel the power of the Olympians one
@@ -111,7 +111,7 @@ ARCHETYPES = {
         each Boon can be sealed to rest, and once all six have been sealed, the child of the gods may unleash an
         <b>Olympian Ascension</b>, a personal mythic finisher. After that, the cycle of divine power begins anew.</p>
 
-        <h3>Divine Boons</h3>
+        <h2>Divine Boons</h2>
 
         <p>At the <b>start of each of your turns</b>, choose one <b>Divine Boon</b> that is not currently sealed. You gain that Boon’s
         effects until the end of your turn.</p>
@@ -123,9 +123,9 @@ ARCHETYPES = {
         finishing technique that can be used as an Action. After performing your Olympian Ascension, <b>all Boons become
         unsealed</b>, and you can begin calling upon the gods again from the start.</p>
 
-        <h3>The Six Divine Boons</h3>
+        <h2>The Six Divine Boons</h2>
 
-        <h4>Zeus — Boon of Storm-Wrath</h4>
+        <h3 style="color: #d8c07f;">Zeus — Boon of Storm-Wrath</h3>
         <p><b>Status Effect:</b> Shock (on the target)</p>
         <ul>
             <li>The first time you hit a creature with a weapon attack this turn, the attack deals
@@ -135,7 +135,7 @@ ARCHETYPES = {
                 <b>+1 lightning damage</b>.</li>
         </ul>
 
-        <h4>Poseidon — Boon of the Earthshaker</h4>
+        <h3 style="color: blue;">Poseidon — Boon of the Earthshaker</h3>
         <p><b>Status Effect:</b> Crush (on the target)</p>
         <ul>
             <li>The next time you hit a creature with a <b>melee weapon attack</b> this turn, the attack deals
@@ -145,7 +145,7 @@ ARCHETYPES = {
                 <b>5 feet</b> (no save) in a direction of your choice.</li>
         </ul>
 
-        <h4>Artemis — Boon of the Huntress</h4>
+        <h3 style="color: green;">Artemis — Boon of the Huntress</h3>
         <p><b>Status Effect:</b> Focus (on yourself)</p>
         <ul>
             <li>You gain <b>Focus (potency 1, duration 1)</b>.</li>
@@ -154,7 +154,7 @@ ARCHETYPES = {
             <li>After resolving that attack, you may move <b>5 feet</b> without provoking opportunity attacks.</li>
         </ul>
 
-        <h4>Hecate — Boon of Witchflame</h4>
+        <h3 style="color: purple;">Hecate — Boon of Witchflame</h3>
         <p><b>Status Effect:</b> Burn (on the target)</p>
         <ul>
             <li>The next time you deal damage with a <b>spell</b> (including cantrips) this turn, that spell deals an
@@ -164,7 +164,7 @@ ARCHETYPES = {
                 any maximum potency rules you use.</li>
         </ul>
 
-        <h4>Athena — Boon of the Stratagem</h4>
+        <h3 style="color: #17b2bd;">Athena — Boon of the Stratagem</h3>
         <p><b>Status Effect:</b> Vulnerable (on the target)</p>
         <ul>
             <li>When you choose this Boon, designate one creature you can see as your <b>Exposed Foe</b>.</li>
@@ -173,7 +173,7 @@ ARCHETYPES = {
                 <b>Vulnerable (potency 1, duration 1)</b>.</li>
         </ul>
 
-        <h4>Ares — Boon of Bloodshed</h4>
+        <h3 style="color: red;">Ares — Boon of Bloodshed</h3>
         <p><b>Status Effect:</b> Bleed (on the target)</p>
         <ul>
             <li>Your <b>melee weapon attacks</b> deal <b>+1 flat damage</b> this turn.</li>
@@ -183,7 +183,7 @@ ARCHETYPES = {
                 <b>+1d4 damage</b>.</li>
         </ul>
 
-        <h3>Olympian Ascension</h3>
+        <h2>Olympian Ascension</h2>
         <p>Once all six Divine Boons have been sealed, you unlock your <b>Olympian Ascension</b>, a powerful, personal
         finishing technique that you can use as an <b>Action</b>. Each Child of the Olympians has their own unique
         Ascension, often reflecting their lineage, fighting style, and favored gods. After you perform your Olympian
