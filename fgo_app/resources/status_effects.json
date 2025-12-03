@@ -31,7 +31,7 @@
 
   "Bleed": {
     "type": "negative",
-    "description": "The target suffers ongoing bleeding. When the target takes weapon damage, Bleed deals its potency as bonus damage and loses 1 duration.",
+    "description": "The target suffers ongoing bleeding. When the target takes physical weapon damage, Bleed deals its potency as bonus damage and loses 1 duration.",
     "potency": 1,
     "max_potency": 10,
     "tags": ["physical", "damage-over-time", "combo"],
@@ -51,7 +51,7 @@
 
   "Vulnerable": {
     "type": "negative",
-    "description": "Attacks against the target deal additional damage equal to potency.",
+    "description": "Physical attacks against the target deal additional damage equal to potency.",
     "potency": 1,
     "max_potency": 5,
     "tags": ["debuff", "damage-increase"],

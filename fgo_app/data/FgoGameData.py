@@ -201,7 +201,7 @@ CHARACTERS = {
             "image2": os.path.join(ASSETS_DIR, "lancelot_berserker.jpg"),
             "description": {
                 "summary": (
-                    "<h3>Lancelot — The Knight of the Lake</h3>"
+                    "<h2>Lancelot — The Knight of the Lake</h2>"
                     "<p>Lancelot excels as a disciplined frost duelist who controls the battlefield through precision, "
                     "speed, and methodical application of <b>Freeze</b>. His playstyle revolves around building and "
                     "consuming Freeze stacks to enhance damage and to slow enemies, rewarding players who plan their turns "
@@ -246,7 +246,7 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "gawain.jpg"),
             "description": {
                 "summary": (
-                    "<h3>Gawain — The Knight of the Sun</h3>"
+                    "<h2>Gawain — The Knight of the Sun</h2>"
                     "<p>Gawain embodies overwhelming strength empowered by blazing sunlight. "
                     "As a frontline juggernaut, he excels at sustained offense—his power rising "
                     "dramatically when fighting in bright light. His abilities leverage solar fire "
@@ -288,7 +288,7 @@ CHARACTERS = {
             "image": os.path.join(ASSETS_DIR, "mordred.jpg"),
             "description": {
                 "summary": (
-                    "<h3>Mordred — The Knight of Rebellion</h3>"
+                    "<h2>Mordred — The Knight of Rebellion</h2>"
                     "<p>Mordred thrives on reckless aggression, channeling volatile lightning and burning fury "
                     "through Clarent. She is a close-range bruiser whose damage output skyrockets when she fights "
                     "at low HP, rewarding bold plays and unrelenting momentum. Shock and burning effects fuel her "
