@@ -596,7 +596,7 @@ CHARACTERS = {
                     <p>Atalanta unleashes a divine spiral of arrows, guided by Artemis’ radiant blessing.</p>
 
                     <ul>
-                        <li>Make <b>three ranged weapon attacks</b> before any movement or Bonus Action.</li>
+                        <li>Make <b>three ranged weapon attacks</b> before any Bonus Action.</li>
                         <li>Each attack has <b>advantage</b>, deals <b>+1d6 radiant damage</b>, ignores <b>half and three-quarters cover</b>, and has <b>double range</b>.</li>
                         <li>The first creature hit becomes your <b>Mythic Prey</b> until end of turn.</li>
                         <li>Subsequent attacks against your Mythic Prey deal <b>+1 piercing damage per 10 feet</b> you moved this turn (min +1, max +3).</li>
