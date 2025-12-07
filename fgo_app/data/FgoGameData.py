@@ -546,13 +546,13 @@ CHARACTERS = {
                     <p>Medea summons triple sorcery—fire, lightning, and force—converging into a devastating witchfire blast.</p>
 
                     <ul>
-                        <li>Choose a point within <b>60 feet</b>. Creatures in a <b>10-foot radius</b> make a Dexterity save against your spell save DC 
+                        <li>Choose a point within <b>60 feet</b>. Creatures in a <b>20-foot radius</b> make a Dexterity save against your spell save DC 
                             (DC 14 if you lack a spell save DC).</li>
-                        <li>On failure: they take <b>1d6 fire</b>, <b>1d6 lightning</b>, and <b>1d6 force</b> damage and are afflicted by 
-                            <b>Burn (potency 1, duration 1)</b>.</li>
+                        <li>On failure: they take <b>2d6 fire</b>, <b>2d6 lightning</b>, and <b>2d6 force</b> damage and are afflicted by 
+                            <b>Burn (potency 2, duration 2)</b>.</li>
                         <li>On success: they take half damage and are not inflicted with Burn.</li>
                         <li>Afterward, make a <b>spell attack</b> against one creature damaged by the blast.</li>
-                        <li>On hit: deal <b>2d6 damage</b> of either fire, lightning or force damage (your choice)</li>
+                        <li>On hit: deal <b>4d6 damage</b> of either fire, lightning or force damage (your choice)</li>
                         <li>If the target has <b>Burn</b>, increase Burn’s potency by <b>+1</b>.</li>
                     </ul>
 
