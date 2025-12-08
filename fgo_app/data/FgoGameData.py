@@ -57,12 +57,13 @@ ARCHETYPES = {
         <p>you advance your <b>Iaijutsu Chain</b> by 1 step. The chain has three steps:</p>
 
         <ol>
-            <li><b>Step 1 — First Weakness</b>: You have inflicted the first physical status effect this turn.</li>
+            <li><b>Step 1 — First Weakness</b>: You have inflicted the first physical status effect this round.</li>
             <li><b>Step 2 — Second Weakness</b>: You have inflicted a different physical status effect from the first.</li>
-            <li><b>Step 3 — Execution Point</b>: You have inflicted all three <i>distinct</i> physical statuses this turn.</li>
+            <li><b>Step 3 — Execution Point</b>: You have inflicted all three <i>distinct</i> physical statuses this round.</li>
         </ol>
 
-        <p><b>You can only advance the Iaijutsu Chain by applying a status you have NOT applied earlier in the same turn.</b></p>
+        <p><b>You can only advance the Iaijutsu Chain by applying a status NOT yet applied earlier in the same round to the same creature.</b></p>
+        <p><b>Other players may help you advance the Chain by a step.</b></p>
         <p>The Iaijutsu Chain resets to <b>0</b> at the start of each of the chain intiator's turn.</p>
 
         <h2>Execution Point</h2>
